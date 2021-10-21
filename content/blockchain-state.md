@@ -73,11 +73,7 @@ If some areas would like, they can applu set of rules. Eg there could be few set
 
 We need system, we need countrty to enable poople and oeganisations to sign custom contracts between each other. To organise around various set of laws (but still under one political system). This way we can produce various kinds of values and exchenge them. Maybe the era of mass culture is over and we need to lead in the era of mass customization. Maybe.... we can decentralize the culture, ways of doing things, while centralizing the protocols of how we decide about things and exchange values between each other.
 
-
-
-
 interconnected Microservices)
-
 
 It can be used to exchange ownership of property, car or other register items.
 Institiuions
