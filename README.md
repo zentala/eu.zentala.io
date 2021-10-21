@@ -75,6 +75,7 @@ After a while local server should be running under [http://localhost:8000/](http
 * wiki, interactive map character
 * you can see what you already saw/readed
 * mindmap, maybe embbed?
+* add to the article tag with readenes level - some WIP information/warning should be presented when rendering page
 
 
 ## ❤️ Liked it?
