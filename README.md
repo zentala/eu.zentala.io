@@ -2,9 +2,9 @@
 
 # 🇪🇺 EU Reform Vision [![Website status](https://img.shields.io/uptimerobot/status/m787025974-4e422831aded279b03c05d57)](https://stats.uptimerobot.com/rB392tAOkQ) [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/zentala/eu.zentala.io)
 ## 🌍 Overview
-Vision about how we could reform and modernize the European Union in the spirit of Green Sustainability, Information Economy and 4th Industrial Revolution. I vision this ideas in the EU, because this is probably a place where presented reforms could give the biggest economical boost and improvement quality of living. But a lot of presented modernization ideas could be introduced in other parts of the world. This is book about what about is the political modernization in XXI century for the western countries - how we should think about political reforms in those times? What goals this political reforms should achive to handle challenges, the XXI century put in front of us?
+Vision about how we could reform and modernize the European Union in the spirit of Green Sustainability, Information Economy and 4th Industrial Revolution. I vision this ideas in the EU, because this is probably a place where presented reforms could give the biggest economical boost and improvement quality of living. But a lot of presented modernization ideas could be introduced in other parts of the world. This is book about what about is the political modernization in XXI century for the western countries - how we should think about political reforms in those times? What goals this political reforms should achive to handle challenges, the XXI century put in front of us? 
 
-Website: [on the website](https://eu.zentala.io/). 
+Read it online: [website](https://eu.zentala.io/). 
 
 This document contains documentation for futher developers and contributors only.
 
@@ -80,9 +80,3 @@ After a while local server should be running under [http://localhost:8000/](http
 * you can see what you already saw/readed
 * mindmap, maybe embbed?
 * add to the article tag with readenes level - some WIP information/warning should be presented when rendering page
-
-
-## ❤️ Liked it?
-If you like this project, feel free to thank me with a coffee (or a beer):
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/)
