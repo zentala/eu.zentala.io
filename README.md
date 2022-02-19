@@ -2,7 +2,11 @@
 
 # 🇪🇺 EU Reform Vision [![Website status](https://img.shields.io/uptimerobot/status/m787025974-4e422831aded279b03c05d57)](https://stats.uptimerobot.com/rB392tAOkQ) [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/zentala/eu.zentala.io)
 ## 🌍 Overview
-Bunch of ideas of how we could reform and modernize the European Union in the spirit of Green Sustainability, Information Economy and 4th Industrial Revolution. You are welcomed to read them all [on the website](https://eu.zentala.io/). This document contains documentation for futher developers and contributors only.
+Vision about how we could reform and modernize the European Union in the spirit of Green Sustainability, Information Economy and 4th Industrial Revolution. I vision this ideas in the EU, because this is probably a place where presented reforms could give the biggest economical boost and improvement quality of living. But a lot of presented modernization ideas could be introduced in other parts of the world. This is book about what about is the political modernization in XXI century for the western countries - how we should think about political reforms in those times? What goals this political reforms should achive to handle challenges, the XXI century put in front of us?
+
+Website: [on the website](https://eu.zentala.io/). 
+
+This document contains documentation for futher developers and contributors only.
 
 
 ## ⚡️ Online development
