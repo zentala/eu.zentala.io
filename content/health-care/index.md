@@ -9,18 +9,18 @@ visible: "true"
 that would be a part of egov, but i decided to separate it beacuse of importance of this topic
 helath care also needs digitalization
 I see a huge risk for the equality in UE when our health care systtems will differ miuch
-here, digitalizartion, will be (in the short future, as tech will develop) even more important for the quality of the service 
+here, digitalizartion, will be (in the short future, as tech will develop) even more important for the quality of the service
 if our national health care sysytems will not be able to reform, then we will have huge problems
 that also require to put a lot of money in software dev.
-we alsl should make it together. 
+we alsl should make it together.
 we dont want to have outdated heealthcare, with moder proivate sector
 we also dont want provate sector take control over medical data
-it's time to think about how we will digitalize our health systems 
+it's time to think about how we will digitalize our health systems
 let's do it together!
 
 ## Badania prewencyjne co rok, wyzsze ubezpieczenie bez nich, automatyzacja badan
 https://wiki.zentala.io/link/35#bkmrk-%23-medycyna---badania
- 
+
 * badania prewencyjne co rok robione przzez maszyny i pielegniakrki
   * co mozna wyczyczac z oka, z glosu, z bicia serca czy nawet szumu krwii? za pomoca ML? co mozna wyczytac z kamerki, kalibrujac kolor i zmiany koloru skorky? jakie zmiany mozee kamera 3d wylpaac na Twoim ciele zanim zrobisz to sam lub zrobi lekarza? jest cala masa rozwiazan jak zautomatyzowac badania prewencyjne
 * co mozemy wyczytac jak polaczymy wyniki badan laboratoryjnych (bd + ai)

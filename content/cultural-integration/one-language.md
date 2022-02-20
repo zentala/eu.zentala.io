@@ -1,6 +1,6 @@
 ---
 title: "Introduce English as a 2nd official language of every EU country"
-subtitle: ""
+# subtitle: ""
 metaTitle: "Introduce Official European English"
 metaDescription: "Lets introduce English as a second official language in every UE country"
 visible: "true"
@@ -48,9 +48,7 @@ every teenager should obligatory pass English on maturity exam (at the same leve
 
 * court proceedings should be possible in English (20y)
 
-
-)
-import american/british/australians by giving them secure and stable job position (hostages of Poland, that should provide some security)
+Importing american/british/australians by giving them secure and stable job position (hostages of Poland, that should provide some security)
 
 W PE siedzą posłowie i rozmawiają miedzy sobą za pomocą tłumaczy. To jest skrajnie głupie bo:
 pokazuje , że nie traktują poważnie integracji europejskiej

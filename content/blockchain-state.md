@@ -6,7 +6,6 @@ metaDescription: ""
 visible: "true"
 ---
 
-
 This blockchain-based system could be written by an open-source community.
 
 Blockchain is a public database of information. Its main feature is that this database is immutable - it cannot be changed without notifying everyone about this fact and the scope of changes.
@@ -81,5 +80,16 @@ Institiuions
 * authoirize citizens via blockchain
 * smartcontracts for property, car, etc.
 * bank statments (blockchain-driven banking)
- *
- It is a blockchain based system that is used to store and share information about the state of the world.
+ * It is a blockchain based system that is used to store and share information about the state of the world.
+
+Testament jako smartkontrakt na blockchaingach
+w przypadku stwierdzonej smierci, na blockacinach przeprowadzane sa operacje zmiany wlascnosci:
+* na Twoich oszczednosciach
+* nieruchaomosciaach
+* ruchomosciach
+* hasel do kont
+
+Smartcontract can send a messages to some people.
+Smartcontract can give you SSH keys along with changing property
+ssh keys for smart home, to unlock the door
+when jus
