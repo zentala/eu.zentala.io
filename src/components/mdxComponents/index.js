@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import CodeBlock from './codeBlock';
 import AnchorTag from './anchor';
 import YouTube from './YouTube';
+import Posts from './Posts';
 
 const StyledPre = styled('pre')`
   padding: 16px;
@@ -43,4 +44,5 @@ export default {
   // TODO add `li`
   // TODO add `table`
   YouTube,
+  Posts,
 };

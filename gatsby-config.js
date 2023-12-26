@@ -19,6 +19,7 @@ const plugins = [
       path: `${__dirname}/content/`
     }
   },
+  'gatsby-transformer-remark',
   {
     resolve: 'gatsby-plugin-mdx',
     options: {

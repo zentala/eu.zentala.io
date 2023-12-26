@@ -61,6 +61,8 @@ npm run start
 
 After a while local server should be running under [http://localhost:8000/](http://localhost:8000/).
 
+### Common issues
+* `Something went wrong installing the "sharp" module` - [unsure you are using proper node version](https://techstacker.com/gatsby-something-went-wrong-installing-sharp-module-fix/), in my case NVM didn't load Node 10, instead I installed dependencies in Node 20 where it didn't work.
 
 ## ☝ Future development
 

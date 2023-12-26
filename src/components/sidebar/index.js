@@ -111,6 +111,7 @@ const SidebarLayout = ({ location }) => (
     render={({ allMdx }) => {
       return (
         <Sidebar>
+          Topics:
           {config.sidebar.title ? (
             <div
               className={'sidebarTitle hiddenMobile'}

@@ -4,7 +4,7 @@ subtitle: ""
 metaTitle: ""
 metaDescription: ""
 visible: "true"
-------
+---
 
 # Marnujemy COVIDową szansę na reformę edukacji
 

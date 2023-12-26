@@ -4,7 +4,7 @@ title: "Cultural integration"
 # metaTitle: "Introduce Official European English"
 # metaDescription: "Lets introdice English as a second official language in every UE country"
 visible: "true"
-------
+---
 
 ## Reasons
 Cultural integration is crucial for

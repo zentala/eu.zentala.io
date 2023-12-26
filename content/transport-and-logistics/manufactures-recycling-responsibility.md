@@ -4,7 +4,7 @@ subtitle: ""
 metaTitle: ""
 metaDescription: ""
 visible: "true"
-------
+---
 
 manufactures should be directly responsible for recycling of their products
 
