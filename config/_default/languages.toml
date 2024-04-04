@@ -1,0 +1,19 @@
+[en]
+  languageName = "English"
+  contentDir = "content/en"
+  weight = 10
+  [en.params]
+    languageISO = "EN"
+    languageTag = "en-US"
+    footer = 'Copyright &copy; 2024 <a class="text-muted" href="https://zentala.io/" target="_blank">Paweł Żentała</a>'
+    alertText = '<a class="alert-link stretched-link fw-normal" href="/blog/example-post/">Doks version 1.0 just shipped!</a>'
+
+[pl]
+  languageName = "Polish"
+  contentDir = "content/pl"
+  weight = 15
+  [pl.params]
+    languageISO = "PL"
+    languageTag = "pl-PL"
+    footer = 'Copyright &copy; 2024 <a class="text-muted" href="https://zentala.io/" target="_blank">Paweł Żentała</a>'
+    alertText = '<a class="alert-link stretched-link" href="https://getdoks.org/blog/doks-v0.5/">Doks v0.5</a>'
