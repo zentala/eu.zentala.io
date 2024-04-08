@@ -1,4 +1,4 @@
-title = "Inteligentny Dom"
+title = "EU Reform Vision"
 baseurl = "/"
 canonifyURLs = false
 disableAliases = true
@@ -14,8 +14,8 @@ summarylength = 40 # 70 (default)
 removePathAccents = true # remove PL characters from URLs
 
 # Multilingual
-defaultContentLanguage = "pl"
-disableLanguages = ["en", "de", "nl"]
+defaultContentLanguage = "en"
+disableLanguages = ["de", "nl"]
 defaultContentLanguageInSubdir = false
 
 [build.buildStats]
