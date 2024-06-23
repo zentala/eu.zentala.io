@@ -5,16 +5,16 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'EU Reforms',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/zentala/eu.zentala.io',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Book',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
+						{ label: 'Reasons', link: '/book/reasons/' },
 					],
 				},
 				{
