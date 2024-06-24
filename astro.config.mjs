@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://eu.zentala.io',
 	integrations: [
 		starlight({
 			title: 'EU Reforms',
