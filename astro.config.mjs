@@ -15,9 +15,18 @@ export default defineConfig({
 					label: 'Book',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Reasons', link: '/book/reasons/' },
+						{ label: 'Principles', link: '/book/principles/' },
+						
 					],
 				},
+				{
+					label: 'Language Integration',
+					items: [
+					  { label: 'Administrative Implementation', link: '/book/language-integration-administrative-implementation/' },
+					  { label: 'Media and Cultural Integration', link: '/book/media-cultural-integration/' },
+					  { label: 'Economic Growth Through Language Unity', link: '/book/economic-growth-language-unity/' },
+					],
+				  },
 				{
 					label: 'Reference',
 					autogenerate: { directory: 'reference' },
