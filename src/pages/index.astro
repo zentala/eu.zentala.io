@@ -1,25 +1,55 @@
 ---
-title: Technocratic Integration Vision for the EU's Future
-description: Technocratic European Integration Vision for the EU's Future 
-template: splash
+// title: Technocratic Integration Vision for the EU's Future
+// description: Technocratic European Integration Vision for the EU's Future 
+// template: splash
+import Hero from '../components/Hero.astro';
+import UeLogo from '../assets/eu.png';
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro';
+import CardGrid from '../components/CardGrid.astro';
+import DisplayTitle from '../components/DisplayTitle.astro';
 ---
 
-import Hero from '../../components/Hero.astro';
-import UeLogo from '../../assets/eu.png';
-import Card from '../../components/Card.astro';
-import CardGrid from '../../components/CardGrid.astro';
+<Layout title="Home">
+  <!-- <section class="hero bg-black flex justify-center items-center">
+    <div class="container mx-auto max-w-8xl border-x border-gray-800 p-24">
+      <img src="./logo.ext.svg" class="mx-auto max-w-6xl" />
+    </div>
+  </section>
+  <section></section>
+  <section class="hero bg-black border-y border-gray-800 text-white">
+    <div class="container mx-auto max-w-8xl border-gray-800 border-x p-16">
+      <div class="hero-content text-center">
+        <div class="max-w-lg">
+          <h1 class="text-5xl font-bold">OUR MISSION IS</h1>
+          <p class="py-6">
+            Integrate complex technical systems into practical business
+            solutions that generate revenue, optimize, streamline, and automate
+            our clients' processes.
+          </p>
+          <button class="btn btn-primary">Read more</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
 
 <Hero 
   title="Technocratic Integration Vision for the EU's Future"
-  description="From Challenges to Opportunities: Uniting Europe to Redefine Our Future Through Innovation, Cooperation, and Digital Transformation. A visionary framework for addressing Europe's most pressing challenges, rooted in mutual benefit, shared values, and the transformative potential of collective action. As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand."
+  description={[
+    "From Challenges to Opportunities: Uniting Europe to Redefine Our Future Through Innovation, Cooperation, and Digital Transformation.",
+    "A visionary framework for addressing Europe's most pressing challenges, rooted in mutual benefit, shared values, and the transformative potential of collective action.",
+    "As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand."
+  ]}
   image={{ file: UeLogo.src }}
   actions={[
     { text: 'Read about EU reform principles', link: '/book/principles/', icon: 'right-arrow', variant: 'primary' }
   ]}
 />
 
-
-## Pillars of European Integration
+<DisplayTitle level={1}> Pillars of European Integration</DisplayTitle>
 
 <CardGrid stagger>
 	<Card title="I. Language Unification">
@@ -83,9 +113,9 @@ import CardGrid from '../../components/CardGrid.astro';
 	</Card>
 </CardGrid>
 
-## I. Language Integration: English as the Lingua Franca of Europe
+<DisplayTitle level={1} style={{ color: 'white' }}> I. Language Integration: English as the Lingua Franca of Europe</DisplayTitle>
 
-### In European Politics
+### In European Politics</DisplayTitle>
 
 <CardGrid stagger>
 	<Card title="English as the Official Language of the EU">
@@ -110,7 +140,7 @@ import CardGrid from '../../components/CardGrid.astro';
 	{/* w perspektywe czasu i skali bardzo duzy zwrot dla ue za uproszczneie procsow*/}
 </CardGrid>
 
-### In National States
+### In National States</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -136,7 +166,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-### Administrative Implementation
+### Administrative Implementation</DisplayTitle>
 
 <CardGrid>
 
@@ -156,7 +186,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-### Cultural Integration
+### Cultural Integration</DisplayTitle>
 
 <CardGrid>
 
@@ -178,7 +208,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-### Economic Growth Through Language Unity
+### Economic Growth Through Language Unity</DisplayTitle>
 
 <CardGrid>
 
@@ -207,7 +237,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-## II. Digital Administrative Integration
+<DisplayTitle level={1} style={{ color: 'white' }}>  II. Digital Administrative Integration</DisplayTitle>
 
 
 <CardGrid stagger>
@@ -257,7 +287,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-### European Digital Health Care
+### European Digital Health Care</DisplayTitle>
 <CardGrid>
 	<Card title="Digital Predictive Health Care" icon="add-document">
 		Launching a groundbreaking European research project to build a predictive medicine institute. Leveraging big data from across the EU to train AI models for early disease detection, revolutionizing preventive care for all Europeans.
@@ -278,7 +308,7 @@ import CardGrid from '../../components/CardGrid.astro';
 	{/* pomysl ktory jest sustainable w obliczu starzejacego sie spoleczenstwa, w ogole inwestyche w automaryzacje o optyamlizacje opieki zdrowotnej powinny byc strategiczne */}
 </CardGrid>
 
-### Europen eLearning System 
+### Europen eLearning System </DisplayTitle>
 <CardGrid>
 	<Card title="The Future of Education is Digital" icon="add-document">
 		Embracing eLearning as the primary mode of education delivery, preparing European citizens for a digital-first world.
@@ -294,7 +324,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-### Financial Reforms
+### Financial Reforms</DisplayTitle>
 
 <CardGrid stagger>
 	<Card title="Near-Zero Transaction Costs" icon="">
@@ -324,7 +354,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-## III. Logistical Integration
+<DisplayTitle level={1} style={{ color: 'white' }}>  III. Logistical Integration</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -355,14 +385,14 @@ import CardGrid from '../../components/CardGrid.astro';
 	</Card>
 </CardGrid>
 
-## Polityka rolna
+<DisplayTitle level={1} style={{ color: 'white' }}>  Polityka rolna</DisplayTitle>
 
 <Card title="Autonomicze roznorodne uprawy"></Card>
 
 <Card title="Tereny trwale wylaczone z uzytku pod naturalne habitaty"></Card>
 
 
-## Integration Principles
+<DisplayTitle level={1} style={{ color: 'white' }}>  Integration Principles</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -384,7 +414,7 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
-## Benefits
+<DisplayTitle level={1} style={{ color: 'white' }}>  Benefits</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -442,3 +472,4 @@ import CardGrid from '../../components/CardGrid.astro';
 
 </CardGrid>
 
+</Layout>

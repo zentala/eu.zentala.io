@@ -1,0 +1,40 @@
+---
+import Logo from '../components/Logo.astro'
+const headerLogoProps = {
+  link: '/',
+  color: '#fff',
+  type: 'full',
+  height: '40px',
+  width: '200px',
+  alt: 'Żentała',
+}
+
+const links = [
+  { href: '/', text: 'Home' },
+  // { href: '/mission', text: 'Mission' },
+  // { href: '/about', text: 'About' },
+  { href: '/offer', text: 'Offer' },
+  // { href: '/faq', text: 'FAQ' },
+  { href: '/portfolio', text: 'Portfolio' },
+  { href: '/blog', text: 'Blog' },
+  { href: '/contact', text: 'Contact' },
+]
+---
+
+<header id="header"></header>
+
+<style lang="scss"></style>
+
+<script>
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('#header .container')
+    if (!header) return
+    if (window.scrollY > 50) {
+      header.classList.add('py-4')
+      header.classList.remove('py-6')
+    } else {
+      header.classList.add('py-6')
+      header.classList.remove('py-4')
+    }
+  })
+</script>

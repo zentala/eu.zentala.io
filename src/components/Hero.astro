@@ -1,0 +1,21 @@
+---
+const { title, description, image, actions } = Astro.props;
+---
+
+<section class={`hero ${image.file ? 'flex' : 'flex flex-col items-center text-center'}`}>
+  <div class={`hero-content ${image.file ? 'flex-grow-0 w-3/5 flex-col text-left' : 'w-full flex-col text-center'} flex-shrink-0`}>
+    <h1 class="text-4xl font-bold mb-4">{title}</h1>
+    {description.map(paragraph => (
+      <p class="mb-6 text-2xl">{paragraph}</p>
+    ))}
+    <div class={`hero-actions ${image.file ? '' : 'flex justify-center'}`}>
+      {actions.map(action => (
+        <a href={action.link} class={`button ${action.variant} inline-block mr-4 last:mr-0`}>
+          {action.text}
+          {action.icon && <span class={`icon ${action.icon} ml-2`}></span>}
+        </a>
+      ))}
+    </div>
+  </div>
+  {image.file && <img src={image.file} alt={title || 'Hero image'} class="hero-image flex-grow-0 w-2/5 flex-shrink-0" />}
+</section>

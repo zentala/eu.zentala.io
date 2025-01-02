@@ -1,0 +1,39 @@
+---
+import { h } from 'astro/jsx-runtime';
+import PropTypes from 'prop-types';
+
+// Define a mapping of heading levels to HTML tags
+const headingLevels = {
+  1: 'h1',
+  2: 'h2',
+  3: 'h3',
+  4: 'h4',
+  5: 'h5',
+  6: 'h6',
+  7: 'h7',
+};
+
+const DisplayTitle = ({ level = 1, children, style = {} }) => {
+  // Ensure the level is within the valid range
+  const HeadingTag = headingLevels[level] || 'h1';
+
+  return (
+    <HeadingTag style={{ margin: '0', fontFamily: 'Arial, sans-serif', ...style }}>
+      {children}
+    </HeadingTag>
+  );
+};
+
+DisplayTitle.propTypes = {
+  level: PropTypes.number,
+  children: PropTypes.node.isRequired,
+  style: PropTypes.object,
+};
+
+export default DisplayTitle;
+---
+
+<!-- Use the component in Astro -->
+<DisplayTitle level={2} style={{ color: 'blue' }}>
+  Hello, Astro!
+</DisplayTitle>

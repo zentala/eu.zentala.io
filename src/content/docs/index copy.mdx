@@ -6,11 +6,8 @@ template: splash
 
 import Hero from '../../components/Hero.astro';
 import UeLogo from '../../assets/eu.png';
-import Card from '../../components/Card.astro';
-import CardGrid from '../../components/CardGrid.astro';
 
 <Hero 
-  title="Technocratic Integration Vision for the EU's Future"
   description="From Challenges to Opportunities: Uniting Europe to Redefine Our Future Through Innovation, Cooperation, and Digital Transformation. A visionary framework for addressing Europe's most pressing challenges, rooted in mutual benefit, shared values, and the transformative potential of collective action. As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand."
   image={{ file: UeLogo.src }}
   actions={[
@@ -18,6 +15,8 @@ import CardGrid from '../../components/CardGrid.astro';
   ]}
 />
 
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
 
 ## Pillars of European Integration
 

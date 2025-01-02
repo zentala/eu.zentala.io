@@ -7,13 +7,22 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "convert-mdx": "node convertMdxToMd.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/starlight": "^0.24.4",
+    "@astrojs/tailwind": "^5.1.4",
     "astro": "^4.11.0",
+    "daisyui": "^4.12.23",
     "sharp": "^0.32.6",
     "typescript": "^5.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "sass": "^1.83.0",
+    "tailwindcss": "^3.4.17"
   }
 }

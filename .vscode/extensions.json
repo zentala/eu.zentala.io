@@ -2,7 +2,9 @@
   "recommendations": [
     "astro-build.astro-vscode",
     "davidanson.vscode-markdownlint",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "mrmlnc.vscode-scss",
+    "tailwindcssintellisenseplus.vscode-tailwindcss-plus"
   ],
   "unwantedRecommendations": []
 }

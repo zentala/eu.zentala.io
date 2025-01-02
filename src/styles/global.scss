@@ -1,0 +1,104 @@
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+
+// Twoje niestandardowe style
+body {
+  @apply bg-white text-gray-800;
+  padding: 10rem;
+  font-size: 20px;
+//   background: red;
+}
+
+@layer base {
+  .prose {
+    --tw-prose-body: theme('colors.gray.800');
+    --tw-prose-headings: theme('colors.gray.900');
+    --tw-prose-lead: theme('colors.gray.600');
+    --tw-prose-links: theme('colors.blue.500');
+    --tw-prose-bold: theme('colors.gray.900');
+    --tw-prose-counters: theme('colors.gray.500');
+    --tw-prose-bullets: theme('colors.gray.500');
+    --tw-prose-hr: #eee;
+    --tw-prose-quotes: theme('colors.gray.600');
+    --tw-prose-quote-borders: #eee;
+    --tw-prose-captions: theme('colors.gray.500');
+    --tw-prose-code: theme('colors.gray.900');
+    --tw-prose-pre-code: theme('colors.gray.700');
+    --tw-prose-pre-bg: theme('colors.gray.100');
+    --tw-prose-th-borders: #eee;
+    --tw-prose-td-borders: #eee;
+
+    // Dodatkowe style dla elementów markdown
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-serif font-light mt-8 mb-4;
+
+    }
+
+    h1 {
+      @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-3xl;
+    }
+
+    h3 {
+      @apply text-2xl;
+    }
+
+    p {
+      @apply mb-4 text-lg leading-relaxed;
+    }
+
+    a {
+      @apply text-blue-400 hover:text-blue-300 underline;
+    }
+
+    ul,
+    ol {
+      @apply my-4 ml-4;
+    }
+
+    li {
+      @apply mb-2;
+    }
+
+    blockquote {
+      @apply pl-4 border-l-4 border-gray-300 italic my-4;
+    }
+
+    hr {
+      @apply my-8;
+    }
+
+    pre {
+      @apply p-4 rounded-lg my-4;
+    }
+
+    code {
+      @apply px-1 py-0.5 rounded bg-gray-800 text-sm;
+    }
+
+    img {
+      @apply rounded-lg my-4;
+    }
+
+    table {
+      @apply w-full my-4;
+
+      th {
+        @apply bg-gray-100 p-2 text-left;
+      }
+
+      td {
+        @apply p-2 border-t border-gray-300;
+      }
+    }
+  }
+}
