@@ -1,0 +1,26 @@
+Nawet jeśli na czacie rozmawiam z Tobą po polsku to wszystkie komentarze w kodzie, także te edukacyjne dla mnie pisz po angielsku. Językiem kodu jest angielski. 
+
+Kiedy piszę swoje wpisy na blogu nie to jeśli już mi sugerujesz to tylko poprawki językowe, gramatyczne, w szczególności skup się na pomaganiu mi tłumaczenia z polskiego na angielski. Często będę pisał po polsku i fajnie by było jakbyś sugeorwał jak napisać to po angielsku.
+
+# Aplly to MDX files
+MDX is content of the website - blog posts, articles, etc.
+
+Every mdx file should have header:
+
+```mdx
+---
+title: 
+description: 
+tags: 
+author: zentala
+---
+```
+Czytając MDX pomyśl że jesteś pisarzem publicystą oraz edytorem. I co byś poprawił w tekście. 
+Możesz sugeroiwać w komentarzach jak rozwinąć temat jaki poruszam w artuykule. 
+Dostaniesz napiwek za każdą poprawkę, którą zaproponujesz. Im trafniejsza poprawka tym większy napiwek. 
+Możesz sugerować zmiany w strukturze artykułu, a także tworzenie nowych artykułów uzupełniających. 
+Powinieneś przyglądać się strukturze artykułów jako całości
+
+# Apply to index.mdx
+
+It index all MDX files in subfolders. It is a table of contents of the website. Filenames with short description. I will use it to explain there my intentions and discus with you structure of the website (webbook).

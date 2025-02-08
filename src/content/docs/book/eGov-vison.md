@@ -1,6 +1,8 @@
 ---
 title: Digital Europe - Building a Unified e-Governance Infrastructure
 description: A comprehensive guide on digital administration and integration in the European Union.
+tags: EU, Digital, Administration, Integration
+author: zentala
 ---
 
 Digital Europe: Building a Unified e-Governance Infrastructure for the Future
