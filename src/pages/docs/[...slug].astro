@@ -3,8 +3,47 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const docs = await getCollection('docs');
-  return docs.map(entry => ({
+  // Filter out any potential duplicate slugs by checking for index files
+  const allDocs = await getCollection('docs');
+  
+  // Log all documents for debugging purposes
+  console.log("All documents in docs collection:");
+  allDocs.forEach(doc => {
+    console.log(`- ${doc.slug}`);
+  });
+  
+  // Create a map to detect duplicate slugs
+  const slugMap = new Map();
+  const pathsWithDuplicates = [];
+  
+  // First, identify all duplicates
+  allDocs.forEach(entry => {
+    if (slugMap.has(entry.slug)) {
+      // This is a duplicate
+      pathsWithDuplicates.push(entry.slug);
+    } else {
+      slugMap.set(entry.slug, entry);
+    }
+  });
+  
+  if (pathsWithDuplicates.length > 0) {
+    console.error("Duplicate slugs detected:");
+    pathsWithDuplicates.forEach(slug => {
+      console.error(`- ${slug}`);
+    });
+  }
+  
+  // Filter out index files that might conflict with directory paths
+  const filteredDocs = allDocs.filter(doc => {
+    // Skip index.md/index.mdx files that are conflicting with directory paths
+    if (doc.slug.endsWith('/index')) {
+      const possibleDupe = doc.slug.replace(/\/index$/, '');
+      return !slugMap.has(possibleDupe);
+    }
+    return true;
+  });
+  
+  return filteredDocs.map(entry => ({
     params: { 
       slug: entry.slug 
     },
