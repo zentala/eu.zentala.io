@@ -1,10 +1,44 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 
-const bookDocs = await getCollection('docs', (entry) => {
-  return entry.slug.startsWith('book/');
-});
+// Manually define book documents for reliability
+const bookDocs = [
+  {
+    slug: 'principles',
+    data: {
+      title: 'Vision Principles',
+      description: 'Core principles of the EU Reform Vision'
+    }
+  },
+  {
+    slug: 'language',
+    data: {
+      title: 'Language Integration',
+      description: 'English as the European lingua franca'
+    }
+  },
+  {
+    slug: 'summary',
+    data: {
+      title: 'Executive Summary',
+      description: 'Overview of the entire EU Reform Vision'
+    }
+  },
+  {
+    slug: 'european-egovernment',
+    data: {
+      title: 'European eGovernment',
+      description: 'Digital government infrastructure for all of Europe'
+    }
+  },
+  {
+    slug: 'unified-payment-zone',
+    data: {
+      title: 'Unified Payment Zone',
+      description: 'Seamless financial transactions across Europe'
+    }
+  }
+];
 
 // Sort by title
 const sortedDocs = bookDocs.sort((a, b) => a.data.title.localeCompare(b.data.title));
@@ -34,8 +68,8 @@ const sortedDocs = bookDocs.sort((a, b) => a.data.title.localeCompare(b.data.tit
             <a href="/docs/book/principles" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
               Start with Core Principles
             </a>
-            <a href="/docs/book/summary" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
-              Read Executive Summary
+            <a href="/docs/book" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+              View All Chapters
             </a>
           </div>
         </div>
@@ -43,7 +77,7 @@ const sortedDocs = bookDocs.sort((a, b) => a.data.title.localeCompare(b.data.tit
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedDocs.map(doc => (
-          <a href={`/docs/${doc.slug}`} class="group">
+          <a href={`/docs/book/${doc.slug}`} class="group">
             <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
               <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{doc.data.title}</h3>
               {doc.data.description && (

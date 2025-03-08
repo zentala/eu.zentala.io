@@ -6,7 +6,7 @@ const baseSchema = z.object({
     description: z.string(),
     tags: z.string().optional(),
     author: z.string().optional(),
-    slug: z.string().optional(), // Add custom slug support
+    customSlug: z.string().optional(), // Renamed from slug to customSlug to avoid conflict with Astro's reserved slug field
     draft: z.boolean().optional().default(false) // Add draft status option
 });
 

@@ -1,0 +1,31 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import DisplayTitle from '../../components/DisplayTitle.astro';
+
+// Get the entry directly from content collection
+const whyEntry = await getEntry('docs', 'why');
+const { Content } = await whyEntry.render();
+---
+
+<Layout title={whyEntry.data.title}>
+  <main class="container mx-auto max-w-6xl px-4 py-8">
+    <div class="mb-8">
+      <a href="/docs/all" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Overview
+      </a>
+      <DisplayTitle title={whyEntry.data.title} />
+      <p class="text-xl text-gray-300 mb-8">{whyEntry.data.description}</p>
+    </div>
+    
+    <div class="relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent opacity-50 blur-xl"></div>
+      <article class="relative prose prose-lg max-w-none dark:prose-invert prose-headings:text-white prose-headings:font-bold prose-p:text-gray-300 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-code:text-blue-300 prose-pre:bg-gray-800 prose-pre:text-gray-300 prose-li:text-gray-300">
+        <Content />
+      </article>
+    </div>
+  </main>
+</Layout>
