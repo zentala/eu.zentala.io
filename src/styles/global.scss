@@ -2,32 +2,73 @@
 @use 'tailwindcss/components';
 @use 'tailwindcss/utilities';
 
-// Twoje niestandardowe style
+// Global theme styles
 body {
-  @apply bg-white text-gray-800;
-  padding: 10rem;
+  @apply bg-gray-900 text-gray-100;
   font-size: 20px;
-//   background: red;
+}
+
+// Custom container sizing
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+// Larger text sizes
+.text-lg {
+  font-size: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.5rem;
+}
+
+.text-2xl {
+  font-size: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.75rem;
+}
+
+// Theme colors
+.theme-bg-primary {
+  @apply bg-blue-900;
+}
+
+.theme-bg-secondary {
+  @apply bg-gray-800;
+}
+
+.theme-text-primary {
+  @apply text-white;
+}
+
+.theme-text-accent {
+  @apply text-blue-400;
 }
 
 @layer base {
   .prose {
-    --tw-prose-body: theme('colors.gray.800');
-    --tw-prose-headings: theme('colors.gray.900');
-    --tw-prose-lead: theme('colors.gray.600');
-    --tw-prose-links: theme('colors.blue.500');
-    --tw-prose-bold: theme('colors.gray.900');
-    --tw-prose-counters: theme('colors.gray.500');
-    --tw-prose-bullets: theme('colors.gray.500');
-    --tw-prose-hr: #eee;
-    --tw-prose-quotes: theme('colors.gray.600');
-    --tw-prose-quote-borders: #eee;
-    --tw-prose-captions: theme('colors.gray.500');
-    --tw-prose-code: theme('colors.gray.900');
-    --tw-prose-pre-code: theme('colors.gray.700');
-    --tw-prose-pre-bg: theme('colors.gray.100');
-    --tw-prose-th-borders: #eee;
-    --tw-prose-td-borders: #eee;
+    --tw-prose-body: theme('colors.gray.200');
+    --tw-prose-headings: theme('colors.white');
+    --tw-prose-lead: theme('colors.gray.300');
+    --tw-prose-links: theme('colors.blue.400');
+    --tw-prose-bold: theme('colors.white');
+    --tw-prose-counters: theme('colors.gray.400');
+    --tw-prose-bullets: theme('colors.gray.400');
+    --tw-prose-hr: theme('colors.gray.700');
+    --tw-prose-quotes: theme('colors.gray.300');
+    --tw-prose-quote-borders: theme('colors.gray.700');
+    --tw-prose-captions: theme('colors.gray.400');
+    --tw-prose-code: theme('colors.gray.200');
+    --tw-prose-pre-code: theme('colors.gray.200');
+    --tw-prose-pre-bg: theme('colors.gray.800');
+    --tw-prose-th-borders: theme('colors.gray.700');
+    --tw-prose-td-borders: theme('colors.gray.700');
 
     // Dodatkowe style dla elementów markdown
     h1,
@@ -36,24 +77,23 @@ body {
     h4,
     h5,
     h6 {
-      @apply font-serif font-light mt-8 mb-4;
-
+      @apply font-serif font-light mt-10 mb-6 text-white;
     }
 
     h1 {
-      @apply text-4xl;
+      @apply text-5xl;
     }
 
     h2 {
-      @apply text-3xl;
+      @apply text-4xl;
     }
 
     h3 {
-      @apply text-2xl;
+      @apply text-3xl;
     }
 
     p {
-      @apply mb-4 text-lg leading-relaxed;
+      @apply mb-6 text-xl leading-relaxed;
     }
 
     a {
@@ -62,42 +102,42 @@ body {
 
     ul,
     ol {
-      @apply my-4 ml-4;
+      @apply my-6 ml-6;
     }
 
     li {
-      @apply mb-2;
+      @apply mb-3 text-xl;
     }
 
     blockquote {
-      @apply pl-4 border-l-4 border-gray-300 italic my-4;
+      @apply pl-6 border-l-4 border-blue-600 italic my-6 text-xl;
     }
 
     hr {
-      @apply my-8;
+      @apply my-10 border-gray-700;
     }
 
     pre {
-      @apply p-4 rounded-lg my-4;
+      @apply p-6 rounded-lg my-6 bg-gray-800;
     }
 
     code {
-      @apply px-1 py-0.5 rounded bg-gray-800 text-sm;
+      @apply px-2 py-1 rounded bg-gray-800 text-base text-blue-300;
     }
 
     img {
-      @apply rounded-lg my-4;
+      @apply rounded-lg my-8 shadow-lg max-w-full mx-auto;
     }
 
     table {
-      @apply w-full my-4;
+      @apply w-full my-6;
 
       th {
-        @apply bg-gray-100 p-2 text-left;
+        @apply bg-gray-800 p-3 text-left;
       }
 
       td {
-        @apply p-2 border-t border-gray-300;
+        @apply p-3 border-t border-gray-700;
       }
     }
   }

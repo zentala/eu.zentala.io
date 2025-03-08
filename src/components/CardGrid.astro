@@ -1,33 +1,49 @@
 ---
 interface Props {
 	stagger?: boolean;
+	columns?: number;
+	gap?: string;
 }
 
-const { stagger = false } = Astro.props;
+const { stagger = false, columns = 2, gap = "2rem" } = Astro.props;
 ---
 
-<div class:list={['card-grid', { stagger }]}><slot /></div>
+<div class:list={['card-grid', { stagger }]} data-columns={columns}><slot /></div>
 
-<style>
+<style define:vars={{ columns, gap }}>
 	.card-grid {
 		display: grid;
-		gap: 1rem;
+		gap: var(--gap);
+		padding: 1rem 0;
 	}
 
 	.card-grid > :global(*) {
 		margin-top: 0 !important;
+		margin-bottom: 0 !important;
 	}
 
-	@media (min-width: 50rem) {
+	@media (min-width: 768px) {
 		.card-grid {
-			grid-template-columns: 1fr 1fr;
-			gap: 1.5rem;
+			grid-template-columns: repeat(2, 1fr);
 		}
-		.stagger {
-			--stagger-height: 5rem;
-			padding-bottom: var(--stagger-height);
-		}
+	}
 
+	@media (min-width: 1024px) {
+		.card-grid[data-columns="3"] {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		
+		.card-grid[data-columns="4"] {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.stagger {
+		--stagger-height: 3rem;
+		padding-bottom: var(--stagger-height);
+	}
+
+	@media (min-width: 768px) {
 		.stagger > :global(*):nth-child(2n) {
 			transform: translateY(var(--stagger-height));
 		}

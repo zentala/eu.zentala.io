@@ -1,38 +1,54 @@
 ---
-// import { Icon } from '@astrojs/starlight/components';
 interface Props {
-	icon?: any;
+	icon?: string;
 	title: string;
+	color?: string;
 }
 
-const { icon, title } = Astro.props;
+const { icon, title, color } = Astro.props;
+
+// Dynamically determine background color
+let bgColorClass = "bg-gray-800";
+let hoverColorClass = "hover:bg-gray-700";
+let borderColorClass = "border-gray-700";
+
+if (color === "blue") {
+  bgColorClass = "bg-blue-900";
+  hoverColorClass = "hover:bg-blue-800";
+  borderColorClass = "border-blue-700";
+} else if (color === "green") {
+  bgColorClass = "bg-green-900";
+  hoverColorClass = "hover:bg-green-800";
+  borderColorClass = "border-green-700";
+} else if (color === "red") {
+  bgColorClass = "bg-red-900";
+  hoverColorClass = "hover:bg-red-800";
+  borderColorClass = "border-red-700";
+} else if (color === "yellow") {
+  bgColorClass = "bg-yellow-900";
+  hoverColorClass = "hover:bg-yellow-800";
+  borderColorClass = "border-yellow-700";
+} else if (color === "indigo") {
+  bgColorClass = "bg-indigo-900";
+  hoverColorClass = "hover:bg-indigo-800";
+  borderColorClass = "border-indigo-700";
+} else if (color === "purple") {
+  bgColorClass = "bg-purple-900";
+  hoverColorClass = "hover:bg-purple-800";
+  borderColorClass = "border-purple-700";
+} else if (color === "teal") {
+  bgColorClass = "bg-teal-900";
+  hoverColorClass = "hover:bg-teal-800";
+  borderColorClass = "border-teal-700";
+}
 ---
 
-<article class="card sl-flex flex-col gap-4 m-4 p-8 border border-gray-300 bg-gray-100 rounded-sm">
-	<p class="title sl-flex font-semibold text-gray-800 text-lg leading-tight gap-4 items-center">
-		<!-- {icon && <Icon name={icon} class="icon" size="1.333em" />} -->
+<article class={`card flex flex-col gap-4 m-4 p-8 border ${borderColorClass} ${bgColorClass} ${hoverColorClass} rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] text-white`}>
+	<h3 class="title flex font-bold text-2xl leading-snug gap-4 items-center mb-4">
+		{icon && <span class="text-3xl">{icon}</span>}
 		<span set:html={title} />
-	</p>
-	<div class="body m-0 text-sm">
+	</h3>
+	<div class="body text-gray-300 text-lg">
 		<slot />
 	</div>
 </article>
-
-<style>
-	.card:nth-child(4n + 1) {
-		--sl-card-border: var(--sl-color-orange);
-		--sl-card-bg: var(--sl-color-orange-low);
-	}
-	.card:nth-child(4n + 3) {
-		--sl-card-border: var(--sl-color-green);
-		--sl-card-bg: var(--sl-color-green-low);
-	}
-	.card:nth-child(4n + 4) {
-		--sl-card-border: var(--sl-color-red);
-		--sl-card-bg: var(--sl-color-red-low);
-	}
-	.card:nth-child(4n + 5) {
-		--sl-card-border: var(--sl-color-blue);
-		--sl-card-bg: var(--sl-color-blue-low);
-	}
-</style>

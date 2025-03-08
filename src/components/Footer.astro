@@ -1,6 +1,93 @@
 ---
+import { Image } from 'astro:assets';
+import EuLogo from '../assets/eu.png';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  {
+    title: "Vision",
+    links: [
+      { text: "Overview", href: "/docs/all" },
+      { text: "Core Principles", href: "/docs/book/principles" },
+      { text: "Language Integration", href: "/docs/book/language" },
+      { text: "Digital Government", href: "/docs/book/eGov-vison" },
+    ]
+  },
+  {
+    title: "Topics",
+    links: [
+      { text: "Blockchain State", href: "/docs/ideas/governance/blockchain-state" },
+      { text: "Autonomous Logistics", href: "/docs/ideas/transportation/autonomous-transportation" },
+      { text: "European Healthcare", href: "/docs/book/predictive-healthcare-system" },
+      { text: "Financial Reforms", href: "/docs/ideas/finance/european-cryptocurrency" },
+    ]
+  },
+  {
+    title: "Resources",
+    links: [
+      { text: "Articles", href: "/docs/articles" },
+      { text: "Vision Book", href: "/docs/book" },
+      { text: "References", href: "/docs/reference" },
+      { text: "Sitemap", href: "/sitemap.xml" },
+    ]
+  }
+];
 ---
 
-<style lang="scss"></style>
-
-<footer></footer>
+<footer class="bg-gray-900 border-t border-gray-800 mt-16">
+  <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+      <!-- Logo and description -->
+      <div class="md:col-span-2">
+        <div class="flex items-center space-x-3 mb-6">
+          <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
+          <span class="text-xl font-semibold text-white tracking-tight">EU Reform <span class="text-blue-400">Vision</span></span>
+        </div>
+        <p class="text-gray-300 text-lg pr-4">
+          A comprehensive vision for European integration through technological innovation, language unity, and administrative reform.
+        </p>
+        <div class="mt-6 flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-blue-400">
+            <span class="sr-only">Twitter</span>
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-blue-400">
+            <span class="sr-only">GitHub</span>
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-blue-400">
+            <span class="sr-only">LinkedIn</span>
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Footer links -->
+      {footerLinks.map(section => (
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-4">{section.title}</h3>
+          <ul class="space-y-3">
+            {section.links.map(link => (
+              <li>
+                <a href={link.href} class="text-gray-400 hover:text-blue-400 transition-colors">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-400">
+        &copy; {currentYear} EU Reform Vision. All rights reserved.
+      </p>
+      <div class="mt-4 md:mt-0">
+        <a href="/privacy" class="text-gray-400 hover:text-blue-400 mx-3">Privacy Policy</a>
+        <a href="/terms" class="text-gray-400 hover:text-blue-400 mx-3">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

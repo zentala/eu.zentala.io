@@ -11,31 +11,41 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="A comprehensive vision for European integration through technology, language, and infrastructure" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script
       src="https://kit.fontawesome.com/71aeb2a21d.js"
       crossorigin="anonymous"
       is:inline></script>
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | EU Reforms</title>
+    <title>{title} | EU Reform Vision</title>
   </head>
-  <body class="bg-dark-100">
+  <body class="bg-gray-900 text-white min-h-screen">
+    <div class="bg-gradient-to-b from-blue-950 to-gray-900 fixed inset-0 z-[-1] opacity-50"></div>
     <Header />
-    <slot />
+    <div class="py-6 px-4 sm:px-6 lg:px-8">
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>
 <style is:global>
-  /* html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  
   code {
     font-family:
       Menlo,
@@ -46,5 +56,23 @@ const { title } = Astro.props
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
-  } */
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a202c;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #2d3748;
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4a5568;
+  }
 </style>

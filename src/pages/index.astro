@@ -45,102 +45,118 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   ]}
   image={{ file: UeLogo.src }}
   actions={[
-    { text: 'Read about EU reform principles', link: '/book/principles/', icon: 'right-arrow', variant: 'primary' }
+    { text: 'Explore EU Reform Vision', link: '/docs/all', icon: 'right-arrow', variant: 'primary' }
   ]}
 />
 
-<DisplayTitle level={1}> Pillars of European Integration</DisplayTitle>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <DisplayTitle level={1}>Core Pillars of European Integration</DisplayTitle>
 
-<CardGrid stagger>
-	<Card title="I. Language Unification">
-		Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.
-		<ul>
-			<li><a href="/book/language-integration-administrative-implementation/">Administrative Implementation of Language Integration</a></li>
-			<li><a href="/book/media-cultural-integration/">Need for European Media and Cultural Integration</a></li>
-			<li><a href="/book/economic-growth-language-unity/">Economic Growth Through Language Unity</a></li>
-			<li><a href="/book/language/">EU Language Integration</a></li>
-			<li><a href="/book/language-integration-european-politics/">Language Integration in European Politics</a></li>
-			<li><a href="/book/language-integration-national-states/">Language Integration in National States</a></li>
-		</ul>
-	</Card>
+  <div class="relative mb-12">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
+    <div class="relative">
+      <CardGrid stagger>
+        <Card title="I. Language Unification" color="indigo" icon="🗣️">
+          <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
+          <ul class="space-y-2">
+            <li><a href="/docs/book/language-integration-administrative-implementation/" class="text-blue-300 hover:text-blue-200">Administrative Implementation of Language Integration</a></li>
+            <li><a href="/docs/book/media-cultural-integration/" class="text-blue-300 hover:text-blue-200">European Media and Cultural Integration</a></li>
+            <li><a href="/docs/book/economic-growth-language-unity/" class="text-blue-300 hover:text-blue-200">Economic Growth Through Language Unity</a></li>
+            <li><a href="/docs/book/language/" class="text-blue-300 hover:text-blue-200">EU Language Integration</a></li>
+          </ul>
+        </Card>
 
-	<Card title="II. Digital Administration Integration">
-		Building a unified European digital government infrastructure instead of a tower of Babel. Leveraging technology to streamline and integrate administrative systems across the EU.
-		<ul>
-			<li><a href="/book/eGov-challenges">Dealing with Implementation Challenges of a Unified Digital Government Infrastructure</a></li>
-		</ul>
-	</Card>
+        <Card title="II. Digital Administration Integration" color="blue" icon="💻">
+          <p class="mb-4">Building a unified European digital government infrastructure instead of a tower of Babel. Leveraging technology to streamline and integrate administrative systems across the EU.</p>
+          <ul class="space-y-2">
+            <li><a href="/docs/book/eGov-vison" class="text-blue-300 hover:text-blue-200">European Digital Government Vision</a></li>
+            <li><a href="/docs/book/eGov-challenges" class="text-blue-300 hover:text-blue-200">Implementation Challenges of Unified Digital Government</a></li>
+          </ul>
+        </Card>
 
-	<Card title="III. European Digital Public Services">
-	Developing EU-wide digital services, such as:
-		<ul>
-			<li><a href="/book/predictive-healthcare-system/"><strong>Predictive Healthcare System</strong></a>  trained on pan-European data for early disease detection. Harnessing the power of big data and AI for the benefit of all Europeans.</li>		
-			<li><a href="/book/european-elearning-system/"><strong>European eLearning System</strong></a>  enabling lifelong learning and personalized education across the EU.</li>
-			<li><a href="/book/european-blockchain-archives/"><strong>European Blockchain Archives</strong></a>  implementing blockchain technology to ensure the immutability and full observability of public records, eliminating the need for physical archives.</li>
-		</ul>
-		...any <a href="/book/">many other potential services</a> that can be developed at the European level.
-	</Card>
+        <Card title="III. European Digital Public Services" color="teal" icon="🔬">
+          <p class="mb-4">Developing EU-wide digital services that leverage our combined scale and expertise:</p>
+          <ul class="space-y-2">
+            <li><a href="/docs/book/predictive-healthcare-system/" class="text-blue-300 hover:text-blue-200"><strong>Predictive Healthcare System</strong></a> - trained on pan-European data for early disease detection</li>		
+            <li><a href="/docs/book/european-elearning-system/" class="text-blue-300 hover:text-blue-200"><strong>European eLearning System</strong></a> - enabling lifelong learning and personalized education</li>
+            <li><a href="/docs/book/european-blockchain-archives/" class="text-blue-300 hover:text-blue-200"><strong>European Blockchain Archives</strong></a> - immutable public records eliminating physical archives</li>
+          </ul>
+        </Card>
 
-	<Card title="IV. Logistical Integration">
-		* Creating a single, efficient autonomous robotic logistics market in the EU, for seamless goods transport across the EU, fostering a truly interconnected european economy. 
-		* Ensuring packages of any size — from letters to containers — reach any corner of Europe within 48 hours.
-		* Everyone, every individual and the smallest business, should have equal ease of transporting goods within the EU, trading goods within the EU, and delivering them to their customers. 
-		* Autonomous Multimodal Transportation - developing an integrated system of self-driving vehicles, drones, and smart infrastructure to revolutionize goods and people movement across Europe. This includes utilizing roads, railways, waterways, and even air routes to ensure efficient and sustainable transportation. 
-		* Minimize waste logistics: recycling, reusable packaging, circular economy, transport for recycling and reperation back to producers. 
-		* Autonomous logistics can significantly enhance recycling efforts by enabling the collection of even the smallest items, like batteries, for recycling.
-		* It can also handle atypical items, allowing for the transport of hundreds of fractions autonomously over long distances. When logistics are cheap and easy, materials can be better utilized.
-		* Expanding the European high-speed rail network to allow overnight travel from any EU border to another, ensuring seamless connectivity.
-		* Ensuring that any package, regardless of size, ordered online from any location within the EU can be delivered to another location by the next day.
-	</Card>
+        <Card title="IV. Logistical Integration" color="green" icon="🚚">
+          <ul class="space-y-2">
+            <li>Creating a single, efficient autonomous robotic logistics market in the EU, for seamless goods transport across the EU, fostering a truly interconnected european economy.</li>
+            <li>Ensuring packages of any size — from letters to containers — reach any corner of Europe within 48 hours.</li>
+            <li>Everyone, every individual and the smallest business, should have equal ease of transporting goods within the EU, trading goods within the EU, and delivering them to their customers.</li>
+            <li>Autonomous Multimodal Transportation - developing an integrated system of self-driving vehicles, drones, and smart infrastructure to revolutionize goods and people movement across Europe. This includes utilizing roads, railways, waterways, and even air routes to ensure efficient and sustainable transportation.</li>
+            <li>Minimize waste logistics: recycling, reusable packaging, circular economy, transport for recycling and reperation back to producers.</li>
+            <li>Autonomous logistics can significantly enhance recycling efforts by enabling the collection of even the smallest items, like batteries, for recycling.</li>
+            <li>It can also handle atypical items, allowing for the transport of hundreds of fractions autonomously over long distances. When logistics are cheap and easy, materials can be better utilized.</li>
+            <li>Expanding the European high-speed rail network to allow overnight travel from any EU border to another, ensuring seamless connectivity.</li>
+            <li>Ensuring that any package, regardless of size, ordered online from any location within the EU can be delivered to another location by the next day.</li>
+          </ul>
+        </Card>
 
+        <Card title="V. Financial Reforms" color="yellow" icon="💰">
+          <ul class="space-y-2">
+            <li>Establishing a <a href="/docs/book/unified-payment-zone/" class="text-blue-300 hover:text-blue-200"><strong>Unified Payment Zone</strong></a> across the EU to simplify financial transactions and boost economic integration. - cheap seamless currency exchange system</li>
+            <li><a href="/docs/book/near-zero-transaction-costs/" class="text-blue-300 hover:text-blue-200"><strong>Near-Zero Transaction Costs</strong></a> eliminating excessive fees for digital money transfers, treating financial transactions as a public service rather than a profit center for banks.</li>
+            <li><a href="/docs/book/digital-receipts/" class="text-blue-300 hover:text-blue-200"><strong>Digital Receipts</strong></a> for keeping receipts for warranty purposes and to facilitate obtaining warranties.</li>
+          </ul>
+        </Card>
 
-	<Card title="V. Financial Reforms">
-		* Establishing a <a href="/book/unified-payment-zone/"><strong>Unified Payment Zone</strong></a> across the EU to simplify financial transactions and boost economic integration. - cheap seamless currency exchange system
-		* <a href="/book/near-zero-transaction-costs/"><strong>Near-Zero Transaction Costs</strong></a>  eliminating excessive fees for digital money transfers, treating financial transactions as a public service rather than a profit center for banks.
-		* <a href="/book/digital-receipts/"><strong>Digital Receipts</strong></a> for keeping receipts for warranty purposes and to facilitate obtaining warranties.
-	</Card>
+        <Card title="VI. Robotization" color="red" icon="🤖">
+          <ul class="space-y-2">
+            <li>Robotization is the new motorization. Europe must reinvent and reindustrialize itself as a robotized economy.</li>
+            <li>Germany should transition from the car industry to the robotics industry. By opening their automotive solutions to the European market, we can prototype and build on them.</li>
+            <li>Europe can't miss the robotics revolution. Without successful robotization, the EU risks becoming a secondary world economy. We are in this together.</li>
+            <li>Europe possesses a significant asset: a large number of Central European software engineers. They can be dedicated to building a new generation of robotics startups.</li>
+            <li>Robotization is the new industrialization. Europe will not be able to bring production back locally without outsourcing it to robots.</li>
+            <li>The key efficiency factor of future economies will be the level of automation.</li>
+            <li>Robotization also represents a new retirement system. It allows us to maintain the social contract and provide cheap local goods.</li>
+            <li>Robotization is the future, and I hope Europe will join it.</li>
+          </ul>
+        </Card>
+      </CardGrid>
+    </div>
+  </div>
+</div>
 
-	
-	<Card title="VI. Robotization">
-		* Robotization is the new motorization. Europe must reinvent and reindustrialize itself as a robotized economy.
-		* Germany should transition from the car industry to the robotics industry. By opening their automotive solutions to the European market, we can prototype and build on them.
-		* Europe can't miss the robotics revolution. Without successful robotization, the EU risks becoming a secondary world economy. We are in this together.
-		* Europe possesses a significant asset: a large number of Central European software engineers. They can be dedicated to building a new generation of robotics startups.
-		* Robotization is the new industrialization. Europe will not be able to bring production back locally without outsourcing it to robots.
-		* The key efficiency factor of future economies will be the level of automation.
-		* Robotization also represents a new retirement system. It allows us to maintain the social contract and provide cheap local goods.
-		* Robotization is the future, and I hope Europe will join it.
-	</Card>
-</CardGrid>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+  <DisplayTitle level={1}> I. Language Integration: English as the Lingua Franca of Europe</DisplayTitle>
 
-<DisplayTitle level={1} style={{ color: 'white' }}> I. Language Integration: English as the Lingua Franca of Europe</DisplayTitle>
+  <DisplayTitle level={3}>In European Politics</DisplayTitle>
 
-### In European Politics</DisplayTitle>
+  <div class="relative mb-16">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-blue-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <CardGrid stagger>
+        <Card title="English as the Official Language of the EU" color="indigo" icon="🏛️">
+          Imagine MEPs debating in a shared language, breaking down barriers and fostering true pan-European discourse.
+        </Card>
 
-<CardGrid stagger>
-	<Card title="English as the Official Language of the EU">
-		Imagine MEPs debating in a shared language, breaking down barriers and fostering true pan-European discourse.
-	</Card>
+        <Card title="English-Speaking European Media" color="blue" icon="📺">
+          Envision a vibrant landscape of European commentators discussing EU politics in English, creating a unified public sphere.
+        </Card>
 
-	<Card title="English-Speaking European Media">
-		Envision a vibrant landscape of European commentators discussing EU politics in English, creating a unified public sphere.
-	</Card>
+        <Card title="Cultivating European Political Awareness" color="indigo" icon="🔄">
+          Let's tackle Europe's challenges and shape its future together, freely exchanging ideas and perspectives in a common language.
+        </Card>
 
-	<Card title="Cultivating European Political Awareness">
-		Let's tackle Europe's challenges and shape its future together, freely exchanging ideas and perspectives in a common language.
-	</Card>
+        <Card title="Low Barrier to Entry" color="blue" icon="🚪">
+          English is already widely adopted across the EU. Younger generations consume English content daily, and it's the de facto language of international business in Europe.
+        </Card>
 
-	<Card title="Low Barrier to Entry">
-		English is already widely adopted across the EU. Younger generations consume English content daily, and it's the de facto language of international business in Europe.
-	</Card>
+        {/* <Card title="Angielski jest jezykiem nauki, a gospodarka przyszlosci to nauka">
+        </Card> */}
 
-	{/* <Card title="Angielski jest jezykiem nauki, a gospodarka przyszlosci to nauka">
-	</Card> */}
+        {/* w perspektywe czasu i skali bardzo duzy zwrot dla ue za uproszczneie procsow*/}
+      </CardGrid>
+    </div>
+  </div>
+</div>
 
-	{/* w perspektywe czasu i skali bardzo duzy zwrot dla ue za uproszczneie procsow*/}
-</CardGrid>
-
-### In National States</DisplayTitle>
+<DisplayTitle level={3}>In National States</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -166,7 +182,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-### Administrative Implementation</DisplayTitle>
+<DisplayTitle level={3}>Administrative Implementation</DisplayTitle>
 
 <CardGrid>
 
@@ -186,7 +202,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-### Cultural Integration</DisplayTitle>
+<DisplayTitle level={3}>Cultural Integration</DisplayTitle>
 
 <CardGrid>
 
@@ -208,7 +224,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-### Economic Growth Through Language Unity</DisplayTitle>
+<DisplayTitle level={3}>Economic Growth Through Language Unity</DisplayTitle>
 
 <CardGrid>
 
@@ -237,7 +253,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-<DisplayTitle level={1} style={{ color: 'white' }}>  II. Digital Administrative Integration</DisplayTitle>
+<DisplayTitle level={1} class="text-white">II. Digital Administrative Integration</DisplayTitle>
 
 
 <CardGrid stagger>
@@ -287,7 +303,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-### European Digital Health Care</DisplayTitle>
+<DisplayTitle level={3}>European Digital Health Care</DisplayTitle>
 <CardGrid>
 	<Card title="Digital Predictive Health Care" icon="add-document">
 		Launching a groundbreaking European research project to build a predictive medicine institute. Leveraging big data from across the EU to train AI models for early disease detection, revolutionizing preventive care for all Europeans.
@@ -308,7 +324,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 	{/* pomysl ktory jest sustainable w obliczu starzejacego sie spoleczenstwa, w ogole inwestyche w automaryzacje o optyamlizacje opieki zdrowotnej powinny byc strategiczne */}
 </CardGrid>
 
-### Europen eLearning System </DisplayTitle>
+<DisplayTitle level={3}>European eLearning System</DisplayTitle>
 <CardGrid>
 	<Card title="The Future of Education is Digital" icon="add-document">
 		Embracing eLearning as the primary mode of education delivery, preparing European citizens for a digital-first world.
@@ -324,7 +340,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-### Financial Reforms</DisplayTitle>
+<DisplayTitle level={3}>Financial Reforms</DisplayTitle>
 
 <CardGrid stagger>
 	<Card title="Near-Zero Transaction Costs" icon="">
@@ -354,7 +370,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-<DisplayTitle level={1} style={{ color: 'white' }}>  III. Logistical Integration</DisplayTitle>
+<DisplayTitle level={1} class="text-white">III. Logistical Integration</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -385,14 +401,18 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 	</Card>
 </CardGrid>
 
-<DisplayTitle level={1} style={{ color: 'white' }}>  Polityka rolna</DisplayTitle>
+<DisplayTitle level={1} class="text-white">IV. Agricultural Policy</DisplayTitle>
 
-<Card title="Autonomicze roznorodne uprawy"></Card>
+<Card title="Autonomous Diverse Farming">
+  Leveraging robotics and automation to create diverse, sustainable farming practices across Europe, increasing resilience and productivity.
+</Card>
 
-<Card title="Tereny trwale wylaczone z uzytku pod naturalne habitaty"></Card>
+<Card title="Land Reserved for Natural Habitats">
+  Setting aside permanent land reserves for natural ecosystems, ensuring biodiversity protection and environmental sustainability.
+</Card>
 
 
-<DisplayTitle level={1} style={{ color: 'white' }}>  Integration Principles</DisplayTitle>
+<DisplayTitle level={1} class="text-white">V. Integration Principles</DisplayTitle>
 
 <CardGrid stagger>
 
@@ -414,7 +434,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 </CardGrid>
 
-<DisplayTitle level={1} style={{ color: 'white' }}>  Benefits</DisplayTitle>
+<DisplayTitle level={1} class="text-white">VI. Benefits</DisplayTitle>
 
 <CardGrid stagger>
 

@@ -1,40 +1,81 @@
 ---
-import Logo from '../components/Logo.astro'
-const headerLogoProps = {
-  link: '/',
-  color: '#fff',
-  type: 'full',
-  height: '40px',
-  width: '200px',
-  alt: 'Żentała',
-}
+import { Image } from 'astro:assets';
+import EuLogo from '../assets/eu.png';
 
 const links = [
   { href: '/', text: 'Home' },
-  // { href: '/mission', text: 'Mission' },
-  // { href: '/about', text: 'About' },
-  { href: '/offer', text: 'Offer' },
-  // { href: '/faq', text: 'FAQ' },
-  { href: '/portfolio', text: 'Portfolio' },
-  { href: '/blog', text: 'Blog' },
-  { href: '/contact', text: 'Contact' },
+  { href: '/docs/all', text: 'Vision Overview' },
+  { href: '/docs/ideas', text: 'Reform Ideas' },
+  { href: '/docs/book', text: 'Vision Book' },
+  { href: '/docs/articles', text: 'Articles' },
 ]
 ---
 
-<header id="header"></header>
-
-<style lang="scss"></style>
+<header id="header" class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur shadow-md">
+  <div class="container mx-auto transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <a href="/" class="flex items-center space-x-3">
+        <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
+        <span class="text-2xl font-semibold text-white tracking-tight">EU Reform <span class="text-blue-400">Vision</span></span>
+      </a>
+      
+      <nav class="hidden md:flex space-x-6 items-center">
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class="text-lg font-medium text-gray-200 hover:text-blue-400 transition-colors"
+          >
+            {link.text}
+          </a>
+        ))}
+      </nav>
+      
+      <button id="mobile-menu-button" class="md:hidden text-white p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile menu, hidden by default -->
+  <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-4">
+    <div class="container mx-auto px-4">
+      <nav class="flex flex-col space-y-4">
+        {links.map(link => (
+          <a 
+            href={link.href} 
+            class="text-xl font-medium text-gray-200 hover:text-blue-400 transition-colors py-2 border-b border-gray-800"
+          >
+            {link.text}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</header>
 
 <script>
-  window.addEventListener('scroll', function () {
-    const header = document.querySelector('#header .container')
-    if (!header) return
-    if (window.scrollY > 50) {
-      header.classList.add('py-4')
-      header.classList.remove('py-6')
-    } else {
-      header.classList.add('py-6')
-      header.classList.remove('py-4')
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
     }
-  })
+  });
+
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('#header .container');
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add('py-2');
+      header.classList.remove('py-4');
+    } else {
+      header.classList.add('py-4');
+      header.classList.remove('py-2');
+    }
+  });
 </script>

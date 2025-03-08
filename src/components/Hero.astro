@@ -2,20 +2,53 @@
 const { title, description, image, actions } = Astro.props;
 ---
 
-<section class={`hero ${image.file ? 'flex' : 'flex flex-col items-center text-center'}`}>
-  <div class={`hero-content ${image.file ? 'flex-grow-0 w-3/5 flex-col text-left' : 'w-full flex-col text-center'} flex-shrink-0`}>
-    <h1 class="text-4xl font-bold mb-4">{title}</h1>
-    {description.map(paragraph => (
-      <p class="mb-6 text-2xl">{paragraph}</p>
-    ))}
-    <div class={`hero-actions ${image.file ? '' : 'flex justify-center'}`}>
-      {actions.map(action => (
-        <a href={action.link} class={`button ${action.variant} inline-block mr-4 last:mr-0`}>
-          {action.text}
-          {action.icon && <span class={`icon ${action.icon} ml-2`}></span>}
-        </a>
-      ))}
+<section class="py-16 md:py-24">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="w-full md:w-3/5">
+        <h1 class="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">{title}</h1>
+        
+        <div class="space-y-6">
+          {description.map(paragraph => (
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">{paragraph}</p>
+          ))}
+        </div>
+        
+        <div class="mt-10 flex flex-wrap gap-4">
+          {actions.map(action => (
+            <a 
+              href={action.link} 
+              class={`
+                px-8 py-4 rounded-lg text-xl font-medium transition-all duration-300 transform hover:scale-105
+                ${action.variant === 'primary' 
+                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl' 
+                  : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'
+                }
+              `}
+            >
+              {action.text}
+              {action.icon === 'right-arrow' && 
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              }
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      {image.file && (
+        <div class="w-full md:w-2/5 mt-8 md:mt-0">
+          <div class="relative">
+            <div class="absolute -inset-1 bg-blue-600 rounded-full opacity-30 blur-xl"></div>
+            <img 
+              src={image.file} 
+              alt={title || 'EU Reform Vision'} 
+              class="relative rounded-full border-4 border-blue-900 shadow-2xl max-w-full h-auto object-cover transform hover:rotate-3 transition-transform duration-700"
+            />
+          </div>
+        </div>
+      )}
     </div>
   </div>
-  {image.file && <img src={image.file} alt={title || 'Hero image'} class="hero-image flex-grow-0 w-2/5 flex-shrink-0" />}
 </section>
