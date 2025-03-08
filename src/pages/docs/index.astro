@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const allDocs = await getCollection('docs');
+
+// Group docs by category using folder structure
+const docsByCategory = allDocs.reduce((acc, doc) => {
+  const slugParts = doc.slug.split('/');
+  let category = 'Other';
+  
+  if (slugParts.length > 1) {
+    category = slugParts[0];
+  }
+  
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  
+  acc[category].push(doc);
+  return acc;
+}, {});
+
+// Sort categories alphabetically
+const sortedCategories = Object.keys(docsByCategory).sort();
+---
+
+<Layout title="Documentation">
+  <div class="bg-gray-900 min-h-screen">
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">EU Reform Vision Documentation</h1>
+        <p class="text-xl text-gray-300">Explore our comprehensive vision for European integration through technology, language, and infrastructure.</p>
+      </div>
+      
+      <div class="flex flex-col gap-16">
+        {sortedCategories.map(category => (
+          <section>
+            <div class="relative mb-8">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30 opacity-50 blur-xl -z-10"></div>
+              <h2 class="text-3xl font-bold text-white capitalize border-b border-gray-800 pb-4">
+                {category === 'Other' ? 'General Documents' : category}
+              </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {docsByCategory[category].filter(doc => !doc.slug.endsWith('index')).map(doc => (
+                <a href={`/docs/${doc.slug}`} class="group">
+                  <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{doc.data.title}</h3>
+                    {doc.data.description && (
+                      <p class="text-gray-400 text-sm mb-4 flex-grow">{doc.data.description}</p>
+                    )}
+                    <div class="flex justify-between items-center mt-2">
+                      <span class="text-blue-400 text-sm">Read more</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href="/docs/all" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-all">
+          View Comprehensive Overview
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </div>
+</Layout>

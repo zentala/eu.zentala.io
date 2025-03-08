@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+const bookDocs = await getCollection('docs', (entry) => {
+  return entry.slug.startsWith('book/');
+});
+
+// Sort by title
+const sortedDocs = bookDocs.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout title="Vision Book">
+  <div class="bg-gray-900 min-h-screen">
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+      <div class="mb-8">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Documentation
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Vision Book</h1>
+        <p class="text-xl text-gray-300">Detailed chapters explaining the EU Reform Vision framework for integration.</p>
+      </div>
+      
+      <div class="relative mb-12">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30 opacity-50 blur-xl"></div>
+        <div class="relative bg-gray-800 border border-gray-700 rounded-xl p-8 shadow-lg">
+          <h2 class="text-2xl font-bold text-white mb-4">About This Book</h2>
+          <p class="text-gray-300 mb-6">The EU Reform Vision Book provides a comprehensive framework for European integration through technological innovation, language unity, and administrative reform. Each chapter addresses specific aspects of this vision, providing detailed proposals and implementation strategies.</p>
+          
+          <div class="flex flex-wrap gap-3">
+            <a href="/docs/book/principles" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+              Start with Core Principles
+            </a>
+            <a href="/docs/book/summary" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+              Read Executive Summary
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedDocs.map(doc => (
+          <a href={`/docs/${doc.slug}`} class="group">
+            <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
+              <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{doc.data.title}</h3>
+              {doc.data.description && (
+                <p class="text-gray-400 text-sm mb-4 flex-grow">{doc.data.description}</p>
+              )}
+              <div class="flex justify-between items-center mt-2">
+                <span class="text-blue-400 text-sm">Read chapter</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+      <div class="mt-16 flex justify-between items-center">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+          </svg>
+          All Documents
+        </a>
+        
+        <a href="/docs/all" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+          Complete Vision Overview
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </div>
+</Layout>

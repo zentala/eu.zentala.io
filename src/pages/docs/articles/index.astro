@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+const articleDocs = await getCollection('docs', (entry) => {
+  return entry.slug.startsWith('articles/');
+});
+
+// Sort by title
+articleDocs.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout title="Articles">
+  <div class="bg-gray-900 min-h-screen">
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+      <div class="mb-8">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Documentation
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Articles</h1>
+        <p class="text-xl text-gray-300">In-depth articles exploring specific aspects of the EU Reform Vision.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {articleDocs.length > 0 ? (
+          articleDocs.map(doc => (
+            <a href={`/docs/${doc.slug}`} class="group">
+              <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
+                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{doc.data.title}</h3>
+                {doc.data.description && (
+                  <p class="text-gray-400 text-sm mb-4 flex-grow">{doc.data.description}</p>
+                )}
+                <div class="flex justify-between items-center mt-2">
+                  <span class="text-blue-400 text-sm">Read article</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          ))
+        ) : (
+          <div class="col-span-2 bg-gray-800 rounded-lg p-8 text-center">
+            <p class="text-gray-400 mb-4">No articles found.</p>
+            <p class="text-gray-500">Articles will be added as the vision evolves.</p>
+          </div>
+        )}
+      </div>
+      
+      <div class="relative p-8 bg-gray-800 rounded-xl border border-gray-700 mb-12">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent opacity-30 blur-xl"></div>
+        <div class="relative">
+          <h2 class="text-2xl font-bold text-white mb-4">Explore Beyond the Framework</h2>
+          <p class="text-gray-300 mb-6">These articles provide detailed insights into specific aspects of the EU Reform Vision, exploring implications, implementation challenges, and opportunities that go beyond the core framework.</p>
+          
+          <div class="flex gap-4">
+            <a href="/docs/book" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+              Explore Vision Book
+            </a>
+            <a href="/docs/all" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+              View Complete Overview
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16 flex justify-between items-center">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+          </svg>
+          All Documents
+        </a>
+      </div>
+    </main>
+  </div>
+</Layout>

@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+// Group ideas by category
+const allIdeas = await getCollection('docs', (entry) => {
+  return entry.slug.startsWith('ideas/');
+});
+
+// Extract categories from the slug (ideas/category/file)
+const getCategory = (slug) => {
+  const parts = slug.split('/');
+  return parts.length > 1 ? parts[1] : 'general';
+};
+
+// Group by category
+const ideasByCategory = allIdeas.reduce((acc, idea) => {
+  const category = getCategory(idea.slug);
+  
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  
+  // Only add if it's not an index file
+  if (!idea.slug.endsWith('index')) {
+    acc[category].push(idea);
+  }
+  
+  return acc;
+}, {});
+
+// Sort categories alphabetically
+const sortedCategories = Object.keys(ideasByCategory).sort();
+---
+
+<Layout title="EU Reform Ideas">
+  <div class="bg-gray-900 min-h-screen">
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+      <div class="mb-8">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Documentation
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">EU Reform Ideas</h1>
+        <p class="text-xl text-gray-300">A catalog of specific proposals for European integration and reform.</p>
+      </div>
+      
+      <div class="relative p-8 bg-gray-800 rounded-xl border border-gray-700 mb-12">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent opacity-30 blur-xl"></div>
+        <div class="relative">
+          <h2 class="text-2xl font-bold text-white mb-4">Reform Categories</h2>
+          <p class="text-gray-300 mb-6">Our vision for European integration is organized into key categories, each addressing critical aspects of reform and collaboration.</p>
+          
+          <div class="flex flex-wrap gap-3">
+            {sortedCategories.map(category => (
+              <a href={`#${category}`} class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors capitalize">
+                {category}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-col gap-16">
+        {sortedCategories.map(category => (
+          <section id={category}>
+            <div class="relative mb-8">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30 opacity-50 blur-xl -z-10"></div>
+              <h2 class="text-3xl font-bold text-white capitalize border-b border-gray-800 pb-4">
+                {category} Reforms
+              </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ideasByCategory[category].map(idea => (
+                <a href={`/docs/${idea.slug}`} class="group">
+                  <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
+                    <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{idea.data.title}</h3>
+                    {idea.data.description && (
+                      <p class="text-gray-400 text-sm mb-4 flex-grow">{idea.data.description}</p>
+                    )}
+                    <div class="flex justify-between items-center mt-2">
+                      <span class="text-blue-400 text-sm">Read idea</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      
+      <div class="mt-16 flex justify-between items-center">
+        <a href="/docs" class="text-blue-400 hover:text-blue-300 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+          </svg>
+          All Documents
+        </a>
+        
+        <a href="/docs/all" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg transition-all">
+          Complete Vision Overview
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </main>
+  </div>
+</Layout>
