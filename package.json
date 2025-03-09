@@ -8,7 +8,11 @@
     "build": "astro check && astro build",
     "preview": "astro preview --port 4333",
     "astro": "astro",
-    "convert-mdx": "node convertMdxToMd.js"
+    "convert-mdx": "node convertMdxToMd.js",
+    "test": "node check-links.js",
+    "test:urls": "node url-checker.js",
+    "test:crawl": "node site-crawler.js",
+    "test:links": "node check-links.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",

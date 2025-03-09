@@ -1,56 +1,98 @@
-# EU Reform Ideas
+# EU Reform Vision
 
-# Starlight Starter Kit: Basics
+This repository contains the source code for the EU Reform Vision website built with Astro.
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
-
-```
-npm create astro@latest -- --template starlight
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Project Structure
 
 ```
-.
-├── public/
+/
+├── public/            # Static assets
 ├── src/
-│   ├── assets/
-│   ├── content/
-│   │   ├── docs/
-│   │   └── config.ts
-│   └── env.d.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+│   ├── components/    # UI Components
+│   ├── content/       # Content collections (MDX)
+│   │   ├── docs/      # Main content
+│   │   └── config.ts  # Collection schemas
+│   ├── layouts/       # Page layouts
+│   ├── pages/         # Page routes
+│   └── styles/        # CSS/SCSS styles
+├── astro.config.mjs   # Astro configuration
+├── tailwind.config.js # Tailwind configuration
+└── package.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+## Commands
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+All commands are run from the root of the project:
 
-Static assets, like favicons, can be placed in the `public/` directory.
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:4333`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run convert-mdx`  | Convert MDX files to MD format                   |
+| `npm test`             | Run full link check (recommended)                |
+| `npm run test:urls`    | Test predefined URLs for 200 status              |
+| `npm run test:crawl`   | Crawl the site and find broken links             |
+| `npm run test:links`   | Same as `npm test`                               |
 
-## 🧞 Commands
+## Testing URL Routes
 
-All commands are run from the root of the project, from a terminal:
+This project includes three different tools for testing URL routes and finding broken links:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### 1. URL Checker (Basic)
 
-## 👀 Want to learn more?
+Tests a predefined list of URLs expected to work on the site:
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+```bash
+npm run test:urls
+```
+
+This tool:
+- Starts a development server
+- Tests a predefined list of important URLs for 200 status codes
+- Provides a summary of successful and failed URLs
+- Automatically stops the server after completion
+
+### 2. Site Crawler (Complete)
+
+Crawls the entire site starting from the homepage, finding all linked pages:
+
+```bash
+npm run test:crawl
+```
+
+This tool:
+- Starts a development server
+- Crawls every link it finds recursively
+- Reports all broken internal links
+- Provides a detailed report of issues found
+- Automatically stops the server after completion
+
+### 3. Link Checker (Comprehensive)
+
+The recommended way to test the entire site:
+
+```bash
+# First start the server in another terminal
+npm run dev
+
+# Then run the link checker
+npm test
+```
+
+This tool:
+- Requires a running server on port 4333
+- Crawls all internal links and reports their status
+- Can check external links too (configurable)
+- Shows a real-time progress indicator
+- Provides a detailed report of broken links
+
+## Content Guidelines
+
+All documentation is stored in MDX format with the following frontmatter requirements:
+- title: Page title
+- description: Brief page description
+- tags: Comma-separated list of topics (optional)
+- author: Content author (optional)
+- customSlug: Custom URL path (optional)

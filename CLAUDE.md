@@ -6,6 +6,12 @@
 - Preview: `npm run preview` (astro preview)
 - Convert MDX files: `npm run convert-mdx`
 
+## Testing Tools
+- Quick Test (recommended): `npm test` (requires running server, checks all links)
+- URL Checker: `npm run test:urls` (checks all predefined URLs)
+- Site Crawler: `npm run test:crawl` (crawls site and finds broken links)
+- Link Checker: `npm run test:links` (same as npm test)
+
 ## Project Structure
 - `/src/content/docs/` - Main documentation content (MDX files)
 - `/src/components/` - Astro components
