@@ -1,4 +1,58 @@
-import Layout from '../layouts/Layout.astro';
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const statusMessage = document.getElementById('status-message');
+    const loading = document.getElementById('loading');
+    const result = document.getElementById('result');
+    const resultMessage = document.getElementById('result-message');
+
+    // Early return if elements are not found
+    if (!loading || !result || !resultMessage) {
+      console.error('Required DOM elements not found');
+      return;
+    }
+
+    try {
+      // Get token from URL
+      const token = new URLSearchParams(window.location.search).get('token');
+
+      if (!token) {
+        throw new Error('No confirmation token found.');
+      }
+
+      // Send request to Appwrite function
+      const response = await fetch(`https://cloud.appwrite.io/v1/functions/${import.meta.env.PUBLIC_APPWRITE_NEWSLETTER_FUNCTION_ID}/executions`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Appwrite-Project': import.meta.env.PUBLIC_APPWRITE_PROJECT_ID
+        },
+        body: JSON.stringify({ token })
+      });
+
+      const data = await response.json();
+
+      // Hide loading and show result
+      loading.classList.add('hidden');
+      result.classList.remove('hidden');
+
+      if (response.ok && data.statusCode < 400) {
+        resultMessage.textContent = data.response?.message || 'Your subscription has been confirmed!';
+        resultMessage.classList.add('text-green-400');
+      } else {
+        throw new Error(data.response?.error || 'Failed to confirm subscription.');
+      }
+    } catch (error: unknown) {
+      loading.classList.add('hidden');
+      result.classList.remove('hidden');
+      resultMessage.textContent = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
+      resultMessage.classList.add('text-red-400');
+    }
+  });
+</script>
 
 <Layout title="Confirm Subscription">
   <div class="container mx-auto max-w-md py-16 px-4">
@@ -17,52 +71,3 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </Layout>
-
-<script>
-  // Client-side code to confirm the subscription
-  document.addEventListener('DOMContentLoaded', async () => {
-    const statusMessage = document.getElementById('status-message');
-    const loading = document.getElementById('loading');
-    const result = document.getElementById('result');
-    const resultMessage = document.getElementById('result-message');
-    
-    try {
-      // Get token from URL
-      const token = new URLSearchParams(window.location.search).get('token');
-      
-      if (!token) {
-        throw new Error('No confirmation token found');
-      }
-      
-      // Call the Appwrite function directly
-      const response = await fetch(`${import.meta.env.PUBLIC_APPWRITE_ENDPOINT}/functions/${import.meta.env.PUBLIC_APPWRITE_CONFIRM_FUNCTION_ID}/executions`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'X-Appwrite-Project': import.meta.env.PUBLIC_APPWRITE_PROJECT_ID
-        },
-        body: JSON.stringify({ token })
-      });
-      
-      const data = await response.json();
-      
-      // Hide loading and show result
-      loading.classList.add('hidden');
-      result.classList.remove('hidden');
-      
-      if (response.ok && data.statusCode < 400) {
-        resultMessage.textContent = data.response?.message || 'Your subscription has been confirmed!';
-        resultMessage.classList.add('text-green-400');
-      } else {
-        resultMessage.textContent = data.response?.error || 'Failed to confirm subscription';
-        resultMessage.classList.add('text-red-400');
-      }
-    } catch (error) {
-      // Handle errors
-      loading.classList.add('hidden');
-      result.classList.remove('hidden');
-      resultMessage.textContent = 'An error occurred: ' + (error.message || 'Unknown error');
-      resultMessage.classList.add('text-red-400');
-    }
-  });
-</script> 
