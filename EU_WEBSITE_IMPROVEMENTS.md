@@ -37,6 +37,7 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 - Interaktywna mapa Europy pokazująca korzyści dla różnych regionów (Leaflet.js)
 - Dynamiczne wykresy statystyk EU (Chart.js)
 - Interaktywne wizualizacje danych z opisami korzyści dla każdego kraju
+- Przeniesione do biblioteki UI jako gotowe komponenty do użycia w przyszłości
 - **Status**: Zaimplementowane
 
 ### 5. Optymalizacja nawigacji mobilnej
@@ -53,6 +54,7 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 ### 7. Dodanie social proof ✅
 - Cytaty ekspertów o konieczności reform w kierunku proponowanym w wizji
 - Sekcja "Expert Insights" z przykładowymi cytatami ekspertów (makieta)
+- Przeniesiona do biblioteki UI jako gotowy komponent do użycia w przyszłości
 - **Status**: Zaimplementowane (makieta, do wypełnienia rzeczywistymi cytatami)
 
 ### 8. Ulepszenie wizualne kart

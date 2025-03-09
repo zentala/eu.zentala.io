@@ -40,13 +40,20 @@ const faqItems = [
       <h1 class="text-4xl font-bold text-white mb-2">UI Components Library</h1>
       <p class="text-gray-300">This page showcases all available UI components for reference and development purposes.</p>
       <p class="text-gray-500 text-sm mt-2">Note: This page is only visible in development mode.</p>
+      <div class="bg-green-900/30 border border-green-700/50 rounded-lg p-4 mt-4">
+        <p class="text-green-300 font-medium">💡 The <strong>Ready-to-Use Page Sections</strong> at the top of this page contain complete, pre-built sections that can be easily added to any page on the site.</p>
+      </div>
     </div>
 
     <!-- Table of Contents -->
     <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 mb-12">
       <h2 class="text-2xl font-bold text-white mb-4">Contents</h2>
       <ul class="list-disc list-inside text-gray-300 space-y-1">
-        <li><a href="#typography" class="text-blue-400 hover:text-blue-300">Typography</a></li>
+        <li><a href="#ready-sections" class="text-green-400 hover:text-green-300 font-bold">🌟 Ready-to-Use Page Sections</a></li>
+        <li><a href="#testimonials-section" class="text-green-400 hover:text-green-300 ml-6">Expert Insights Section</a></li>
+        <li><a href="#interactive-insights" class="text-green-400 hover:text-green-300 ml-6">Interactive Data Insights Section</a></li>
+        <li><a href="#faq-section" class="text-green-400 hover:text-green-300 ml-6">FAQ Section</a></li>
+        <li class="mt-3"><a href="#typography" class="text-blue-400 hover:text-blue-300">Typography</a></li>
         <li><a href="#buttons" class="text-blue-400 hover:text-blue-300">Buttons</a></li>
         <li><a href="#cards" class="text-blue-400 hover:text-blue-300">Cards</a></li>
         <li><a href="#grids" class="text-blue-400 hover:text-blue-300">Card Grids</a></li>
@@ -64,6 +71,194 @@ const faqItems = [
       </ul>
     </div>
 
+    <!-- Ready-to-Use Sections -->
+    <section id="ready-sections" class="mb-16">
+      <DisplayTitle level={1}>🌟 Ready-to-Use Page Sections</DisplayTitle>
+      
+      <div class="bg-green-900/30 border border-green-700/50 rounded-xl p-6 mb-12">
+        <h2 class="text-3xl font-bold text-white mb-4">How to Use These Sections</h2>
+        
+        <p class="text-gray-300 mb-4">These complete, pre-built sections are ready to be added to any page. Unlike individual components, these sections combine multiple components into fully functional page segments that can be copied as-is.</p>
+        
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`// In your page's frontmatter
+import InteractiveSection from '../components/InteractiveSection.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+
+// In your page body
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Section Title</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <!-- Insert component here -->
+    </div>
+  </div>
+</div>`}</code></pre>
+        </div>
+      </div>
+      
+      <!-- Expert Insights Section -->
+      <section id="testimonials-section" class="mb-12">
+        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Expert Insights Section</h2>
+        
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 mb-6">
+          <DisplayTitle level={3}>Expert Insights</DisplayTitle>
+          
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-blue-900 opacity-10 blur-xl"></div>
+            <div class="relative">
+              <Testimonials 
+                color="purple"
+                items={[
+                  {
+                    quote: "The EU's administrative fragmentation is a critical weakness in the digital age. This vision's emphasis on unified digital infrastructure and a common language could transform Europe into a true economic powerhouse, removing the hidden tax of complexity that currently hampers innovation.",
+                    author: "Prof. Anna Kowalska",
+                    title: "Professor of Digital Economics",
+                    organization: "Technical University of Warsaw"
+                  },
+                  {
+                    quote: "As someone who's worked on cross-border EU projects for decades, I can attest that language barriers remain the single biggest obstacle to European integration. Making English an official second language everywhere would be transformative for collaboration and mobility.",
+                    author: "Dr. Marco Rossi",
+                    title: "Former EU Commissioner for Education",
+                    organization: "European Institute for Innovation"
+                  },
+                  {
+                    quote: "The vision's focus on robotic reindustrialization represents the most viable path for Europe to maintain manufacturing competitiveness while addressing demographic challenges. This is particularly crucial for Eastern European economies.",
+                    author: "Dr. Elisa Schmidt",
+                    title: "Director of Robotics Research",
+                    organization: "German Institute for Automation"
+                  },
+                  {
+                    quote: "What makes this approach unique is how it leverages economies of scale across the entire Union. Building shared digital systems would save billions in redundant development costs while delivering better services to citizens.",
+                    author: "Jean-Michel Dupont",
+                    title: "Chief Digital Officer",
+                    organization: "French Ministry of Economy"
+                  }
+                ]}
+              />
+            </div>
+          </div>
+          
+          <div class="bg-gray-800/50 p-4 rounded-lg mt-8">
+            <p class="text-gray-400 mb-2">Usage example:</p>
+            <pre class="text-gray-300 overflow-auto"><code>{`<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Expert Insights</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-blue-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <Testimonials 
+        color="purple"
+        items={[
+          {
+            quote: "Quote text here...",
+            author: "Author Name",
+            title: "Author Title",
+            organization: "Organization Name"
+          },
+          // More testimonials...
+        ]}
+      />
+    </div>
+  </div>
+</div>`}</code></pre>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Interactive Data Insights Section -->
+      <section id="interactive-insights" class="mb-12">
+        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Interactive Data Insights Section</h2>
+        
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 mb-6">
+          <DisplayTitle level={3}>Interactive Data Insights</DisplayTitle>
+          
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-green-900 opacity-10 blur-xl"></div>
+            <div class="relative">
+              <InteractiveSection color="blue" />
+            </div>
+          </div>
+          
+          <div class="bg-gray-800/50 p-4 rounded-lg mt-8">
+            <p class="text-gray-400 mb-2">Usage example:</p>
+            <pre class="text-gray-300 overflow-auto"><code>{`<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Interactive Data Insights</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-green-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <InteractiveSection color="blue" />
+    </div>
+  </div>
+</div>`}</code></pre>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section id="faq-section" class="mb-12">
+        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">FAQ Section</h2>
+        
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 mb-6">
+          <DisplayTitle level={3}>Common Questions</DisplayTitle>
+          
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-indigo-900 opacity-10 blur-xl"></div>
+            <div class="relative">
+              <FAQ 
+                color="indigo"
+                items={[
+                  {
+                    question: "Why do we need yet another European integration project?",
+                    answer: "Unlike previous integration efforts, this vision focuses on practical, tangible benefits for all Europeans rather than abstract political concepts. By focusing on language, digital infrastructure, and robotic reindustrialization, we address the actual challenges facing Europe in an era of global competition and technological change."
+                  },
+                  {
+                    question: "Isn't English as a second language unfair to non-English speaking countries?",
+                    answer: "This proposal recognizes that English is already the de facto international language of business, science, and technology. Rather than starting from zero with a new language, we're acknowledging reality and formalizing it to reduce barriers. National languages remain primary, with English as a practical addition that enables greater European-wide communication and opportunity."
+                  },
+                  {
+                    question: "How will these changes benefit ordinary citizens?",
+                    answer: "Citizens will gain access to streamlined public services in multiple languages, enjoy faster cross-border shipping, benefit from enhanced AI-powered healthcare, access lifetime educational opportunities, and experience greater job mobility throughout Europe. The vision aims to create a Europe where everyday life becomes simpler, more efficient, and more prosperous for all."
+                  },
+                  {
+                    question: "What if Germany or other powerful countries don't agree?",
+                    answer: "If certain countries choose not to participate initially, this vision could begin as an Intermarium 2.0 project with countries like Poland, Ukraine, Romania, and Scandinavian nations. The benefits of integration would likely become apparent quickly, encouraging others to join. The proposal creates such clear mutual advantages that even skeptical countries would have strong incentives to participate."
+                  }
+                ]}
+              />
+            </div>
+          </div>
+          
+          <div class="bg-gray-800/50 p-4 rounded-lg mt-8">
+            <p class="text-gray-400 mb-2">Usage example:</p>
+            <pre class="text-gray-300 overflow-auto"><code>{`<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Common Questions</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-indigo-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <FAQ 
+        color="indigo"
+        items={[
+          {
+            question: "Question text?",
+            answer: "Answer text here..."
+          },
+          // More questions...
+        ]}
+      />
+    </div>
+  </div>
+</div>`}</code></pre>
+          </div>
+        </div>
+      </section>
+    </section>
+    
     <!-- Typography Section -->
     <section id="typography" class="mb-16">
       <DisplayTitle level={1}>Typography</DisplayTitle>
