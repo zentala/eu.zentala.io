@@ -8,6 +8,15 @@ import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro';
 import CardGrid from '../components/CardGrid.astro';
 import DisplayTitle from '../components/DisplayTitle.astro';
+
+// Import SVG icons
+import LanguageIcon from '../assets/icons/language.svg';
+import DigitalIcon from '../assets/icons/digital.svg';
+import RobotIcon from '../assets/icons/robot.svg';
+import ArrowRightIcon from '../assets/icons/arrow-right.svg';
+import GlobeIcon from '../assets/icons/globe.svg';
+import QuestionIcon from '../assets/icons/question.svg';
+import BookIcon from '../assets/icons/book.svg';
 ---
 
 <Layout title="Home">
@@ -37,17 +46,88 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 
 
 <Hero 
-  title="Technocratic Integration Vision for the EU's Future"
+  title="Technocratic vision for the next step of European Integration"
   description={[
+    // "Building a unified, prosperous Europe through language integration, digital transformation, and robotic reindustrialization.",
     "From Challenges to Opportunities: Uniting Europe to Redefine Our Future Through Innovation, Cooperation, and Digital Transformation.",
-    "A visionary framework for addressing Europe's most pressing challenges, rooted in mutual benefit, shared values, and the transformative potential of collective action.",
-    "As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand."
+    "A visionary framework for addressing Europe's most pressing challenges, rooted in mutual benefit, shared values, and the transformative potential of collective action."
   ]}
   image={{ file: UeLogo.src }}
   actions={[
-    { text: 'Explore EU Reform Vision', link: '/docs', icon: 'right-arrow', variant: 'primary' }
+    { text: 'Explore Vision', link: '/docs', icon: 'right-arrow', variant: 'primary' },
+    { text: 'Benefits For Your Country', link: '/docs/for-you', variant: 'secondary' }
   ]}
 />
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-0 mb-16">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+  <div class="p-6 bg-gradient-to-br from-indigo-900/30 to-indigo-800/10 rounded-xl border border-indigo-800/30 hover:border-indigo-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+    <div class="bg-indigo-700/20 inline-flex p-3 mb-4 rounded-lg">
+      <img src={LanguageIcon.src} alt="Language Integration" class="w-9 h-9 text-indigo-300" />
+    </div>
+    <h3 class="text-xl font-bold text-white mb-2">I. Language Integration</h3>
+    <p class="text-gray-300 mb-4">English as a second official language across all EU states to remove communication barriers</p>
+    <a href="/docs/book/language" class="text-indigo-400 hover:text-indigo-300 font-medium flex justify-center items-center group">
+      Learn more
+      <img src={ArrowRightIcon.src} alt="Arrow right" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+  
+  <div class="p-6 bg-gradient-to-br from-blue-900/30 to-blue-800/10 rounded-xl border border-blue-800/30 hover:border-blue-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+    <div class="bg-blue-700/20 inline-flex p-3 mb-4 rounded-lg">
+      <img src={DigitalIcon.src} alt="Digital Integration" class="w-9 h-9 text-blue-300" />
+    </div>
+    <h3 class="text-xl font-bold text-white mb-2">II. Digital Integration</h3>
+    <p class="text-gray-300 mb-4">Unified digital government, e-health, e-learning, and blockchain-based public services</p>
+    <a href="/docs/book/egov-vison" class="text-blue-400 hover:text-blue-300 font-medium flex justify-center items-center group">
+      Learn more
+      <img src={ArrowRightIcon.src} alt="Arrow right" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+  
+  <div class="p-6 bg-gradient-to-br from-green-900/30 to-green-800/10 rounded-xl border border-green-800/30 hover:border-green-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+    <div class="bg-green-700/20 inline-flex p-3 mb-4 rounded-lg">
+      <img src={RobotIcon.src} alt="Robotic Reindustrialization" class="w-9 h-9 text-green-300" />
+    </div>
+    <h3 class="text-xl font-bold text-white mb-2">III. Robotic Reindustrialization</h3>
+    <p class="text-gray-300 mb-4">Autonomous logistics, robotic production, and sustainable, localized manufacturing</p>
+    <a href="/docs/ideas/transportation/autonomous-transportation" class="text-green-400 hover:text-green-300 font-medium flex justify-center items-center group">
+      Learn more
+      <img src={ArrowRightIcon.src} alt="Arrow right" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+</div>
+
+
+  <!-- <div class="bg-gradient-to-r from-blue-900/10 to-indigo-900/10 rounded-xl p-6"> -->
+    <p class="text-xl text-gray-300 leading-relaxed mt-4 pt-10">
+      As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand.
+    </p>
+  <!-- </div> -->
+</div>
+
+<div class="bg-gradient-to-r from-blue-900/20 to-indigo-900/20 backdrop-blur-sm py-10 border-y border-blue-900/30 mb-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    
+    
+    <div class="mt-12 flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
+      <a href="/docs/why" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+        <img src={QuestionIcon.src} alt="Question mark" class="w-6 h-6 mr-2 text-blue-400" />
+        Why EU Needs Reform?
+      </a>
+      
+      <a href="/docs/for-you" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+        <img src={GlobeIcon.src} alt="Globe" class="w-6 h-6 mr-2 text-blue-400" />
+        Benefits For Your Country
+      </a>
+      
+      <a href="/docs/all" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+        <img src={BookIcon.src} alt="Book" class="w-6 h-6 mr-2 text-blue-400" />
+        Full Vision Book
+      </a>
+    </div>
+  </div>
+</div>
 
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
   <DisplayTitle level={1}>Core Pillars of European Integration</DisplayTitle>
