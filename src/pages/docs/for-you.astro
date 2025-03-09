@@ -176,24 +176,29 @@ import DisplayTitle from '../../components/DisplayTitle.astro';
     const defaultBenefits = document.getElementById('default-benefits');
     
     // Show specific country benefits
-    const showCountryBenefits = (country) => {
+    const showCountryBenefits = (country: string) => {
       // Hide all benefits sections
       countryBenefits.forEach(section => {
         section.classList.add('hidden');
       });
       
       // Show benefits container
-      benefitsContainer.classList.remove('hidden');
+      const benefitsContainerElement = benefitsContainer as HTMLElement;
+      if (benefitsContainerElement) {
+        benefitsContainerElement.classList.remove('hidden');
+      }
       
       // Show specific country benefits or default if not found
       const targetSection = document.getElementById(`${country}-benefits`);
       if (targetSection) {
         targetSection.classList.remove('hidden');
-      } else {
+      } else if (defaultBenefits) {
         defaultBenefits.classList.remove('hidden');
         // Update the title to show selected country
         const defaultTitle = defaultBenefits.querySelector('h2');
-        defaultTitle.textContent = `Benefits for ${country.charAt(0).toUpperCase() + country.slice(1)}`;
+        if (defaultTitle) {
+          defaultTitle.textContent = `Benefits for ${country.charAt(0).toUpperCase() + country.slice(1)}`;
+        }
       }
       
       // Update active button

@@ -4,8 +4,14 @@ import Layout from '../../layouts/Layout.astro';
 
 const allDocs = await getCollection('docs');
 
+// Define types
+type DocsCollection = typeof allDocs;
+interface CategoryMap {
+  [key: string]: DocsCollection;
+}
+
 // Group docs by category using folder structure
-const docsByCategory = allDocs.reduce((acc, doc) => {
+const docsByCategory: CategoryMap = allDocs.reduce((acc: CategoryMap, doc) => {
   const slugParts = doc.slug.split('/');
   let category = 'Other';
   
@@ -44,7 +50,7 @@ const sortedCategories = Object.keys(docsByCategory).sort();
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {docsByCategory[category].filter(doc => !doc.slug.endsWith('index')).map(doc => (
+              {docsByCategory[category].filter((doc) => !doc.slug.endsWith('index')).map((doc) => (
                 <a href={`/docs/${doc.slug}`} class="group">
                   <div class="bg-gray-800 hover:bg-gray-700 rounded-lg p-6 transition-all duration-300 h-full border border-gray-700 hover:border-blue-600 flex flex-col">
                     <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400">{doc.data.title}</h3>

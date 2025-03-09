@@ -2,9 +2,10 @@
 interface Props {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   class?: string;
+  title?: string;
 }
 
-const { level = 1, class: className = "" } = Astro.props;
+const { level = 1, class: className = "", title } = Astro.props;
 
 // Map the level to the correct heading tag
 const HeadingTag = `h${level}`;
@@ -37,5 +38,5 @@ const combinedClasses = `${defaultClasses} ${className}`;
 ---
 
 <Fragment set:html={`<${HeadingTag} class="${combinedClasses}">`} />
-  <slot />
+  {title ? title : <slot />}
 <Fragment set:html={`</${HeadingTag}>`} />
