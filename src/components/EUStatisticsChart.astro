@@ -1,0 +1,157 @@
+---
+interface DataPoint {
+  label: string;
+  value: number;
+  color?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  chartType?: 'bar' | 'line' | 'pie' | 'radar';
+  data: DataPoint[];
+  yAxisLabel?: string;
+  xAxisLabel?: string;
+  height?: string;
+  darkMode?: boolean;
+}
+
+const {
+  title,
+  description = "",
+  chartType = 'bar',
+  data = [],
+  yAxisLabel = "",
+  xAxisLabel = "",
+  height = "400px",
+  darkMode = true
+} = Astro.props;
+
+// Generate a unique ID for this chart
+const chartId = `chart-${Math.random().toString(36).substring(2, 9)}`;
+
+// Default chart colors palette
+const defaultColors = [
+  'rgba(75, 192, 192, 0.8)',
+  'rgba(54, 162, 235, 0.8)',
+  'rgba(153, 102, 255, 0.8)',
+  'rgba(255, 159, 64, 0.8)',
+  'rgba(255, 99, 132, 0.8)',
+  'rgba(255, 206, 86, 0.8)',
+  'rgba(231, 233, 237, 0.8)',
+  'rgba(131, 193, 91, 0.8)'
+];
+---
+
+<div class="chart-container mb-8">
+  <div class="mb-4">
+    <h3 class="text-2xl font-bold text-white">{title}</h3>
+    {description && <p class="text-gray-300 mt-2">{description}</p>}
+  </div>
+  
+  <div class="bg-gray-900/30 border border-gray-700/50 rounded-xl p-6 shadow-lg">
+    <div style={`height: ${height}; width: 100%;`}>
+      <canvas id={chartId}></canvas>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ chartId, chartType, data, xAxisLabel, yAxisLabel, darkMode, defaultColors }}>
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Dynamically import Chart.js
+    const { Chart, registerables } = await import('chart.js');
+    Chart.register(...registerables);
+    
+    // Prepare the data
+    const labels = data.map(item => item.label);
+    const values = data.map(item => item.value);
+    const colors = data.map((item, index) => item.color || defaultColors[index % defaultColors.length]);
+    
+    // Set up chart options
+    const theme = darkMode ? {
+      color: 'rgba(255, 255, 255, 0.7)',
+      backgroundColor: 'transparent',
+      grid: {
+        color: 'rgba(255, 255, 255, 0.1)'
+      },
+      text: {
+        color: 'rgba(255, 255, 255, 0.7)'
+      }
+    } : {
+      color: 'rgba(0, 0, 0, 0.7)',
+      backgroundColor: 'transparent',
+      grid: {
+        color: 'rgba(0, 0, 0, 0.1)'
+      },
+      text: {
+        color: 'rgba(0, 0, 0, 0.7)'
+      }
+    };
+    
+    // Create the chart
+    const ctx = document.getElementById(chartId).getContext('2d');
+    
+    const chartConfig = {
+      type: chartType,
+      data: {
+        labels: labels,
+        datasets: [{
+          label: yAxisLabel,
+          data: values,
+          backgroundColor: colors,
+          borderColor: colors.map(color => color.replace('0.8', '1')),
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: chartType === 'pie' || chartType === 'radar',
+            labels: {
+              color: theme.color
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            titleColor: 'rgba(255, 255, 255, 0.9)',
+            bodyColor: 'rgba(255, 255, 255, 0.9)',
+            displayColors: true
+          }
+        },
+        scales: chartType !== 'pie' ? {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: theme.grid.color
+            },
+            ticks: {
+              color: theme.color
+            },
+            title: {
+              display: !!yAxisLabel,
+              text: yAxisLabel,
+              color: theme.color
+            }
+          },
+          x: {
+            grid: {
+              color: theme.grid.color
+            },
+            ticks: {
+              color: theme.color
+            },
+            title: {
+              display: !!xAxisLabel,
+              text: xAxisLabel,
+              color: theme.color
+            }
+          }
+        } : {}
+      }
+    };
+    
+    new Chart(ctx, chartConfig);
+  });
+</script>

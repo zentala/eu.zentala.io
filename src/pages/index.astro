@@ -12,6 +12,7 @@ import FAQ from '../components/FAQ.astro';
 import Author from '../components/Author.astro';
 import WhyDigitalReform from '../components/WhyDigitalReform.astro';
 import Testimonials from '../components/Testimonials.astro';
+import InteractiveSection from '../components/InteractiveSection.astro';
 
 // Import SVG icons
 import LanguageIcon from '../assets/icons/language.svg';
@@ -660,6 +661,17 @@ import BookIcon from '../assets/icons/book.svg';
     <div class="absolute inset-0 bg-gradient-to-r from-teal-900 to-blue-900 opacity-10 blur-xl"></div>
     <div class="relative">
       <WhyDigitalReform color="teal" />
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Interactive Data Insights</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-green-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <InteractiveSection color="blue" />
     </div>
   </div>
 </div>

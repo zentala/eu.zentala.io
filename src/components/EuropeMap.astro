@@ -1,0 +1,266 @@
+---
+interface CountryData {
+  code: string;
+  name: string;
+  benefits: string[];
+  color?: string; // Optional custom color
+}
+
+interface Props {
+  countries?: CountryData[];
+  defaultColor?: string;
+  highlightColor?: string;
+  title?: string;
+}
+
+// Provide default values
+const { 
+  countries = [], 
+  defaultColor = "rgba(65, 90, 160, 0.7)", 
+  highlightColor = "rgba(74, 222, 128, 0.8)",
+  title = "Benefits Across Europe"
+} = Astro.props;
+
+// Add default data for EU countries if not provided
+const defaultCountries: CountryData[] = [
+  {
+    code: "DE",
+    name: "Germany",
+    benefits: [
+      "Leadership in robotics manufacturing",
+      "Digital government efficiency gains",
+      "Expanded market reach through language integration",
+      "Industrial transformation support"
+    ]
+  },
+  {
+    code: "FR",
+    name: "France",
+    benefits: [
+      "Cultural leadership through unified media",
+      "Digital administration cost savings",
+      "Reformed logistics for rural areas",
+      "Advanced robotics for agriculture"
+    ]
+  },
+  {
+    code: "PL",
+    name: "Poland",
+    benefits: [
+      "Access to EU-wide opportunities through English",
+      "Increased social mobility",
+      "Manufacturing competitiveness through robotization",
+      "Digital infrastructure modernization"
+    ]
+  },
+  {
+    code: "IT",
+    name: "Italy",
+    benefits: [
+      "Streamlined logistics for improved trade",
+      "Tourism enhancement through language integration",
+      "Digital public services for aging population",
+      "Manufacturing renaissance through robotics"
+    ]
+  },
+  {
+    code: "ES",
+    name: "Spain",
+    benefits: [
+      "Improved remote work opportunities",
+      "Smart border and migration management",
+      "Enhanced digital tourism infrastructure",
+      "Agricultural robotization"
+    ]
+  },
+  {
+    code: "RO",
+    name: "Romania",
+    benefits: [
+      "Accelerated digital transformation",
+      "Software industry growth",
+      "Enhanced border security through robotics",
+      "Increased language integration with Western Europe"
+    ]
+  },
+  {
+    code: "NL",
+    name: "Netherlands",
+    benefits: [
+      "Enhanced logistics network integration",
+      "Leadership in automated shipping systems",
+      "Water management technology exports",
+      "Digital regulatory innovation"
+    ]
+  },
+  {
+    code: "SE",
+    name: "Sweden",
+    benefits: [
+      "Leadership in sustainable robotics",
+      "Arctic technology development opportunities",
+      "Digital public services innovation",
+      "Integration with Eastern European markets"
+    ]
+  }
+];
+
+// Merge provided countries with defaults (prioritizing provided data)
+const allCountries = countries.length > 0 ? countries : defaultCountries;
+---
+
+<div class="europe-map-container">
+  <div class="mb-4">
+    <h3 class="text-2xl font-bold text-white">{title}</h3>
+    <p class="text-gray-300 mt-2">Click on countries to see specific benefits</p>
+  </div>
+  
+  <div class="relative">
+    <div id="europeMap" class="h-96 md:h-[500px] rounded-lg overflow-hidden border border-gray-700"></div>
+    
+    <div id="countryInfo" class="absolute top-4 right-4 bg-gray-900/90 backdrop-blur-sm text-white p-4 rounded-lg border border-gray-700 max-w-sm hidden">
+      <h4 id="countryName" class="text-xl font-bold mb-2"></h4>
+      <ul id="countryBenefits" class="list-disc list-inside text-gray-300 space-y-1"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- Load Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<style>
+  /* Ensure map is responsive */
+  #europeMap {
+    width: 100%;
+    background-color: rgba(23, 25, 35, 0.8);
+  }
+</style>
+
+<script>
+  // We need to wait for the component to be fully mounted before initializing Leaflet
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Dynamically import Leaflet to avoid SSR issues
+    const L = await import('leaflet').then(module => module.default || module);
+    
+    // GeoJSON data for Europe (simplified for performance)
+    const europeGeoJSON = await fetch('https://raw.githubusercontent.com/leakyMirror/map-of-europe/master/GeoJSON/europe.geojson')
+      .then(response => response.json())
+      .catch(error => {
+        console.error('Error loading GeoJSON:', error);
+        return null;
+      });
+    
+    if (!europeGeoJSON) {
+      document.getElementById('europeMap').innerHTML = '<div class="p-4 text-center text-gray-300">Failed to load map data. Please try again later.</div>';
+      return;
+    }
+    
+    // Setup the map centered on Europe
+    const map = L.map('europeMap', {
+      center: [54, 18], // Center on Europe
+      zoom: 4,
+      minZoom: 3,
+      maxZoom: 8,
+      zoomControl: true,
+      attributionControl: false // Hide attribution for cleaner look
+    });
+    
+    // Add a dark-themed tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    }).addTo(map);
+    
+    // Get country data from the component props
+    const defaultColor = "rgba(65, 90, 160, 0.7)";
+    const highlightColor = "rgba(74, 222, 128, 0.8)";
+    
+    // Parse the countries data from the data attribute
+    const countriesData = JSON.parse(document.getElementById('europeMap').getAttribute('data-countries') || '[]');
+    
+    // Create the info panel for country data
+    const countryInfo = document.getElementById('countryInfo');
+    const countryName = document.getElementById('countryName');
+    const countryBenefits = document.getElementById('countryBenefits');
+    
+    // Add GeoJSON layer
+    const geoJsonLayer = L.geoJSON(europeGeoJSON, {
+      style: (feature) => {
+        // Find if this country has specific data
+        const countryData = countriesData.find(c => 
+          feature.properties.ISO2 === c.code || 
+          feature.properties.NAME === c.name
+        );
+        
+        return {
+          fillColor: countryData ? (countryData.color || defaultColor) : 'rgba(70, 70, 70, 0.5)',
+          weight: 1,
+          opacity: 0.8,
+          color: 'rgba(200, 200, 200, 0.3)',
+          fillOpacity: countryData ? 0.8 : 0.4
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        // Find if this country has specific data
+        const countryData = countriesData.find(c => 
+          feature.properties.ISO2 === c.code || 
+          feature.properties.NAME === c.name
+        );
+        
+        if (countryData) {
+          // Add hover interactions
+          layer.on({
+            mouseover: (e) => {
+              const layer = e.target;
+              layer.setStyle({
+                fillColor: highlightColor,
+                fillOpacity: 0.9,
+                weight: 2
+              });
+              
+              // Show info panel with country data
+              countryName.textContent = countryData.name;
+              countryBenefits.innerHTML = '';
+              
+              // Add benefits as list items
+              countryData.benefits.forEach(benefit => {
+                const li = document.createElement('li');
+                li.textContent = benefit;
+                countryBenefits.appendChild(li);
+              });
+              
+              countryInfo.classList.remove('hidden');
+            },
+            mouseout: (e) => {
+              geoJsonLayer.resetStyle(e.target);
+              countryInfo.classList.add('hidden');
+            },
+            click: (e) => {
+              // Keep the info panel visible on click
+              e.target.setStyle({
+                fillColor: highlightColor,
+                fillOpacity: 0.9,
+                weight: 2
+              });
+              
+              countryInfo.classList.remove('hidden');
+              
+              // Prevent the mouseout event from hiding the panel
+              e.originalEvent.stopPropagation();
+            }
+          });
+        }
+      }
+    }).addTo(map);
+    
+    // Add click handler on the map to hide info panel when clicking elsewhere
+    map.on('click', () => {
+      countryInfo.classList.add('hidden');
+      geoJsonLayer.eachLayer(layer => {
+        geoJsonLayer.resetStyle(layer);
+      });
+    });
+    
+    // Set countries data as a data attribute for the map element
+    document.getElementById('europeMap').setAttribute('data-countries', JSON.stringify(countriesData));
+  });
+</script>

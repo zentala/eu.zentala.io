@@ -33,11 +33,11 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 - Uproszczenie struktury strony głównej
 - **Status**: Do zrobienia
 
-### 4. Dodanie interaktywnych elementów
-- Interaktywna mapa Europy pokazująca korzyści dla różnych regionów
-- Dodanie animacji przy przewijaniu
-- Interaktywne karty z efektem hover
-- **Status**: Do zrobienia
+### 4. Dodanie interaktywnych elementów ✅
+- Interaktywna mapa Europy pokazująca korzyści dla różnych regionów (Leaflet.js)
+- Dynamiczne wykresy statystyk EU (Chart.js)
+- Interaktywne wizualizacje danych z opisami korzyści dla każdego kraju
+- **Status**: Zaimplementowane
 
 ### 5. Optymalizacja nawigacji mobilnej
 - Rozbudowanie menu mobilnego
@@ -91,6 +91,6 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 1. Reorganizacja treści wokół trzech filarów
 2. Optymalizacja nawigacji mobilnej
 3. Ulepszenie wizualne kart 
-4. Dodanie interaktywnych elementów (mapy)
-5. Integracja z Algolia Search
-6. Zastąpienie przykładowych cytatów ekspertów rzeczywistymi
+4. Integracja z Algolia Search
+5. Zastąpienie przykładowych cytatów ekspertów rzeczywistymi
+6. Zamiana przykładowych danych statystycznych na rzeczywiste dane z API Eurostatu
