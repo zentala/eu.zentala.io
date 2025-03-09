@@ -1,4 +1,23 @@
 ---
+interface Action {
+  text: string;
+  link: string;
+  icon?: string;
+  variant?: string;
+}
+
+interface Image {
+  file: string;
+  alt?: string;
+}
+
+interface Props {
+  title: string;
+  description: string[];
+  image: Image;
+  actions: Action[];
+}
+
 const { title, description, image, actions } = Astro.props;
 ---
 
@@ -9,13 +28,13 @@ const { title, description, image, actions } = Astro.props;
         <h1 class="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">{title}</h1>
         
         <div class="space-y-6">
-          {description.map(paragraph => (
+          {description.map((paragraph: string) => (
             <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">{paragraph}</p>
           ))}
         </div>
         
         <div class="mt-10 flex flex-wrap gap-4">
-          {actions.map(action => (
+          {actions.map((action: Action) => (
             <a 
               href={action.link} 
               class={`

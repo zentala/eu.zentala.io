@@ -203,7 +203,7 @@ import DisplayTitle from '../../components/DisplayTitle.astro';
       
       // Update active button
       countryButtons.forEach(btn => {
-        if (btn.dataset.country === country) {
+        if (btn instanceof HTMLElement && btn.dataset && btn.dataset.country === country) {
           btn.classList.add('active');
         } else {
           btn.classList.remove('active');
@@ -211,14 +211,18 @@ import DisplayTitle from '../../components/DisplayTitle.astro';
       });
       
       // Scroll to benefits
-      benefitsContainer.scrollIntoView({ behavior: 'smooth' });
+      if (benefitsContainer) {
+        benefitsContainer.scrollIntoView({ behavior: 'smooth' });
+      }
     };
     
     // Add click listeners to country buttons
     countryButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const country = button.dataset.country;
-        showCountryBenefits(country);
+        if (button instanceof HTMLElement && button.dataset && button.dataset.country) {
+          const country = button.dataset.country;
+          showCountryBenefits(country);
+        }
       });
     });
     

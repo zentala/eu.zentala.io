@@ -11,7 +11,12 @@ export async function getStaticPaths() {
     });
     
     // Create a mapping for easy lookup
-    const allPaths = [];
+    type PathItem = {
+      params: { slug: string };
+      props: { entry: any };
+    };
+    
+    const allPaths: PathItem[] = [];
     
     // Log all documents for debugging purposes
     console.log("All documents in docs collection:");
