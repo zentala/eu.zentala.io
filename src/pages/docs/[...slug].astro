@@ -10,24 +10,34 @@ export async function getStaticPaths() {
       return import.meta.env.DEV || !doc.data.draft;
     });
     
+    // Create a mapping for easy lookup
+    const allPaths = [];
+    
     // Log all documents for debugging purposes
     console.log("All documents in docs collection:");
-    allDocs.forEach(doc => {
-      console.log(`- ${doc.slug} (${doc.id})`);
+    
+    // Add all documents to the paths array
+    allDocs.forEach(entry => {
+      console.log(`- ${entry.slug} (${entry.id})`);
+      
+      // Generate a path for this document based on its file slug
+      allPaths.push({
+        params: { slug: entry.slug },
+        props: { entry }
+      });
+      
+      // If document has a customSlug, generate an additional path
+      if (entry.data.customSlug && entry.data.customSlug !== entry.slug) {
+        console.log(`  - Custom slug: ${entry.data.customSlug}`);
+        allPaths.push({
+          params: { slug: entry.data.customSlug },
+          props: { entry }
+        });
+      }
     });
     
-    // Use a more reliable approach to handle routing
-    return allDocs.map(entry => {
-      // Prefer custom slug if defined, otherwise use the file-based slug
-      const routeSlug = entry.data.customSlug || entry.slug;
-      
-      return {
-        params: { 
-          slug: routeSlug
-        },
-        props: { entry },
-      };
-    });
+    console.log(`Generated ${allPaths.length} paths`);
+    return allPaths;
   } catch (error) {
     console.error("Error generating static paths:", error);
     return [];

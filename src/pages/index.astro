@@ -55,7 +55,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-12">
     <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger>
+      <CardGrid columns={2} gap="2.5rem">
         <Card title="I. Language Unification" color="indigo" icon="🗣️">
           <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
           <ul class="space-y-2">
@@ -130,7 +130,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-blue-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger>
+      <CardGrid columns={2} gap="2.5rem">
         <Card title="English as the Official Language of the EU" color="indigo" icon="🏛️">
           Imagine MEPs debating in a shared language, breaking down barriers and fostering true pan-European discourse.
         </Card>
@@ -162,7 +162,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger>
+      <CardGrid columns={2} gap="2.5rem">
         <Card title="'European English' as an Official Language" color="blue" icon="🇪🇺">
           Every EU country becomes bilingual, with European English as a widely adopted, legally recognized, and practiced language alongside the national tongue.
         </Card>
@@ -282,7 +282,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-cyan-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger columns={3} gap="1.5rem">
+      <CardGrid columns={3} gap="2rem">
         <Card title="The Digital Government Revolution" color="blue" icon="🖥️">
           Envisioning a future where every citizen, police officer, and judge interacts with the state through seamless digital systems. The government of tomorrow will be fully digital, paperless, and accessible through user-friendly interfaces.
         </Card>
@@ -383,7 +383,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-yellow-900 to-amber-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger columns={3}>
+      <CardGrid columns={3} gap="2rem">
         <Card title="Near-Zero Transaction Costs" color="yellow" icon="💸">
           Eliminating excessive fees for digital money transfers, treating financial transactions as a public service rather than a profit center for banks.
         </Card>
@@ -419,7 +419,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-green-900 to-emerald-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger columns={3}>
+      <CardGrid columns={3} gap="2rem">
         <Card title="Overcoming Germany's Geographic Dividend" color="green" icon="🗺️">
           Addressing the unfair advantage of centrally-located countries by creating a unified, efficient logistics network across the EU.
         </Card>
@@ -479,7 +479,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-indigo-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid stagger columns={2}>
+      <CardGrid columns={2} gap="2rem">
         <Card title="Seeking Mutual Benefit" color="purple" icon="🤝">
           Focusing on reforms and initiatives that provide clear advantages to all member states, fostering a spirit of collective progress.
         </Card>

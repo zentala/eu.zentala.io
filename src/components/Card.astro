@@ -43,7 +43,7 @@ if (color === "blue") {
 }
 ---
 
-<article class={`card flex flex-col gap-4 m-4 p-8 border ${borderColorClass} ${bgColorClass} ${hoverColorClass} rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] text-white`}>
+<article class={`card flex flex-col gap-4 m-4 p-8 border ${borderColorClass} ${bgColorClass} ${hoverColorClass} rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] text-white h-full`}>
 	<h3 class="title flex font-bold text-2xl leading-snug gap-4 items-center mb-4">
 		{icon && <span class="text-3xl">{icon}</span>}
 		<span set:html={title} />
