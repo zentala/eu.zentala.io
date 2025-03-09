@@ -99,7 +99,7 @@ import BookIcon from '../assets/icons/book.svg';
     </div>
     <h3 class="text-xl font-bold text-white mb-2">I. Language Integration</h3>
     <p class="text-gray-300 mb-4">English as a second official language across all EU states to remove communication barriers</p>
-    <a href="/docs/book/language" class="text-indigo-400 hover:text-indigo-300 font-medium flex justify-center items-center group">
+    <a href="/docs/ideas/culture/language-integration" class="text-indigo-400 hover:text-indigo-300 font-medium flex justify-center items-center group">
       Learn more
       <img src={ArrowRightIcon.src} alt="Arrow right" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
     </a>
@@ -144,229 +144,45 @@ import BookIcon from '../assets/icons/book.svg';
   </p>
 </div>
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-  <DisplayTitle level={1}>Core Pillars of European Integration</DisplayTitle>
-
-  <div class="relative mb-12">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
-    <div class="relative">
-      <CardGrid columns={2} gap="2.5rem">
-        <Card title="I. Language Unification" color="indigo" icon="🗣️">
-          <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
-          <ul class="space-y-2">
-            <li><a href="/docs/book/language-integration-administrative-implementation" class="text-blue-300 hover:text-blue-200">Administrative Implementation of Language Integration</a></li>
-            <li><a href="/docs/book/media-cultural-integration" class="text-blue-300 hover:text-blue-200">European Media and Cultural Integration</a></li>
-            <li><a href="/docs/book/economic-growth-language-unity" class="text-blue-300 hover:text-blue-200">Economic Growth Through Language Unity</a></li>
-            <li><a href="/docs/book/language" class="text-blue-300 hover:text-blue-200">EU Language Integration</a></li>
-          </ul>
-        </Card>
-
-        <Card title="II. Digital Administration Integration" color="blue" icon="💻">
-          <p class="mb-4">Building a unified European digital government infrastructure instead of a tower of Babel. Leveraging technology to streamline and integrate administrative systems across the EU.</p>
-          <ul class="space-y-2">
-            <li><a href="/docs/book/egov-vison" class="text-blue-300 hover:text-blue-200">European Digital Government Vision</a></li>
-            <li><a href="/docs/book/egov-challenges" class="text-blue-300 hover:text-blue-200">Implementation Challenges of Unified Digital Government</a></li>
-          </ul>
-        </Card>
-
-        <Card title="III. European Digital Public Services" color="teal" icon="🔬">
-          <p class="mb-4">Developing EU-wide digital services that leverage our combined scale and expertise:</p>
-          <ul class="space-y-2">
-            <li><a href="/docs/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200"><strong>Predictive Healthcare System</strong></a> - trained on pan-European data for early disease detection</li>		
-            <li><a href="/docs/book/european-elearning-system" class="text-blue-300 hover:text-blue-200"><strong>European eLearning System</strong></a> - enabling lifelong learning and personalized education</li>
-            <li><a href="/docs/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200"><strong>European Blockchain Archives</strong></a> - immutable public records eliminating physical archives</li>
-          </ul>
-        </Card>
-
-        <Card title="IV. Logistical Integration" color="green" icon="🚚">
-          <ul class="space-y-2">
-            <li>Creating a single, efficient autonomous robotic logistics market in the EU, for seamless goods transport across the EU, fostering a truly interconnected european economy.</li>
-            <li>Ensuring packages of any size — from letters to containers — reach any corner of Europe within 48 hours.</li>
-            <li>Everyone, every individual and the smallest business, should have equal ease of transporting goods within the EU, trading goods within the EU, and delivering them to their customers.</li>
-            <li>Autonomous Multimodal Transportation - developing an integrated system of self-driving vehicles, drones, and smart infrastructure to revolutionize goods and people movement across Europe. This includes utilizing roads, railways, waterways, and even air routes to ensure efficient and sustainable transportation.</li>
-            <li>Minimize waste logistics: recycling, reusable packaging, circular economy, transport for recycling and reperation back to producers.</li>
-            <li>Autonomous logistics can significantly enhance recycling efforts by enabling the collection of even the smallest items, like batteries, for recycling.</li>
-            <li>It can also handle atypical items, allowing for the transport of hundreds of fractions autonomously over long distances. When logistics are cheap and easy, materials can be better utilized.</li>
-            <li>Expanding the European high-speed rail network to allow overnight travel from any EU border to another, ensuring seamless connectivity.</li>
-            <li>Ensuring that any package, regardless of size, ordered online from any location within the EU can be delivered to another location by the next day.</li>
-          </ul>
-        </Card>
-
-        <Card title="V. Financial Reforms" color="yellow" icon="💰">
-          <ul class="space-y-2">
-            <li>Establishing a <a href="/docs/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200"><strong>Unified Payment Zone</strong></a> across the EU to simplify financial transactions and boost economic integration. - cheap seamless currency exchange system</li>
-            <li><a href="/docs/book/near-zero-transaction-costs" class="text-blue-300 hover:text-blue-200"><strong>Near-Zero Transaction Costs</strong></a> eliminating excessive fees for digital money transfers, treating financial transactions as a public service rather than a profit center for banks.</li>
-            <li><a href="/docs/book/digital-receipts" class="text-blue-300 hover:text-blue-200"><strong>Digital Receipts</strong></a> for keeping receipts for warranty purposes and to facilitate obtaining warranties.</li>
-          </ul>
-        </Card>
-
-        <Card title="VI. Robotization" color="red" icon="🤖">
-          <ul class="space-y-2">
-            <li>Robotization is the new motorization. Europe must reinvent and reindustrialize itself as a robotized economy.</li>
-            <li>Germany should transition from the car industry to the robotics industry. By opening their automotive solutions to the European market, we can prototype and build on them.</li>
-            <li>Europe can't miss the robotics revolution. Without successful robotization, the EU risks becoming a secondary world economy. We are in this together.</li>
-            <li>Europe possesses a significant asset: a large number of Central European software engineers. They can be dedicated to building a new generation of robotics startups.</li>
-            <li>Robotization is the new industrialization. Europe will not be able to bring production back locally without outsourcing it to robots.</li>
-            <li>The key efficiency factor of future economies will be the level of automation.</li>
-            <li>Robotization also represents a new retirement system. It allows us to maintain the social contract and provide cheap local goods.</li>
-            <li>Robotization is the future, and I hope Europe will join it.</li>
-          </ul>
-        </Card>
-      </CardGrid>
-    </div>
-  </div>
-</div>
 
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-  <DisplayTitle level={1}> I. Language Integration: English as the Lingua Franca of Europe</DisplayTitle>
-
-  <DisplayTitle level={3}>In European Politics</DisplayTitle>
+  <DisplayTitle level={1}>I. Language Integration</DisplayTitle>
 
   <div class="relative mb-16">
     <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-blue-900 opacity-10 blur-xl"></div>
     <div class="relative">
-      <CardGrid columns={2} gap="2.5rem">
-        <Card title="English as the Official Language of the EU" color="indigo" icon="🏛️">
-          Imagine MEPs debating in a shared language, breaking down barriers and fostering true pan-European discourse.
-        </Card>
-
-        <Card title="English-Speaking European Media" color="blue" icon="📺">
-          Envision a vibrant landscape of European commentators discussing EU politics in English, creating a unified public sphere.
-        </Card>
-
-        <Card title="Cultivating European Political Awareness" color="indigo" icon="🔄">
-          Let's tackle Europe's challenges and shape its future together, freely exchanging ideas and perspectives in a common language.
-        </Card>
-
-        <Card title="Low Barrier to Entry" color="blue" icon="🚪">
-          English is already widely adopted across the EU. Younger generations consume English content daily, and it's the de facto language of international business in Europe.
-        </Card>
-
-        {/* <Card title="Angielski jest jezykiem nauki, a gospodarka przyszlosci to nauka">
-        </Card> */}
-
-        {/* w perspektywe czasu i skali bardzo duzy zwrot dla ue za uproszczneie procsow*/}
-      </CardGrid>
-    </div>
-  </div>
-</div>
-
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-  <DisplayTitle level={3}>In National States</DisplayTitle>
-
-  <div class="relative mb-16">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-10 blur-xl"></div>
-    <div class="relative">
-      <CardGrid columns={2} gap="2.5rem">
-        <Card title="'European English' as an Official Language" color="blue" icon="🇪🇺">
-          Every EU country becomes bilingual, with European English as a widely adopted, legally recognized, and practiced language alongside the national tongue.
-        </Card>
-        
-        <Card title="Streamlined Bureaucracy" color="indigo" icon="📄">
-          Handle your paperwork in English in any EU country, from tax forms to building permits.
-        </Card>
-        
-        <Card title="Enhancing, Not Replacing" color="blue" icon="🔄">
-          We're not diminishing national languages, but adding a powerful tool for unity and efficiency.
-        </Card>	
-
-        <Card title="English-Accessible Administration" color="indigo" icon="🏢">
-          From bilingual forms to English-speaking staff in every office, communicate with any government department in English.
-        </Card>
-
-        <Card title="A Gesture of Openness and Collaboration" color="blue" icon="🤝">
-          Adopting English isn't just for foreigners—it's for all of us. It facilitates cooperation, opens doors to information, and embodies our belief in the power of unity and engagement.
-        </Card>
-      </CardGrid>
-    </div>
-  </div>
-</div>
-
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-  <DisplayTitle level={3}>Administrative Implementation</DisplayTitle>
-
-  <div class="relative mb-16">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-10 blur-xl"></div>
-    <div class="relative">
-      <CardGrid>
-        <Card title="Language Integration Timeline" color="purple" icon="⏱️">
-          <ul class="space-y-2">
-            <li>• 2 years: All addresses have corresponding codes, eliminating foreign pronunciation issues</li>
-            <li>• 4 years: Museums and public places labeled in English</li>
-            <li>• 6 years: Official government forms available in English</li>
-            <li>• 10 years: English becomes mandatory in schools from early childhood</li>
-            <li>• 12 years: Mandatory C1/C2 English exam before adulthood</li>
-            <li>• 14 years: Legal proceedings can be conducted in English</li>
-            <li>• 16 years: Every public office staffed with English-proficient personnel</li>
+      <p class="text-lg text-gray-300 leading-relaxed mb-6">
+        The Language Integration initiative proposes establishing English as a second official language in all EU member states, creating a bilingual Europe that preserves national languages while enabling seamless communication across the continent. This cornerstone reform brings immense economies of scale and unlocks the benefits of true European collaboration.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div class="bg-indigo-900/20 border border-indigo-800/30 p-6 rounded-xl">
+          <h3 class="text-xl font-bold mb-3 text-white">Key Benefits</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li>• Breaking down communication barriers across the EU</li>
+            <li>• Enabling true labor mobility and educational exchange</li>
+            <li>• Simplifying business operations and administration</li>
+            <li>• Creating a unified European discourse and identity</li>
           </ul>
-        </Card>
-
-        <Card title="European English Council" color="indigo" icon="👑">
-          Establishing a governing body to standardize 'European English', settling debates like 'crisps vs. chips' for a unified linguistic approach.
-        </Card>
-      </CardGrid>
-    </div>
-  </div>
-</div>
-
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-  <DisplayTitle level={3}>Cultural Integration</DisplayTitle>
-
-  <div class="relative mb-16">
-    <div class="absolute inset-0 bg-gradient-to-r from-indigo-900 to-purple-900 opacity-10 blur-xl"></div>
-    <div class="relative">
-      <CardGrid>
-        <Card title="The Rise of European English" color="indigo" icon="📈">
-          Envisioning a future where English becomes the lingua franca 
-          for business, politics, media, and science across the EU, 
-          fostering deeper cultural integration.
-        </Card>
-
-        <Card title="A New European Identity" color="purple" icon="🧩">
-          Creating an environment where children of expats grow up in English-speaking communities, 
-          developing a new sense of European belonging transcending national borders and identities.
-        </Card>
-
-        <Card title="A United European Discourse" color="blue" icon="💬">
-          Facilitating discussions about European political strategy, economy, and defense in a shared language, 
-          moving beyond national boundaries to a truly collective European mindset.
-        </Card>
-      </CardGrid>
-    </div>
-  </div>
-</div>
-
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-  <DisplayTitle level={3}>Economic Growth Through Language Unity</DisplayTitle>
-
-  <div class="relative mb-16">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-green-900 opacity-10 blur-xl"></div>
-    <div class="relative">
-      <CardGrid columns={3}>
-        <Card title="Seamless Business Operations" color="green" icon="🏢">
-          Enabling businesses to handle official matters in English across all EU countries, fostering truly pan-European companies.
-        </Card>
-
-        <Card title="Boosting European-Scale Enterprises" color="blue" icon="📊">
-          Breaking language barriers to build EU-wide businesses, encouraging growth beyond national markets.
-        </Card>
-
-        <Card title="Enhanced Workforce Mobility" color="teal" icon="🧳">
-          Creating an English-adopted workspace everywhere in the EU, facilitating easier movement of skilled professionals across borders.
-        </Card>
-
-        <Card title="Attracting Global Investment" color="green" icon="💰">
-          Making the EU more appealing to English-speaking investors by eliminating language barriers in legal and business documentation.
-        </Card>
-
-        <Card title="Aligning with the Language of Innovation" color="blue" icon="🔬">
-          English is the language of cutting-edge research and technology. By adopting it, we're positioning Europe at the forefront of global innovation.
-        </Card>
-
-        <Card title="Preparing for the Future of Work" color="teal" icon="🚀">
-          Creating a common language foundation for the increasingly global and digital future workforce.
-        </Card>
-      </CardGrid>
+        </div>
+        
+        <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+          <h3 class="text-xl font-bold mb-3 text-white">Implementation Approach</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li>• Gradual 16-year phased implementation</li>
+            <li>• Establishing a European English Council</li>
+            <li>• Prioritizing administrative accessibility</li>
+            <li>• Preserving national languages alongside English</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex justify-center mt-8">
+        <a href="/docs/ideas/culture/language-integration" class="px-6 py-3 bg-indigo-700 hover:bg-indigo-600 text-white font-medium rounded-lg transition-colors duration-300 flex items-center">
+          Explore Full Language Integration Vision
+          <span class="ml-2">→</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
