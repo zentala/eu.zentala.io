@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const allDocs = await getCollection('docs');
-  const uniqueTags = new Set();
+  const uniqueTags = new Set<string>();
   
   // Extract all unique tags
   allDocs.forEach(doc => {
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   });
   
   // Create a path for each tag
-  return Array.from(uniqueTags).map(tag => {
+  return Array.from(uniqueTags).map((tag: string) => {
     // Find all documents with this tag
     const filteredDocs = allDocs.filter(doc => {
       if (!doc.data.tags) return false;
