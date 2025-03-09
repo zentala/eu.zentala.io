@@ -81,17 +81,17 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 - Wyjaśnienie motywacji stojącej za projektem reformy UE
 - **Status**: Zaimplementowane
 
-### 13. Sekcja "Dlaczego cyfrowa reforma jest konieczna"
+### 13. Sekcja "Dlaczego cyfrowa reforma jest konieczna" ✅
 - Wyjaśnienie, jak optymalizacja procesów administracyjnych, podatkowych i prawnych przez cyfryzację wpłynie na gospodarkę
 - Wykorzystanie ekonomii skali i podejścia z IT do zarządzania państwem
 - Pokazanie, jak integracja cyfrowa i językowa mogą razem przynieść ogromne korzyści ekonomiczne
-- **Status**: Do zrobienia
+- Dodanie informacji o roli robotyzacji w obronności i zarządzaniu granicami
+- **Status**: Zaimplementowane
 
 ## Kolejne kroki
 1. Reorganizacja treści wokół trzech filarów
-2. Implementacja sekcji "Dlaczego cyfrowa reforma jest konieczna"
-3. Dodanie social proof (cytaty ekspertów)
-4. Optymalizacja nawigacji mobilnej
-5. Ulepszenie wizualne kart
-6. Dodanie interaktywnych elementów (mapy)
-7. Integracja z Algolia Search
+2. Dodanie social proof (cytaty ekspertów)
+3. Optymalizacja nawigacji mobilnej
+4. Ulepszenie wizualne kart
+5. Dodanie interaktywnych elementów (mapy)
+6. Integracja z Algolia Search
