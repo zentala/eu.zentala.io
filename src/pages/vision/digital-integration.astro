@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
 ---
 
 <Layout title="Digital Integration">
@@ -15,18 +17,190 @@ import Layout from '../../layouts/Layout.astro';
         Building a unified European digital government infrastructure to streamline administration and provide pan-European digital services
       </div>
       
-      <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl mb-12">
-        <p class="text-lg text-gray-300">
-          This page is under development. More detailed content about the Digital Integration pillar will be coming soon. 
-          In the meantime, please visit the Vision Overview page for a summary of this initiative.
-        </p>
-      </div>
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Digital Government Vision</h2>
+        <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl mb-8">
+          <p class="text-lg text-gray-300">
+            Digital Integration proposes building a unified European digital government infrastructure instead of 27 separate solutions. By developing software collectively while allowing each nation to host and customize implementations, we can achieve economies of scale and true administrative integration across the EU.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">The Digital Government Revolution</h3>
+            <p class="text-gray-300">Envisioning a future where every citizen, police officer, and judge interacts with the state through seamless digital systems. The government of tomorrow will be fully digital, paperless, and accessible through user-friendly interfaces.</p>
+          </div>
+
+          <div class="bg-cyan-900/20 border border-cyan-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Building a Unified Digital Europe</h3>
+            <p class="text-gray-300">Instead of creating a digital Tower of Babel with each EU country digitalizing separately, let's craft a shared vision for e-government applications. By building together, we can achieve economies of scale and true digital integration across the EU.</p>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Collaborative Development, Individual Implementation</h3>
+            <p class="text-gray-300">We can develop software collectively as EU countries, sharing an open-source approach, while allowing each nation to host and customize for its citizens. This ensures both unity in development and flexibility in implementation.</p>
+          </div>
+
+          <div class="bg-cyan-900/20 border border-cyan-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">European Digital-First Governance</h3>
+            <p class="text-gray-300">Creating a comprehensive digital system that prioritizes online interactions, making government services more efficient and accessible.</p>
+          </div>
+        </div>
+      </section>
       
-      <div class="flex justify-center">
-        <a href="/vision" class="px-6 py-3 bg-blue-700 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-300">
-          Return to Vision Overview
-        </a>
-      </div>
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Governance Innovations</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Code as Law</h3>
+            <p class="text-gray-300">Recognizing computer code as a valid format for expressing and implementing laws, paving the way for more precise and automated governance.</p>
+          </div>
+
+          <div class="bg-cyan-900/20 border border-cyan-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Digital Direct Democracy</h3>
+            <p class="text-gray-300">Leveraging digital systems to enable more direct forms of democracy, increasing citizen participation in decision-making processes.</p>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">European Blockchain Archives</h3>
+            <p class="text-gray-300">Implementing blockchain technology to ensure the immutability and full observability of public records, eliminating the need for physical archives.</p>
+          </div>
+
+          <div class="bg-cyan-900/20 border border-cyan-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Council of Software Architects</h3>
+            <p class="text-gray-300">Establishing a 'parliament' of programmers and developers to debate and shape the future of European software and its standardization for the EU.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">European Digital Health Care</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-teal-900/20 border border-teal-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Digital Predictive Health Care</h3>
+            <p class="text-gray-300">Launching a groundbreaking European research project to build a predictive medicine institute. Leveraging big data from across the EU to train AI models for early disease detection, revolutionizing preventive care for all Europeans.</p>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">AI-Powered Diagnostics</h3>
+            <p class="text-gray-300">Implementing cutting-edge AI systems to assist doctors in analyzing health data, considering past medical records and genetic information for more accurate diagnoses.</p>
+          </div>
+
+          <div class="bg-teal-900/20 border border-teal-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Personalized Medicine</h3>
+            <p class="text-gray-300">Harnessing the power of big data and genetics to provide tailored, high-quality healthcare solutions for every EU citizen at minimal marginal cost.</p>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Unified European Health Database</h3>
+            <p class="text-gray-300">Creating a secure, anonymized health database spanning the EU to drive research, improve treatments, and enable rapid responses to health crises.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">European eLearning System</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+          <div class="bg-purple-900/20 border border-purple-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">The Future of Education is Digital</h3>
+            <p class="text-gray-300">Embracing eLearning as the primary mode of education delivery, preparing European citizens for a digital-first world.</p>
+          </div>
+
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Lifelong Learning</h3>
+            <p class="text-gray-300">Creating a framework for continuous learning throughout all life stages, enabling career transitions and skill upgrades for all Europeans.</p>
+          </div>
+
+          <div class="bg-purple-900/20 border border-purple-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">AI-Powered Personalized Learning</h3>
+            <p class="text-gray-300">Utilizing artificial intelligence to tailor educational content and pace to individual learners, maximizing educational outcomes.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Financial Reforms</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-yellow-900/20 border border-yellow-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Near-Zero Transaction Costs</h3>
+            <p class="text-gray-300">Eliminating excessive fees for digital money transfers, treating financial transactions as a public service rather than a profit center for banks.</p>
+          </div>
+
+          <div class="bg-amber-900/20 border border-amber-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Digital Payment Zone</h3>
+            <p class="text-gray-300">Creating a unified payment system across all 27 EU countries, facilitating seamless transactions regardless of local currency.</p>
+          </div>
+
+          <div class="bg-yellow-900/20 border border-yellow-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Automated Taxation</h3>
+            <p class="text-gray-300">Designing a system where businesses can issue invoices and receive payments through a state-provided platform, with taxes automatically calculated and deducted.</p>
+          </div>
+
+          <div class="bg-amber-900/20 border border-amber-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Flexible Taxation for the Gig Economy</h3>
+            <p class="text-gray-300">Implementing an adaptable tax system that accommodates the diverse and fluid nature of employment in the AI era.</p>
+          </div>
+
+          <div class="bg-yellow-900/20 border border-yellow-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Digital Receipts</h3>
+            <p class="text-gray-300">Automatically generating digital receipts for all card payments, streamlining record-keeping for both consumers and businesses.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Benefits</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Citizens</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Streamlined access to government services</li>
+              <li>• Reduced bureaucracy and paperwork</li>
+              <li>• Better healthcare through data-driven insights</li>
+              <li>• Enhanced educational opportunities</li>
+              <li>• Simplified financial transactions</li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Businesses</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Simplified compliance and regulatory procedures</li>
+              <li>• Reduced administrative costs</li>
+              <li>• Seamless cross-border operations</li>
+              <li>• Digital payment infrastructure</li>
+              <li>• Access to pan-European markets</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Governments</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Economies of scale in software development</li>
+              <li>• Reduced administrative costs</li>
+              <li>• Improved service delivery</li>
+              <li>• Better data collection and analysis</li>
+              <li>• Enhanced policy implementation</li>
+            </ul>
+          </div>
+          
+          <div class="bg-teal-900/20 border border-teal-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For European Integration</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Standardized digital infrastructure</li>
+              <li>• Enhanced cross-border collaboration</li>
+              <li>• Shared resources and expertise</li>
+              <li>• Collective problem-solving</li>
+              <li>• Digital foundation for further integration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </Layout>

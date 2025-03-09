@@ -79,60 +79,80 @@ import CardGrid from '../../components/CardGrid.astro';
     <div class="relative mb-12">
       <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
       <div class="relative">
-        <CardGrid columns={2} gap="2.5rem">
-          <Card title="I. Language Unification" color="indigo" icon="🗣️">
+        <CardGrid columns={1} gap="2.5rem">
+          <Card title="I. Language Integration" color="indigo" icon="🗣️">
             <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
-            <ul class="space-y-2">
-              <li><a href="/vision/language-integration" class="text-blue-300 hover:text-blue-200">Language Integration Overview</a></li>
-              <li><a href="/book/language-integration-administrative-implementation" class="text-blue-300 hover:text-blue-200">Administrative Implementation</a></li>
-              <li><a href="/book/media-cultural-integration" class="text-blue-300 hover:text-blue-200">European Media and Cultural Integration</a></li>
-              <li><a href="/book/economic-growth-language-unity" class="text-blue-300 hover:text-blue-200">Economic Growth Through Language Unity</a></li>
-            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div class="bg-indigo-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-indigo-200">Key Components</h4>
+                <ul class="space-y-2">
+                  <li>• English as second official language in all EU countries</li>
+                  <li>• European English Council for standardization</li>
+                  <li>• Bilingual government services everywhere</li>
+                  <li>• Enhanced cross-border communication</li>
+                </ul>
+              </div>
+              <div class="bg-indigo-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-indigo-200">Learn More</h4>
+                <ul class="space-y-1">
+                  <li><a href="/vision/language-integration" class="text-blue-300 hover:text-blue-200">→ Language Integration Overview</a></li>
+                  <li><a href="/book/language-integration-administrative-implementation" class="text-blue-300 hover:text-blue-200">→ Administrative Implementation</a></li>
+                  <li><a href="/book/media-cultural-integration" class="text-blue-300 hover:text-blue-200">→ Media and Cultural Integration</a></li>
+                  <li><a href="/book/economic-growth-language-unity" class="text-blue-300 hover:text-blue-200">→ Economic Growth Through Language</a></li>
+                </ul>
+              </div>
+            </div>
           </Card>
 
-          <Card title="II. Digital Administration Integration" color="blue" icon="💻">
-            <p class="mb-4">Building a unified European digital government infrastructure instead of a tower of Babel. Leveraging technology to streamline and integrate administrative systems across the EU.</p>
-            <ul class="space-y-2">
-              <li><a href="/vision/digital-integration" class="text-blue-300 hover:text-blue-200">European Digital Government Vision</a></li>
-              <li><a href="/book/egov-challenges" class="text-blue-300 hover:text-blue-200">Implementation Challenges of Unified Digital Government</a></li>
-            </ul>
+          <Card title="II. Digital Integration" color="blue" icon="💻">
+            <p class="mb-4">Building a unified European digital government infrastructure and common digital services to streamline administration, improve healthcare, education, and financial services across the EU.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div class="bg-blue-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-blue-200">Key Components</h4>
+                <ul class="space-y-1">
+                  <li><strong>Digital Administration</strong>: Unified e-government systems</li>
+                  <li><strong>Digital Healthcare</strong>: Predictive medicine, AI diagnostics</li>
+                  <li><strong>eLearning System</strong>: Personalized, lifelong learning</li>
+                  <li><strong>Financial Reforms</strong>: Digital payments, near-zero fees</li>
+                  <li><strong>Blockchain Archives</strong>: Immutable public records</li>
+                </ul>
+              </div>
+              <div class="bg-blue-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-blue-200">Learn More</h4>
+                <ul class="space-y-1">
+                  <li><a href="/vision/digital-integration" class="text-blue-300 hover:text-blue-200">→ Digital Integration Overview</a></li>
+                  <li><a href="/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200">→ Predictive Healthcare System</a></li>
+                  <li><a href="/book/european-elearning-system" class="text-blue-300 hover:text-blue-200">→ European eLearning System</a></li>
+                  <li><a href="/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200">→ Unified Payment Zone</a></li>
+                  <li><a href="/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200">→ European Blockchain Archives</a></li>
+                </ul>
+              </div>
+            </div>
           </Card>
 
-          <Card title="III. European Digital Public Services" color="teal" icon="🔬">
-            <p class="mb-4">Developing EU-wide digital services that leverage our combined scale and expertise:</p>
-            <ul class="space-y-2">
-              <li><a href="/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200"><strong>Predictive Healthcare System</strong></a> - trained on pan-European data for early disease detection</li>		
-              <li><a href="/book/european-elearning-system" class="text-blue-300 hover:text-blue-200"><strong>European eLearning System</strong></a> - enabling lifelong learning and personalized education</li>
-              <li><a href="/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200"><strong>European Blockchain Archives</strong></a> - immutable public records eliminating physical archives</li>
-            </ul>
-          </Card>
-
-          <Card title="IV. Logistical Integration" color="green" icon="🚚">
-            <ul class="space-y-2">
-              <li>Creating a single, efficient autonomous robotic logistics market in the EU, for seamless goods transport across the EU</li>
-              <li>Ensuring packages of any size reach any corner of Europe within 48 hours</li>
-              <li>Autonomous Multimodal Transportation - integrated system of self-driving vehicles, drones, and smart infrastructure</li>
-              <li>Expanding the European high-speed rail network for overnight travel across the EU</li>
-              <li>Minimizing waste through improved recycling logistics and reusable packaging</li>
-            </ul>
-          </Card>
-
-          <Card title="V. Financial Reforms" color="yellow" icon="💰">
-            <ul class="space-y-2">
-              <li>Establishing a <a href="/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200"><strong>Unified Payment Zone</strong></a> across the EU to simplify financial transactions</li>
-              <li><a href="/book/near-zero-transaction-costs" class="text-blue-300 hover:text-blue-200"><strong>Near-Zero Transaction Costs</strong></a> eliminating excessive fees for digital money transfers</li>
-              <li><a href="/book/digital-receipts" class="text-blue-300 hover:text-blue-200"><strong>Digital Receipts</strong></a> for warranty purposes and streamlined consumer protection</li>
-            </ul>
-          </Card>
-
-          <Card title="VI. Robotization" color="red" icon="🤖">
-            <ul class="space-y-2">
-              <li>Reindustrializing Europe as a robotized economy</li>
-              <li>Transitioning from automotive to robotics industry focus</li>
-              <li>Leveraging Central European software talent for robotics development</li>
-              <li>Addressing demographic challenges through automation</li>
-              <li>Increasing competitiveness through leading the global robotics revolution</li>
-            </ul>
+          <Card title="III. Robotic Reindustrialization" color="green" icon="🤖">
+            <p class="mb-4">Leading the global robotics revolution to reindustrialize Europe, create autonomous logistics networks, and develop sustainable, localized manufacturing.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div class="bg-green-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-green-200">Key Components</h4>
+                <ul class="space-y-1">
+                  <li><strong>Logistics Integration</strong>: 48-hour delivery across the EU</li>
+                  <li><strong>Robotic Manufacturing</strong>: Localized, sustainable production</li>
+                  <li><strong>Autonomous Transportation</strong>: Self-driving vehicles, drones</li>
+                  <li><strong>Robotic Agriculture</strong>: Sustainable, diverse farming</li>
+                  <li><strong>Circular Economy</strong>: Enhanced recycling through automation</li>
+                </ul>
+              </div>
+              <div class="bg-green-900/30 p-4 rounded-lg">
+                <h4 class="font-bold mb-2 text-green-200">Learn More</h4>
+                <ul class="space-y-1">
+                  <li><a href="/vision/robotic-reindustrialization" class="text-blue-300 hover:text-blue-200">→ Robotic Reindustrialization Overview</a></li>
+                  <li><a href="/book/autonomous-transportation" class="text-blue-300 hover:text-blue-200">→ Autonomous Transportation</a></li>
+                  <li><a href="/book/european-logistics-market" class="text-blue-300 hover:text-blue-200">→ European Logistics Market</a></li>
+                  <li><a href="/book/robotic-agriculture" class="text-blue-300 hover:text-blue-200">→ Robotic Agriculture</a></li>
+                </ul>
+              </div>
+            </div>
           </Card>
         </CardGrid>
       </div>

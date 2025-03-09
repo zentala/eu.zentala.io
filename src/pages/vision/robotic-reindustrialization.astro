@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
 ---
 
 <Layout title="Robotic Reindustrialization">
@@ -15,18 +17,136 @@ import Layout from '../../layouts/Layout.astro';
         Leading the global robotics revolution to reindustrialize Europe and create sustainable, localized manufacturing
       </div>
       
-      <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl mb-12">
-        <p class="text-lg text-gray-300">
-          This page is under development. More detailed content about the Robotic Reindustrialization pillar will be coming soon. 
-          In the meantime, please visit the Vision Overview page for a summary of this initiative.
-        </p>
-      </div>
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">The Robotics Revolution</h2>
+        <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl mb-8">
+          <p class="text-lg text-gray-300">
+            Robotization is the new industrialization. To remain competitive globally, Europe must reinvent and reindustrialize itself as a robotized economy. This pillar focuses on creating an autonomous logistics network, developing robotic production capabilities, and building a sustainable, localized manufacturing ecosystem across the EU.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Robotics: The New Pension System</h3>
+            <p class="text-gray-300">Embracing automation as a means to support an aging population, redefining social security for the 21st century. The robots will work for us, providing the foundation for social security systems in the AI era.</p>
+          </div>
+          
+          <div class="bg-emerald-900/20 border border-emerald-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Pivoting from Automobiles to Robotics</h3>
+            <p class="text-gray-300">Encouraging European industry, especially the German automotive sector, to lead in robotics platforms supply, enabling a new ecosystem for robotics startups and innovations in EU.</p>
+          </div>
+        </div>
+      </section>
       
-      <div class="flex justify-center">
-        <a href="/vision" class="px-6 py-3 bg-green-700 hover:bg-green-600 text-white font-medium rounded-lg transition-colors duration-300">
-          Return to Vision Overview
-        </a>
-      </div>
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Logistical Integration</h2>
+        
+        <div class="grid grid-cols-1 gap-6 my-8">
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Overcoming Geographic Advantages</h3>
+            <p class="text-gray-300">Addressing the unfair advantage of centrally-located countries by creating a unified, efficient logistics network across the EU. This levels the playing field for countries at the periphery.</p>
+          </div>
+          
+          <div class="bg-emerald-900/20 border border-emerald-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">European Unified Logistics Market</h3>
+            <p class="text-gray-300">Creating a seamless transportation network enabling 48-hour delivery anywhere in the EU, leveling the playing field for e-commerce across the continent.</p>
+          </div>
+          
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Autonomous Multimodal Transportation</h3>
+            <div class="text-gray-300">
+              <p class="mb-4">Developing an integrated system of self-driving vehicles, drones, and smart infrastructure to revolutionize goods and people movement across Europe. This includes utilizing roads, railways, waterways, and even air routes to ensure efficient and sustainable transportation.</p>
+              <ul class="space-y-2">
+                <li>• Expanding the European high-speed rail network to allow overnight travel from any EU border to another, ensuring seamless connectivity.</li>
+                <li>• Ensuring that any package, regardless of size, ordered online from any location within the EU can be delivered to another location by the next day.</li>
+                <li>• The system will also focus on reusable packaging to minimize waste.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Infrastructure for the Robotic Age</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Building Accessibility for Robots</h3>
+            <p class="text-gray-300">Standardizing building designs and creating 3D models to facilitate robotic delivery and services, preparing our urban landscapes for an automated future.</p>
+          </div>
+          
+          <div class="bg-emerald-900/20 border border-emerald-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Circular Economy Infrastructure</h3>
+            <p class="text-gray-300">Autonomous logistics can significantly enhance recycling efforts by enabling the collection of even the smallest items for recycling. It can handle atypical items, allowing for the transport of hundreds of fractions over long distances.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Sustainable Agriculture</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-lime-900/20 border border-lime-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Autonomous Diverse Farming</h3>
+            <p class="text-gray-300">Leveraging robotics and automation to create diverse, sustainable farming practices across Europe, increasing resilience and productivity.</p>
+          </div>
+          
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">Land Reserved for Natural Habitats</h3>
+            <p class="text-gray-300">Setting aside permanent land reserves for natural ecosystems, ensuring biodiversity protection and environmental sustainability.</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-white">Benefits</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+          <div class="bg-blue-900/20 border border-blue-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Citizens</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Faster, cheaper delivery of goods</li>
+              <li>• New job opportunities in robotics</li>
+              <li>• Sustainable local production</li>
+              <li>• Enhanced quality of life</li>
+              <li>• Supporting aging population's needs</li>
+            </ul>
+          </div>
+          
+          <div class="bg-green-900/20 border border-green-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Businesses</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Access to efficient logistics networks</li>
+              <li>• New markets for robotics innovation</li>
+              <li>• Reduced transportation costs</li>
+              <li>• Sustainable supply chains</li>
+              <li>• EU-wide customer reach</li>
+            </ul>
+          </div>
+          
+          <div class="bg-purple-900/20 border border-purple-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Peripheral Regions</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Equal access to logistics networks</li>
+              <li>• Reduced geographic disadvantages</li>
+              <li>• New industrial opportunities</li>
+              <li>• Economic development</li>
+              <li>• Integration into EU economy</li>
+            </ul>
+          </div>
+          
+          <div class="bg-teal-900/20 border border-teal-800/30 p-6 rounded-xl">
+            <h3 class="text-xl font-bold mb-3 text-white">For Environment</h3>
+            <ul class="space-y-2 text-gray-300">
+              <li>• Optimized resource usage</li>
+              <li>• Enhanced recycling capabilities</li>
+              <li>• Reduced carbon footprint</li>
+              <li>• Sustainable agricultural practices</li>
+              <li>• Preservation of natural habitats</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </Layout>

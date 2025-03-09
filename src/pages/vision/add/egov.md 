@@ -1,0 +1,23 @@
+     167
+     168            <Card title="V. Financial Reforms" color="yellow" icon="💰">
+     169              <ul class="space-y-2">
+     170                <li>Establishing a <a href="/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200"><strong>Unified Payment Zone</strong></a> across the EU to s
+         implify financial transactions</li>
+     171                <li><a href="/book/near-zero-transaction-costs" class="text-blue-300 hover:text-blue-200"><strong>Near-Zero Transaction Costs</strong></a> eliminating excessi
+         ve fees for digital money transfers</li>
+     172                <li><a href="/book/digital-receipts" class="text-blue-300 hover:text-blue-200"><strong>Digital Receipts</strong></a> for warranty purposes and streamlined con
+         sumer protection</li>
+     173              </ul>
+     174            </Card>
+
+     2
+     133            <Card title="III. European Digital Public Services" color="teal" icon="🔬">
+     134              <p class="mb-4">Developing EU-wide digital services that leverage our combined scale and expertise:</p>
+     135              <ul class="space-y-2">
+     136                <li><a href="/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200"><strong>Predictive Healthcare System</strong></a> - trained on pan-
+         European data for early disease detection</li>
+     137                <li><a href="/book/european-elearning-system" class="text-blue-300 hover:text-blue-200"><strong>European eLearning System</strong></a> - enabling lifelong lea
+         rning and personalized education</li>
+     138                <li><a href="/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200"><strong>European Blockchain Archives</strong></a> - immutable publi
+         c records eliminating physical archives</li>
+     139              </ul>
