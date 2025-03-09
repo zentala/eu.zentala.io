@@ -1,0 +1,370 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+---
+
+<Layout title="European Integration Vision">
+  <div class="bg-gray-900 text-white min-h-screen">
+    <main class="container mx-auto max-w-6xl px-4 py-8">
+      <h1 class="text-4xl font-bold mb-8 text-white">European Integration Vision</h1>
+      
+      <div class="text-2xl mb-10 mt-6 text-gray-200">
+        A comprehensive framework for strengthening European unity through practical, mutually beneficial reforms focused on technology, language, and infrastructure.
+      </div>
+    
+    <div class="flex justify-center my-16">
+      <div class="max-w-6xl w-full p-10 bg-blue-900 rounded-xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-8 text-center text-white">Vision Timeline: 2025-2045</h2>
+        <div class="flex items-center justify-between relative">
+          <div class="absolute top-1/2 left-0 right-0 h-2 bg-blue-700 transform -translate-y-1/2"></div>
+          <div class="relative z-10 px-5 py-4 bg-gray-800 rounded-xl shadow-md border-2 border-blue-400 text-white">
+            <p class="font-bold text-xl">2025-2030</p>
+            <p class="text-lg">Infrastructure<br/>& Foundation</p>
+          </div>
+          <div class="relative z-10 px-5 py-4 bg-gray-800 rounded-xl shadow-md border-2 border-blue-400 text-white">
+            <p class="font-bold text-xl">2030-2035</p>
+            <p class="text-lg">System<br/>Integration</p>
+          </div>
+          <div class="relative z-10 px-5 py-4 bg-gray-800 rounded-xl shadow-md border-2 border-blue-400 text-white">
+            <p class="font-bold text-xl">2035-2045</p>
+            <p class="text-lg">Cultural<br/>Transformation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold mt-16 mb-8 text-white">Core Pillars</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 bg-gradient-to-br from-indigo-900/30 to-indigo-800/10 rounded-xl border border-indigo-800/30 hover:border-indigo-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+        <div class="bg-indigo-700/20 inline-flex p-3 mb-4 rounded-lg">
+          <span class="text-3xl">🗣️</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">I. Language Integration</h3>
+        <p class="text-gray-300 mb-4">English as a second official language across all EU states to remove communication barriers</p>
+        <a href="/vision/language-integration" class="text-indigo-400 hover:text-indigo-300 font-medium flex justify-center items-center group">
+          Learn more
+          <span class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+      
+      <div class="p-6 bg-gradient-to-br from-blue-900/30 to-blue-800/10 rounded-xl border border-blue-800/30 hover:border-blue-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+        <div class="bg-blue-700/20 inline-flex p-3 mb-4 rounded-lg">
+          <span class="text-3xl">💻</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">II. Digital Integration</h3>
+        <p class="text-gray-300 mb-4">Unified digital government, e-health, e-learning, and blockchain-based public services</p>
+        <a href="/vision/digital-integration" class="text-blue-400 hover:text-blue-300 font-medium flex justify-center items-center group">
+          Learn more
+          <span class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+      
+      <div class="p-6 bg-gradient-to-br from-green-900/30 to-green-800/10 rounded-xl border border-green-800/30 hover:border-green-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
+        <div class="bg-green-700/20 inline-flex p-3 mb-4 rounded-lg">
+          <span class="text-3xl">🤖</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">III. Robotic Reindustrialization</h3>
+        <p class="text-gray-300 mb-4">Autonomous logistics, robotic production, and sustainable, localized manufacturing</p>
+        <a href="/vision/robotic-reindustrialization" class="text-green-400 hover:text-green-300 font-medium flex justify-center items-center group">
+          Learn more
+          <span class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold mt-16 mb-8 text-white">Core Pillars of European Integration</h2>
+    
+    <div class="relative mb-12">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
+      <div class="relative">
+        <CardGrid columns={2} gap="2.5rem">
+          <Card title="I. Language Unification" color="indigo" icon="🗣️">
+            <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
+            <ul class="space-y-2">
+              <li><a href="/vision/language-integration" class="text-blue-300 hover:text-blue-200">Language Integration Overview</a></li>
+              <li><a href="/book/language-integration-administrative-implementation" class="text-blue-300 hover:text-blue-200">Administrative Implementation</a></li>
+              <li><a href="/book/media-cultural-integration" class="text-blue-300 hover:text-blue-200">European Media and Cultural Integration</a></li>
+              <li><a href="/book/economic-growth-language-unity" class="text-blue-300 hover:text-blue-200">Economic Growth Through Language Unity</a></li>
+            </ul>
+          </Card>
+
+          <Card title="II. Digital Administration Integration" color="blue" icon="💻">
+            <p class="mb-4">Building a unified European digital government infrastructure instead of a tower of Babel. Leveraging technology to streamline and integrate administrative systems across the EU.</p>
+            <ul class="space-y-2">
+              <li><a href="/vision/digital-integration" class="text-blue-300 hover:text-blue-200">European Digital Government Vision</a></li>
+              <li><a href="/book/egov-challenges" class="text-blue-300 hover:text-blue-200">Implementation Challenges of Unified Digital Government</a></li>
+            </ul>
+          </Card>
+
+          <Card title="III. European Digital Public Services" color="teal" icon="🔬">
+            <p class="mb-4">Developing EU-wide digital services that leverage our combined scale and expertise:</p>
+            <ul class="space-y-2">
+              <li><a href="/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200"><strong>Predictive Healthcare System</strong></a> - trained on pan-European data for early disease detection</li>		
+              <li><a href="/book/european-elearning-system" class="text-blue-300 hover:text-blue-200"><strong>European eLearning System</strong></a> - enabling lifelong learning and personalized education</li>
+              <li><a href="/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200"><strong>European Blockchain Archives</strong></a> - immutable public records eliminating physical archives</li>
+            </ul>
+          </Card>
+
+          <Card title="IV. Logistical Integration" color="green" icon="🚚">
+            <ul class="space-y-2">
+              <li>Creating a single, efficient autonomous robotic logistics market in the EU, for seamless goods transport across the EU</li>
+              <li>Ensuring packages of any size reach any corner of Europe within 48 hours</li>
+              <li>Autonomous Multimodal Transportation - integrated system of self-driving vehicles, drones, and smart infrastructure</li>
+              <li>Expanding the European high-speed rail network for overnight travel across the EU</li>
+              <li>Minimizing waste through improved recycling logistics and reusable packaging</li>
+            </ul>
+          </Card>
+
+          <Card title="V. Financial Reforms" color="yellow" icon="💰">
+            <ul class="space-y-2">
+              <li>Establishing a <a href="/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200"><strong>Unified Payment Zone</strong></a> across the EU to simplify financial transactions</li>
+              <li><a href="/book/near-zero-transaction-costs" class="text-blue-300 hover:text-blue-200"><strong>Near-Zero Transaction Costs</strong></a> eliminating excessive fees for digital money transfers</li>
+              <li><a href="/book/digital-receipts" class="text-blue-300 hover:text-blue-200"><strong>Digital Receipts</strong></a> for warranty purposes and streamlined consumer protection</li>
+            </ul>
+          </Card>
+
+          <Card title="VI. Robotization" color="red" icon="🤖">
+            <ul class="space-y-2">
+              <li>Reindustrializing Europe as a robotized economy</li>
+              <li>Transitioning from automotive to robotics industry focus</li>
+              <li>Leveraging Central European software talent for robotics development</li>
+              <li>Addressing demographic challenges through automation</li>
+              <li>Increasing competitiveness through leading the global robotics revolution</li>
+            </ul>
+          </Card>
+        </CardGrid>
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold mt-16 mb-8 text-white">Additional Focus Areas</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-16">
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-green-500 rounded-full mr-4">
+            <span class="text-white text-xl">🌱</span>
+          </div>
+          <h3 class="text-xl font-bold">Environmental Protection</h3>
+        </div>
+        <p class="text-lg mt-2">Comprehensive approach to sustainability with land reservation, pollution control, and clean energy development.</p>
+      </div>
+      
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-indigo-500 rounded-full mr-4">
+            <span class="text-white text-xl">⚖️</span>
+          </div>
+          <h3 class="text-xl font-bold">Customized Local Law</h3>
+        </div>
+        <p class="text-lg mt-2">Allowing regions to customize policies while maintaining core EU principles, enabling local experimentation.</p>
+      </div>
+      
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-500 rounded-full mr-4">
+            <span class="text-white text-xl">🗳️</span>
+          </div>
+          <h3 class="text-xl font-bold">European Digital Democracy</h3>
+        </div>
+        <p class="text-lg mt-2">Digitally-enabled participatory democracy with tiered participation models based on decision complexity.</p>
+      </div>
+      
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-yellow-500 rounded-full mr-4">
+            <span class="text-white text-xl">🌾</span>
+          </div>
+          <h3 class="text-xl font-bold">Agricultural Policy</h3>
+        </div>
+        <p class="text-lg mt-2">Robotized, sustainable agricultural systems with autonomous farming technology and soil restoration.</p>
+      </div>
+      
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-red-500 rounded-full mr-4">
+            <span class="text-white text-xl">🎓</span>
+          </div>
+          <h3 class="text-xl font-bold">Education Reform</h3>
+        </div>
+        <p class="text-lg mt-2">Standardized skills certification system with EU-wide recognition and lifelong learning support.</p>
+      </div>
+      
+      <div class="flex flex-col p-8 bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-white">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-teal-500 rounded-full mr-4">
+            <span class="text-white text-xl">🔢</span>
+          </div>
+          <h3 class="text-xl font-bold">European Street Naming</h3>
+        </div>
+        <p class="text-lg mt-2">Standardized addressing alongside traditional street names for better navigation and logistics.</p>
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold mt-16 mb-8 text-white">Benefits by Stakeholder</h2>
+    
+    <div class="my-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 shadow-lg rounded-xl overflow-hidden">
+          <div class="bg-blue-700 text-white p-6">
+            <h3 class="text-2xl font-bold">For Citizens</h3>
+          </div>
+          <div class="p-8 text-white">
+            <ul class="space-y-4 text-lg">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Improved public services through digital innovation</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Easier movement and settlement across the EU</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Enhanced job opportunities through skills recognition</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Faster, cheaper logistics and transportation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-800 shadow-lg rounded-xl overflow-hidden">
+          <div class="bg-green-700 text-white p-6">
+            <h3 class="text-2xl font-bold">For Businesses</h3>
+          </div>
+          <div class="p-8 text-white">
+            <ul class="space-y-4 text-lg">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Simplified cross-border operations</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Reduced administrative burden</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Access to EU-wide talent pool</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Efficient logistics for e-commerce</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-800 shadow-lg rounded-xl overflow-hidden">
+          <div class="bg-yellow-700 text-white p-6">
+            <h3 class="text-2xl font-bold">For Regional Development</h3>
+          </div>
+          <div class="p-8 text-white">
+            <ul class="space-y-4 text-lg">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>More equitable economic development</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Reduced geographic disadvantages</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Local specialization opportunities</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Enhanced infrastructure connectivity</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-gray-800 shadow-lg rounded-xl overflow-hidden">
+          <div class="bg-purple-700 text-white p-6">
+            <h3 class="text-2xl font-bold">For European Integration</h3>
+          </div>
+          <div class="p-8 text-white">
+            <ul class="space-y-4 text-lg">
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Practical, tangible benefits for all citizens</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Natural cultural integration through shared systems</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Enhanced European competitiveness globally</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-400 mr-3 text-xl">✓</span>
+                <span>Economies of scale through shared development</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="text-3xl font-bold mt-16 mb-8 text-white">Guiding Principles</h2>
+    
+    <div class="my-16 p-10 bg-gray-800 rounded-xl shadow-lg text-white">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="flex flex-col">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-600 rounded-full mr-4">
+              <span class="text-white text-xl font-bold">1</span>
+            </div>
+            <h3 class="text-2xl font-bold">Seeking Mutual Benefit</h3>
+          </div>
+          <p class="ml-16 text-lg">Focus on reforms that provide clear advantages to all member states, fostering a spirit of collective progress rather than zero-sum competition.</p>
+        </div>
+        
+        <div class="flex flex-col">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-600 rounded-full mr-4">
+              <span class="text-white text-xl font-bold">2</span>
+            </div>
+            <h3 class="text-2xl font-bold">Leveraging Economies of Scale</h3>
+          </div>
+          <p class="ml-16 text-lg">Develop solutions collectively that would be too expensive or complex for individual nations to create independently.</p>
+        </div>
+        
+        <div class="flex flex-col">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-600 rounded-full mr-4">
+              <span class="text-white text-xl font-bold">3</span>
+            </div>
+            <h3 class="text-2xl font-bold">Building a Common Culture</h3>
+          </div>
+          <p class="ml-16 text-lg">Foster a European identity alongside national cultures through shared systems, language, and infrastructure.</p>
+        </div>
+        
+        <div class="flex flex-col">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-600 rounded-full mr-4">
+              <span class="text-white text-xl font-bold">4</span>
+            </div>
+            <h3 class="text-2xl font-bold">Improving Quality of Life</h3>
+          </div>
+          <p class="ml-16 text-lg">Address challenges too big for individual nations through radical reforms and shifting appropriate competencies to the EU level.</p>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="mt-20 p-10 bg-gray-800 rounded-xl text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">About This Project</h2>
+        <p class="text-lg mb-6">This vision for European integration presents a comprehensive framework for addressing Europe's most pressing challenges through technological innovation, cultural integration, and administrative reform. Rather than focusing on institutional changes, this approach centers on creating the shared infrastructure, language, and digital systems that would naturally bring Europeans closer together.</p>
+        <p class="text-lg italic">By leveraging technology, embracing a common language, and building shared systems, we can create a more united, efficient, and prosperous Europe for all its citizens.</p>
+      </div>
+    </footer>
+    </main>
+  </div>
+</Layout>
