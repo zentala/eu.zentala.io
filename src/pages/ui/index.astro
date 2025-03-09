@@ -11,6 +11,7 @@ import Testimonials from '../../components/Testimonials.astro';
 import InteractiveSection from '../../components/InteractiveSection.astro';
 import EuropeMap from '../../components/EuropeMap.astro';
 import EUStatisticsChart from '../../components/EUStatisticsChart.astro';
+import Timeline from '../../components/Timeline.astro';
 
 // Sample data for examples
 const cardColors = ["blue", "indigo", "green", "yellow", "red", "purple", "teal"];
@@ -66,6 +67,7 @@ const faqItems = [
           <ul class="ml-6 mt-1 list-disc list-inside">
             <li><a href="#maps" class="text-blue-400 hover:text-blue-300">Maps</a></li>
             <li><a href="#charts" class="text-blue-400 hover:text-blue-300">Charts</a></li>
+            <li><a href="#timeline" class="text-blue-400 hover:text-blue-300">Timeline</a></li>
           </ul>
         </li>
       </ul>
@@ -538,6 +540,7 @@ import FAQ from '../components/FAQ.astro';
             { text: 'Primary Action', link: '#', variant: 'primary' },
             { text: 'Secondary Action', link: '#', variant: 'secondary' }
           ]}
+          image="/images/hero-image.jpg"
         />
         
         <h3 class="text-2xl font-bold text-white mt-12 mb-4">Hero Component Usage</h3>
@@ -552,6 +555,7 @@ import FAQ from '../components/FAQ.astro';
     { text: 'Primary Action', link: '/some-link', variant: 'primary' },
     { text: 'Secondary Action', link: '/other-link', variant: 'secondary' }
   ]}
+  image="/images/hero-image.jpg"
 />`}</code></pre>
         </div>
       </div>
@@ -768,6 +772,52 @@ import FAQ from '../components/FAQ.astro';
           </div>
         </div>
       </section>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="mb-16">
+      <DisplayTitle level={1}>Timeline Component</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Timeline Component Example</h2>
+        
+        <div class="mb-8">
+          <Timeline 
+            title="Vision Timeline: 2025-2045"
+            items={[
+              { period: "2025-2030", title: "Infrastructure\n& Foundation" },
+              { period: "2030-2035", title: "System\nIntegration" },
+              { period: "2035-2045", title: "Cultural\nTransformation" }
+            ]}
+            color="blue"
+          />
+        </div>
+        
+        <div class="mb-8">
+          <Timeline 
+            title="Project Roadmap"
+            items={[
+              { period: "Phase 1", title: "Research\n& Planning" },
+              { period: "Phase 2", title: "Development\n& Testing" },
+              { period: "Phase 3", title: "Deployment\n& Scaling" }
+            ]}
+            color="purple"
+          />
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">Timeline Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<Timeline 
+  title="Vision Timeline: 2025-2045"
+  items={[
+    { period: "2025-2030", title: "Infrastructure\\n& Foundation" },
+    { period: "2030-2035", title: "System\\nIntegration" },
+    { period: "2035-2045", title: "Cultural\\nTransformation" }
+  ]}
+  color="blue"
+/>`}</code></pre>
+        </div>
+      </div>
     </section>
 
     <!-- Full Interactive Section Example -->

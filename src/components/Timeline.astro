@@ -1,0 +1,51 @@
+---
+// Timeline component for displaying a chronological roadmap
+interface TimelineItem {
+  period: string;
+  title: string;
+}
+
+export interface Props {
+  title?: string;
+  items: TimelineItem[];
+  color?: string;
+}
+
+const { 
+  title = "Vision Timeline", 
+  items = [
+    { period: "2025-2030", title: "Infrastructure\n& Foundation" },
+    { period: "2030-2035", title: "System\nIntegration" },
+    { period: "2035-2045", title: "Cultural\nTransformation" }
+  ],
+  color = "blue"
+} = Astro.props;
+
+// Color mapping
+const colorMap: Record<string, { bg: string; line: string; border: string }> = {
+  blue: { bg: "bg-blue-900", line: "bg-blue-700", border: "border-blue-400" },
+  indigo: { bg: "bg-indigo-900", line: "bg-indigo-700", border: "border-indigo-400" },
+  purple: { bg: "bg-purple-900", line: "bg-purple-700", border: "border-purple-400" },
+  green: { bg: "bg-green-900", line: "bg-green-700", border: "border-green-400" },
+  teal: { bg: "bg-teal-900", line: "bg-teal-700", border: "border-teal-400" },
+  red: { bg: "bg-red-900", line: "bg-red-700", border: "border-red-400" },
+  yellow: { bg: "bg-yellow-900", line: "bg-yellow-700", border: "border-yellow-400" }
+};
+
+const colors = colorMap[color] || colorMap.blue;
+---
+
+<div class="flex justify-center my-16">
+  <div class={`max-w-6xl w-full p-10 ${colors.bg} rounded-xl shadow-lg`}>
+    <h2 class="text-3xl font-bold mb-8 text-center text-white">{title}</h2>
+    <div class="flex items-center justify-between relative">
+      <div class={`absolute top-1/2 left-0 right-0 h-2 ${colors.line} transform -translate-y-1/2`}></div>
+      {items.map((item) => (
+        <div class={`relative z-10 px-5 py-4 bg-gray-800 rounded-xl shadow-md border-2 ${colors.border} text-white`}>
+          <p class="font-bold text-xl">{item.period}</p>
+          <p class="text-lg whitespace-pre-line">{item.title}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div> 
