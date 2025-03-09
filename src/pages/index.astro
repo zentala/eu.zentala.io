@@ -13,6 +13,7 @@ import Author from '../components/Author.astro';
 import WhyDigitalReform from '../components/WhyDigitalReform.astro';
 import Testimonials from '../components/Testimonials.astro';
 import InteractiveSection from '../components/InteractiveSection.astro';
+import Newsletter from '../components/Newsletter.astro';
 
 // Import SVG icons
 import LanguageIcon from '../assets/icons/language.svg';
@@ -100,7 +101,9 @@ import BookIcon from '../assets/icons/book.svg';
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     
     <DisplayTitle level={1} class="text-center">Core Pillars of European Consolidation</DisplayTitle>
-
+    <p class="text-xl text-gray-300 leading-relaxed mt-4 mb-20 text-center max-w-5xl mx-auto">
+     By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, security, and the freedom to truly live go hand in hand.
+    </p>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
     <div class="p-6 bg-gradient-to-br from-indigo-900/30 to-indigo-800/10 rounded-xl border border-indigo-800/30 hover:border-indigo-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
       <div class="bg-indigo-700/20 inline-flex p-3 mb-4 rounded-lg">
@@ -138,10 +141,6 @@ import BookIcon from '../assets/icons/book.svg';
       </a>
     </div>
   </div>
-
-  <p class="text-xl text-gray-300 leading-relaxed mt-4 pt-10 text-center max-w-5xl mx-auto">
-    As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand.
-  </p>
 </div>
 
 
@@ -302,31 +301,7 @@ import BookIcon from '../assets/icons/book.svg';
 
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16 mb-24">
   <DisplayTitle level={1}>Stay Updated</DisplayTitle>
-  
-  <div class="relative">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-10 blur-xl"></div>
-    <div class="relative bg-blue-900/30 border border-blue-700/50 rounded-xl p-8 shadow-lg">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">Subscribe to Our Newsletter</h2>
-        <p class="text-gray-300 mb-6">Join our community of forward-thinking Europeans. Get updates on the latest developments and be part of shaping Europe's digital future.</p>
-        
-        <form class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-          <input 
-            type="email" 
-            placeholder="Your email address" 
-            class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-auto sm:flex-1 max-w-md"
-          />
-          <button 
-            type="submit" 
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors duration-300"
-          >
-            Subscribe
-          </button>
-        </form>
-        <p class="text-gray-400 text-sm">We respect your privacy. Unsubscribe at any time.</p>
-      </div>
-    </div>
-  </div>
+  <Newsletter />
 </div>
 
 </Layout>

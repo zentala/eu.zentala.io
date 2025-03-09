@@ -1,0 +1,68 @@
+import Layout from '../layouts/Layout.astro';
+
+<Layout title="Confirm Subscription">
+  <div class="container mx-auto max-w-md py-16 px-4">
+    <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-center">
+      <h1 class="text-3xl font-bold mb-6 text-white">Confirming your subscription</h1>
+      <p class="text-gray-300 mb-4" id="status-message">Please wait while we confirm your subscription...</p>
+      <div id="loading" class="flex justify-center my-8">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+      <div id="result" class="hidden">
+        <p id="result-message" class="text-xl mb-6"></p>
+        <a href="/" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+          Return to homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Client-side code to confirm the subscription
+  document.addEventListener('DOMContentLoaded', async () => {
+    const statusMessage = document.getElementById('status-message');
+    const loading = document.getElementById('loading');
+    const result = document.getElementById('result');
+    const resultMessage = document.getElementById('result-message');
+    
+    try {
+      // Get token from URL
+      const token = new URLSearchParams(window.location.search).get('token');
+      
+      if (!token) {
+        throw new Error('No confirmation token found');
+      }
+      
+      // Call the Appwrite function directly
+      const response = await fetch(`${import.meta.env.PUBLIC_APPWRITE_ENDPOINT}/functions/${import.meta.env.PUBLIC_APPWRITE_CONFIRM_FUNCTION_ID}/executions`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-Appwrite-Project': import.meta.env.PUBLIC_APPWRITE_PROJECT_ID
+        },
+        body: JSON.stringify({ token })
+      });
+      
+      const data = await response.json();
+      
+      // Hide loading and show result
+      loading.classList.add('hidden');
+      result.classList.remove('hidden');
+      
+      if (response.ok && data.statusCode < 400) {
+        resultMessage.textContent = data.response?.message || 'Your subscription has been confirmed!';
+        resultMessage.classList.add('text-green-400');
+      } else {
+        resultMessage.textContent = data.response?.error || 'Failed to confirm subscription';
+        resultMessage.classList.add('text-red-400');
+      }
+    } catch (error) {
+      // Handle errors
+      loading.classList.add('hidden');
+      result.classList.remove('hidden');
+      resultMessage.textContent = 'An error occurred: ' + (error.message || 'Unknown error');
+      resultMessage.classList.add('text-red-400');
+    }
+  });
+</script> 

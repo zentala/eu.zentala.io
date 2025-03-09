@@ -23,4 +23,4 @@ pnpm-debug.log*
 .DS_Store
 
 # temporary content folder
-src/pages/vision/add/
+src/pages/vision/add/*
