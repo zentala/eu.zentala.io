@@ -87,6 +87,13 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 - Dodanie informacji o roli robotyzacji w obronności i zarządzaniu granicami
 - **Status**: Zaimplementowane
 
+### 14. Strona UI z komponentami ✅
+- Stworzenie katalogu komponentów UI dla developerów
+- Dokumentacja wszystkich dostępnych komponentów
+- Przykłady użycia z fragmentami kodu
+- Dostęp tylko w trybie developerskim
+- **Status**: Zaimplementowane
+
 ## Kolejne kroki
 1. Reorganizacja treści wokół trzech filarów
 2. Optymalizacja nawigacji mobilnej

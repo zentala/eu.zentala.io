@@ -80,7 +80,23 @@ const footerLinks = [
         <a href="/tags" class="text-gray-400 hover:text-blue-400">Tags</a>
         <a href="/privacy" class="text-gray-400 hover:text-blue-400">Privacy</a>
         <a href="/terms" class="text-gray-400 hover:text-blue-400">Terms</a>
+        <a href="/ui" id="ui-link" class="hidden text-gray-500 hover:text-blue-400">UI Components</a>
       </div>
     </div>
+    
+    <script>
+      // Show UI link only in development mode
+      document.addEventListener('DOMContentLoaded', () => {
+        const isDevelopment = 
+          window.location.hostname === 'localhost' || 
+          window.location.hostname.includes('127.0.0.1') ||
+          window.location.hostname.includes('.local');
+        
+        const uiLink = document.getElementById('ui-link');
+        if (uiLink && isDevelopment) {
+          uiLink.classList.remove('hidden');
+        }
+      });
+    </script>
   </div>
 </footer>

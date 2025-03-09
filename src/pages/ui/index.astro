@@ -1,0 +1,613 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import DisplayTitle from '../../components/DisplayTitle.astro';
+import Hero from '../../components/Hero.astro';
+import FAQ from '../../components/FAQ.astro';
+import Author from '../../components/Author.astro';
+import WhyDigitalReform from '../../components/WhyDigitalReform.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import InteractiveSection from '../../components/InteractiveSection.astro';
+import EuropeMap from '../../components/EuropeMap.astro';
+import EUStatisticsChart from '../../components/EUStatisticsChart.astro';
+
+// Sample data for examples
+const cardColors = ["blue", "indigo", "green", "yellow", "red", "purple", "teal"];
+
+const sampleChartData = [
+  { label: 'Category A', value: 65, color: 'rgba(75, 192, 192, 0.8)' },
+  { label: 'Category B', value: 45, color: 'rgba(54, 162, 235, 0.8)' },
+  { label: 'Category C', value: 85, color: 'rgba(153, 102, 255, 0.8)' },
+  { label: 'Category D', value: 30, color: 'rgba(255, 159, 64, 0.8)' }
+];
+
+const faqItems = [
+  {
+    question: "Sample Question 1?",
+    answer: "This is a sample answer to demonstrate the FAQ component functionality."
+  },
+  {
+    question: "Sample Question 2?",
+    answer: "Another example answer with <strong>HTML formatting</strong> and <a href='#'>links</a>."
+  }
+];
+---
+
+<Layout title="UI Components Library">
+  <div class="container mx-auto px-4 py-8">
+    <div class="border-b border-gray-700 pb-4 mb-12">
+      <h1 class="text-4xl font-bold text-white mb-2">UI Components Library</h1>
+      <p class="text-gray-300">This page showcases all available UI components for reference and development purposes.</p>
+      <p class="text-gray-500 text-sm mt-2">Note: This page is only visible in development mode.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Contents</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li><a href="#typography" class="text-blue-400 hover:text-blue-300">Typography</a></li>
+        <li><a href="#buttons" class="text-blue-400 hover:text-blue-300">Buttons</a></li>
+        <li><a href="#cards" class="text-blue-400 hover:text-blue-300">Cards</a></li>
+        <li><a href="#grids" class="text-blue-400 hover:text-blue-300">Card Grids</a></li>
+        <li><a href="#hero" class="text-blue-400 hover:text-blue-300">Hero Section</a></li>
+        <li><a href="#faq" class="text-blue-400 hover:text-blue-300">FAQ Component</a></li>
+        <li><a href="#author" class="text-blue-400 hover:text-blue-300">Author Profile</a></li>
+        <li><a href="#whyreform" class="text-blue-400 hover:text-blue-300">Why Digital Reform</a></li>
+        <li><a href="#testimonials" class="text-blue-400 hover:text-blue-300">Testimonials</a></li>
+        <li><a href="#interactive" class="text-blue-400 hover:text-blue-300">Interactive Elements</a>
+          <ul class="ml-6 mt-1 list-disc list-inside">
+            <li><a href="#maps" class="text-blue-400 hover:text-blue-300">Maps</a></li>
+            <li><a href="#charts" class="text-blue-400 hover:text-blue-300">Charts</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Typography Section -->
+    <section id="typography" class="mb-16">
+      <DisplayTitle level={1}>Typography</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 mb-8">
+        <h2 class="text-3xl font-bold text-white mb-8">Heading Examples</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <h1 class="text-4xl font-bold text-white mb-2">Heading 1 (text-4xl)</h1>
+            <div class="text-gray-500 text-sm">Used for main page titles</div>
+          </div>
+          
+          <div>
+            <h2 class="text-3xl font-bold text-white mb-2">Heading 2 (text-3xl)</h2>
+            <div class="text-gray-500 text-sm">Used for section headings</div>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Heading 3 (text-2xl)</h3>
+            <div class="text-gray-500 text-sm">Used for subsection headings</div>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold text-white mb-2">Heading 4 (text-xl)</h4>
+            <div class="text-gray-500 text-sm">Used for card titles and small sections</div>
+          </div>
+          
+          <div>
+            <h5 class="text-lg font-bold text-white mb-2">Heading 5 (text-lg)</h5>
+            <div class="text-gray-500 text-sm">Used for minor headings</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 mb-8">
+        <h2 class="text-3xl font-bold text-white mb-8">Text Examples</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <p class="text-gray-300 text-lg mb-2">Body Text Large (text-lg)</p>
+            <div class="text-gray-500 text-sm">Used for important paragraphs and introductions</div>
+          </div>
+          
+          <div>
+            <p class="text-gray-300 mb-2">Body Text Regular</p>
+            <div class="text-gray-500 text-sm">Default text style for paragraphs</div>
+          </div>
+          
+          <div>
+            <p class="text-gray-400 text-sm mb-2">Small Text (text-sm)</p>
+            <div class="text-gray-500 text-sm">Used for secondary information, captions</div>
+          </div>
+          
+          <div>
+            <p class="text-gray-300 mb-2">Text with <span class="font-bold">bold</span>, <span class="italic">italic</span>, and <span class="underline">underline</span> formatting</p>
+          </div>
+          
+          <div>
+            <p class="text-gray-300 mb-2">Text with <a href="#" class="text-blue-400 hover:text-blue-300">link styling</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">List Examples</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Unordered List</h3>
+            <ul class="list-disc list-inside text-gray-300 space-y-2">
+              <li>First list item</li>
+              <li>Second list item with <a href="#" class="text-blue-400 hover:text-blue-300">a link</a></li>
+              <li>Third list item
+                <ul class="list-circle list-inside ml-6 mt-2 space-y-2">
+                  <li>Nested list item</li>
+                  <li>Another nested item</li>
+                </ul>
+              </li>
+              <li>Fourth list item</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Ordered List</h3>
+            <ol class="list-decimal list-inside text-gray-300 space-y-2">
+              <li>First ordered item</li>
+              <li>Second ordered item</li>
+              <li>Third ordered item
+                <ol class="list-decimal list-inside ml-6 mt-2 space-y-2">
+                  <li>Nested ordered item</li>
+                  <li>Another nested ordered item</li>
+                </ol>
+              </li>
+              <li>Fourth ordered item</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons Section -->
+    <section id="buttons" class="mb-16">
+      <DisplayTitle level={1}>Buttons</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Button Styles</h2>
+        
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Primary Buttons</h3>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors duration-300">
+                Primary Button
+              </button>
+              <button class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg transition-colors duration-300">
+                Indigo Variant
+              </button>
+              <button class="px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-colors duration-300">
+                Green Variant
+              </button>
+              <button disabled class="px-6 py-3 bg-blue-600 opacity-50 cursor-not-allowed text-white font-medium rounded-lg">
+                Disabled
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Secondary Buttons</h3>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-transparent border border-blue-500 hover:bg-blue-500/20 text-blue-400 font-medium rounded-lg transition-colors duration-300">
+                Secondary Button
+              </button>
+              <button class="px-6 py-3 bg-transparent border border-indigo-500 hover:bg-indigo-500/20 text-indigo-400 font-medium rounded-lg transition-colors duration-300">
+                Indigo Variant
+              </button>
+              <button class="px-6 py-3 bg-transparent border border-green-500 hover:bg-green-500/20 text-green-400 font-medium rounded-lg transition-colors duration-300">
+                Green Variant
+              </button>
+              <button disabled class="px-6 py-3 bg-transparent border border-blue-500 opacity-50 cursor-not-allowed text-blue-400 font-medium rounded-lg">
+                Disabled
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Button Sizes</h3>
+            <div class="flex flex-wrap items-center gap-4">
+              <button class="px-5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors duration-300">
+                Small
+              </button>
+              <button class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors duration-300">
+                Medium (Default)
+              </button>
+              <button class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white text-lg font-medium rounded-lg transition-colors duration-300">
+                Large
+              </button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold text-white mb-4">Button with Icon</h3>
+            <div class="flex flex-wrap gap-4">
+              <button class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors duration-300 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                </svg>
+                Next Step
+              </button>
+              <button class="px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-medium rounded-lg transition-colors duration-300 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Add New
+              </button>
+              <button class="px-6 py-3 bg-transparent border border-blue-500 hover:bg-blue-500/20 text-blue-400 font-medium rounded-lg transition-colors duration-300 flex items-center gap-2">
+                Download
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="mb-16">
+      <DisplayTitle level={1}>Cards</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Card Component Examples</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {cardColors.map((color, index) => (
+            <Card title={`${color.charAt(0).toUpperCase() + color.slice(1)} Card`} color={color} icon={["🚀", "💡", "🔧", "📊", "🔍", "⚙️", "📱"][index]}>
+              <p>This is an example of a card with {color} styling. Cards are used throughout the site to display content in organized sections.</p>
+            </Card>
+          ))}
+        </div>
+        
+        <h3 class="text-2xl font-bold text-white mb-4">Card Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<Card title="Card Title" color="blue" icon="🚀">
+  <p>Card content goes here.</p>
+</Card>`}</code></pre>
+        </div>
+        <p class="text-gray-300 mb-2">Available colors: blue, indigo, green, yellow, red, purple, teal</p>
+      </div>
+    </section>
+
+    <!-- Card Grids Section -->
+    <section id="grids" class="mb-16">
+      <DisplayTitle level={1}>Card Grids</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">CardGrid Component Examples</h2>
+        
+        <h3 class="text-2xl font-bold text-white mb-4">2-Column Grid</h3>
+        <CardGrid columns={2} gap="2rem">
+          <Card title="Card One" color="blue" icon="📘">
+            <p>This is the first card in a 2-column grid layout.</p>
+          </Card>
+          <Card title="Card Two" color="indigo" icon="📗">
+            <p>This is the second card in a 2-column grid layout.</p>
+          </Card>
+          <Card title="Card Three" color="teal" icon="📙">
+            <p>This is the third card in a 2-column grid layout.</p>
+          </Card>
+          <Card title="Card Four" color="green" icon="📕">
+            <p>This is the fourth card in a 2-column grid layout.</p>
+          </Card>
+        </CardGrid>
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">3-Column Grid</h3>
+        <CardGrid columns={3} gap="1.5rem">
+          <Card title="Card One" color="purple" icon="🧠">
+            <p>This is the first card in a 3-column grid layout.</p>
+          </Card>
+          <Card title="Card Two" color="red" icon="❤️">
+            <p>This is the second card in a 3-column grid layout.</p>
+          </Card>
+          <Card title="Card Three" color="yellow" icon="⭐">
+            <p>This is the third card in a 3-column grid layout.</p>
+          </Card>
+        </CardGrid>
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">CardGrid Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<CardGrid columns={2} gap="2rem">
+  <Card title="Card One" color="blue" icon="📘">
+    <p>Card content here.</p>
+  </Card>
+  <Card title="Card Two" color="indigo" icon="📗">
+    <p>More card content here.</p>
+  </Card>
+</CardGrid>`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section id="hero" class="mb-16">
+      <DisplayTitle level={1}>Hero Section</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Hero Component Example</h2>
+        
+        <Hero 
+          title="Example Hero Title"
+          description={[
+            "This is a sample hero description that demonstrates the component.",
+            "You can provide multiple strings that will display one after another."
+          ]}
+          actions={[
+            { text: 'Primary Action', link: '#', variant: 'primary' },
+            { text: 'Secondary Action', link: '#', variant: 'secondary' }
+          ]}
+        />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">Hero Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<Hero 
+  title="Hero Title"
+  description={[
+    "First description line",
+    "Second description line"
+  ]}
+  actions={[
+    { text: 'Primary Action', link: '/some-link', variant: 'primary' },
+    { text: 'Secondary Action', link: '/other-link', variant: 'secondary' }
+  ]}
+/>`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="mb-16">
+      <DisplayTitle level={1}>FAQ Component</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">FAQ Component Example</h2>
+        
+        <FAQ 
+          title="Frequently Asked Questions Example"
+          color="blue"
+          items={faqItems}
+        />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">FAQ Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<FAQ 
+  title="Frequently Asked Questions"
+  color="blue"
+  items={[
+    {
+      question: "Question text?",
+      answer: "Answer text with <strong>HTML support</strong>."
+    },
+    {
+      question: "Another question?",
+      answer: "Another answer."
+    }
+  ]}
+/>`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author" class="mb-16">
+      <DisplayTitle level={1}>Author Profile</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Author Component Example</h2>
+        
+        <Author color="purple" />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">Author Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<Author color="purple" />`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Digital Reform Section -->
+    <section id="whyreform" class="mb-16">
+      <DisplayTitle level={1}>Why Digital Reform</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">WhyDigitalReform Component Example</h2>
+        
+        <WhyDigitalReform color="teal" />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">WhyDigitalReform Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<WhyDigitalReform color="teal" />`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="mb-16">
+      <DisplayTitle level={1}>Testimonials</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">Testimonials Component Example</h2>
+        
+        <Testimonials 
+          color="purple"
+          items={[
+            {
+              quote: "This is an example testimonial quote to demonstrate the component functionality.",
+              author: "John Doe",
+              title: "Example Title",
+              organization: "Example Organization"
+            },
+            {
+              quote: "Another example testimonial quote with different styling and formatting.",
+              author: "Jane Smith",
+              title: "Another Title",
+              organization: "Another Organization"
+            }
+          ]}
+        />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">Testimonials Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<Testimonials 
+  color="purple"
+  items={[
+    {
+      quote: "Testimonial text here.",
+      author: "Author Name",
+      title: "Author Title",
+      organization: "Organization Name"
+    },
+    // More testimonials...
+  ]}
+/>`}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Elements Section -->
+    <section id="interactive" class="mb-16">
+      <DisplayTitle level={1}>Interactive Elements</DisplayTitle>
+      
+      <!-- Maps Subsection -->
+      <section id="maps" class="mb-8">
+        <h2 class="text-3xl font-bold text-white my-8">Interactive Maps</h2>
+        
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 mb-8">
+          <h3 class="text-2xl font-bold text-white mb-6">EuropeMap Component Example</h3>
+          
+          <EuropeMap 
+            title="European Countries Map"
+            countries={[
+              {
+                code: "DE",
+                name: "Germany",
+                benefits: ["Sample benefit 1", "Sample benefit 2", "Sample benefit 3"]
+              },
+              {
+                code: "FR",
+                name: "France",
+                benefits: ["Sample benefit 1", "Sample benefit 2", "Sample benefit 3"]
+              },
+              {
+                code: "PL",
+                name: "Poland",
+                benefits: ["Sample benefit 1", "Sample benefit 2", "Sample benefit 3"]
+              }
+            ]}
+          />
+          
+          <h3 class="text-2xl font-bold text-white mt-12 mb-4">EuropeMap Component Usage</h3>
+          <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+            <pre class="text-gray-300 overflow-auto"><code>{`<EuropeMap 
+  title="Map Title"
+  countries={[
+    {
+      code: "DE",
+      name: "Germany",
+      benefits: ["Benefit 1", "Benefit 2", "Benefit 3"]
+    },
+    // More countries...
+  ]}
+/>`}</code></pre>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Charts Subsection -->
+      <section id="charts">
+        <h2 class="text-3xl font-bold text-white my-8">Charts and Graphs</h2>
+        
+        <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+          <h3 class="text-2xl font-bold text-white mb-6">EUStatisticsChart Component Examples</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <EUStatisticsChart
+              title="Bar Chart Example"
+              description="This is a sample bar chart"
+              chartType="bar"
+              data={sampleChartData}
+              yAxisLabel="Value"
+              xAxisLabel="Category"
+            />
+            
+            <EUStatisticsChart
+              title="Pie Chart Example"
+              description="This is a sample pie chart"
+              chartType="pie"
+              data={sampleChartData}
+              height="350px"
+            />
+          </div>
+          
+          <div class="mb-8">
+            <EUStatisticsChart
+              title="Line Chart Example"
+              description="This is a sample line chart"
+              chartType="line"
+              data={sampleChartData}
+              yAxisLabel="Value"
+              xAxisLabel="Category"
+            />
+          </div>
+          
+          <h3 class="text-2xl font-bold text-white mt-12 mb-4">EUStatisticsChart Component Usage</h3>
+          <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+            <pre class="text-gray-300 overflow-auto"><code>{`<EUStatisticsChart
+  title="Chart Title"
+  description="Chart description"
+  chartType="bar" // bar, line, pie, radar
+  data={[
+    { label: 'Category A', value: 65, color: 'rgba(75, 192, 192, 0.8)' },
+    { label: 'Category B', value: 45, color: 'rgba(54, 162, 235, 0.8)' }
+  ]}
+  yAxisLabel="Y-Axis Label"
+  xAxisLabel="X-Axis Label"
+  height="400px" // Optional
+/>`}</code></pre>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- Full Interactive Section Example -->
+    <section id="full-interactive" class="mb-16">
+      <DisplayTitle level={1}>Complete Interactive Section</DisplayTitle>
+      
+      <div class="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-white mb-8">InteractiveSection Component Example</h2>
+        
+        <InteractiveSection color="blue" />
+        
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">InteractiveSection Component Usage</h3>
+        <div class="bg-gray-800/50 p-4 rounded-lg mb-4">
+          <pre class="text-gray-300 overflow-auto"><code>{`<InteractiveSection color="blue" />`}</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // This script will hide the UI library link in production mode
+  document.addEventListener('DOMContentLoaded', () => {
+    const isProduction = window.location.hostname !== 'localhost' && 
+                         !window.location.hostname.includes('127.0.0.1') &&
+                         !window.location.hostname.includes('.local');
+    
+    // Logic to show UI link only in development mode will be handled by server-side code
+    
+    // Additional UI helper functions
+    const codeBlocks = document.querySelectorAll('pre code');
+    codeBlocks.forEach(block => {
+      block.innerHTML = block.innerHTML
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    });
+  });
+</script>
