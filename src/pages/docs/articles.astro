@@ -5,7 +5,7 @@ import DisplayTitle from '../../components/DisplayTitle.astro';
 
 // Get all articles from the docs collection (those with paths starting with 'articles/')
 const articles = await getCollection('docs', (entry) => {
-  return entry.id.startsWith('articles/');
+  return entry.id.startsWith('articles/') && entry.id !== 'articles/index.mdx';
 });
 
 // Debug output
