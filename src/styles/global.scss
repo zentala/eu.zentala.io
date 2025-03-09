@@ -59,7 +59,7 @@ body {
     --tw-prose-links: theme('colors.blue.400');
     --tw-prose-bold: theme('colors.white');
     --tw-prose-counters: theme('colors.gray.400');
-    --tw-prose-bullets: theme('colors.gray.400');
+    --tw-prose-bullets: theme('colors.gray.200');
     --tw-prose-hr: theme('colors.gray.700');
     --tw-prose-quotes: theme('colors.gray.300');
     --tw-prose-quote-borders: theme('colors.gray.700');
@@ -104,9 +104,22 @@ body {
     ol {
       @apply my-6 ml-6;
     }
+    
+    ul {
+      list-style-type: disc;
+    }
+    
+    ol {
+      list-style-type: decimal;
+    }
 
     li {
       @apply mb-3 text-xl;
+      
+      &::marker {
+        color: theme('colors.white');
+        opacity: 1;
+      }
     }
 
     blockquote {

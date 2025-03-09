@@ -3,9 +3,10 @@ interface Props {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   class?: string;
   title?: string;
+  marginTop?: string | null;
 }
 
-const { level = 1, class: className = "", title } = Astro.props;
+const { level = 1, class: className = "", title, marginTop = null } = Astro.props;
 
 // Map the level to the correct heading tag
 const HeadingTag = `h${level}`;
@@ -14,22 +15,22 @@ const HeadingTag = `h${level}`;
 let defaultClasses = "";
 switch (level) {
   case 1:
-    defaultClasses = "text-5xl font-bold text-white mt-20 mb-10";
+    defaultClasses = `text-5xl font-bold text-white ${marginTop ?? 'mt-20'} mb-10`;
     break;
   case 2:
-    defaultClasses = "text-4xl font-bold text-white mt-16 mb-8";
+    defaultClasses = `text-4xl font-bold text-white ${marginTop ?? 'mt-16'} mb-8`;
     break;
   case 3:
-    defaultClasses = "text-3xl font-bold text-white mt-12 mb-6";
+    defaultClasses = `text-3xl font-bold text-white ${marginTop ?? 'mt-12'} mb-6`;
     break;
   case 4:
-    defaultClasses = "text-2xl font-bold text-white mt-10 mb-4";
+    defaultClasses = `text-2xl font-bold text-white ${marginTop ?? 'mt-10'} mb-4`;
     break;
   case 5:
-    defaultClasses = "text-xl font-bold text-white mt-8 mb-3";
+    defaultClasses = `text-xl font-bold text-white ${marginTop ?? 'mt-8'} mb-3`;
     break;
   case 6:
-    defaultClasses = "text-lg font-bold text-white mt-6 mb-2";
+    defaultClasses = `text-lg font-bold text-white ${marginTop ?? 'mt-6'} mb-2`;
     break;
 }
 
