@@ -1,0 +1,76 @@
+---
+interface TestimonialItem {
+  quote: string;
+  author: string;
+  title: string;
+  organization?: string;
+  avatar?: string;
+}
+
+interface Props {
+  items: TestimonialItem[];
+  color?: string;
+}
+
+const { items, color = "blue" } = Astro.props;
+
+// Dynamically determine background color
+let bgColorClass = "bg-gray-800/30";
+let borderColorClass = "border-gray-700/50";
+let accentColorClass = "text-blue-400";
+
+if (color === "blue") {
+  bgColorClass = "bg-blue-900/30";
+  borderColorClass = "border-blue-700/50";
+  accentColorClass = "text-blue-400";
+} else if (color === "indigo") {
+  bgColorClass = "bg-indigo-900/30";
+  borderColorClass = "border-indigo-700/50";
+  accentColorClass = "text-indigo-400";
+} else if (color === "purple") {
+  bgColorClass = "bg-purple-900/30";
+  borderColorClass = "border-purple-700/50";
+  accentColorClass = "text-purple-400";
+}
+---
+
+<div class="testimonials-container">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {items.map((item) => (
+      <div class={`testimonial-card ${bgColorClass} border ${borderColorClass} rounded-xl p-6 shadow-lg`}>
+        <div class="mb-6">
+          <svg class={`h-8 w-8 ${accentColorClass} mb-2`} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+          </svg>
+          <p class="text-lg text-gray-300 italic leading-relaxed">{item.quote}</p>
+        </div>
+        
+        <div class="flex items-center">
+          {item.avatar ? (
+            <div class="mr-4 flex-shrink-0">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-gray-600">
+                <img src={item.avatar} alt={item.author} class="w-full h-full object-cover" />
+              </div>
+            </div>
+          ) : (
+            <div class="mr-4 flex-shrink-0">
+              <div class={`w-12 h-12 rounded-full ${bgColorClass} border-2 ${borderColorClass} flex items-center justify-center`}>
+                <span class="text-white text-lg font-semibold">{item.author.substring(0, 1)}</span>
+              </div>
+            </div>
+          )}
+          
+          <div>
+            <p class="text-white font-semibold">{item.author}</p>
+            <p class="text-gray-400 text-sm">
+              {item.title}
+              {item.organization && (
+                <span>, {item.organization}</span>
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

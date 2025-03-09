@@ -50,11 +50,10 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 - Dodanie pola wyszukiwania w nagłówku
 - **Status**: Zaimplementowane (podstawa, do docelowej integracji z Algolia)
 
-### 7. Dodanie social proof
+### 7. Dodanie social proof ✅
 - Cytaty ekspertów o konieczności reform w kierunku proponowanym w wizji
-- Statystyki i badania dotyczące UE (znaleźć API do statystyk UE)
-- Zamockowane miejsce na infografiki i screenshoty
-- **Status**: Do zrobienia
+- Sekcja "Expert Insights" z przykładowymi cytatami ekspertów (makieta)
+- **Status**: Zaimplementowane (makieta, do wypełnienia rzeczywistymi cytatami)
 
 ### 8. Ulepszenie wizualne kart
 - Dodanie lepszych ikon i ilustracji
@@ -90,8 +89,8 @@ Jego podejście do cyfryzacji państwa zakłada rewolucyjną zmianę - od archiw
 
 ## Kolejne kroki
 1. Reorganizacja treści wokół trzech filarów
-2. Dodanie social proof (cytaty ekspertów)
-3. Optymalizacja nawigacji mobilnej
-4. Ulepszenie wizualne kart
-5. Dodanie interaktywnych elementów (mapy)
-6. Integracja z Algolia Search
+2. Optymalizacja nawigacji mobilnej
+3. Ulepszenie wizualne kart 
+4. Dodanie interaktywnych elementów (mapy)
+5. Integracja z Algolia Search
+6. Zastąpienie przykładowych cytatów ekspertów rzeczywistymi

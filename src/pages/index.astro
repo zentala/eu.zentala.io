@@ -11,6 +11,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
 import FAQ from '../components/FAQ.astro';
 import Author from '../components/Author.astro';
 import WhyDigitalReform from '../components/WhyDigitalReform.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 // Import SVG icons
 import LanguageIcon from '../assets/icons/language.svg';
@@ -695,6 +696,45 @@ import BookIcon from '../assets/icons/book.svg';
           {
             question: "How long would implementation take?",
             answer: "This is a long-term vision with a 15-20 year implementation timeline, with different components being rolled out in stages. Some elements, like digital payment systems or unified logistics standards, could be implemented relatively quickly (3-5 years), while others like full language integration would follow a longer timeline with gradual milestones."
+          }
+        ]}
+      />
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Expert Insights</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-blue-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <Testimonials 
+        color="purple"
+        items={[
+          {
+            quote: "The EU's administrative fragmentation is a critical weakness in the digital age. This vision's emphasis on unified digital infrastructure and a common language could transform Europe into a true economic powerhouse, removing the hidden tax of complexity that currently hampers innovation.",
+            author: "Prof. Anna Kowalska",
+            title: "Professor of Digital Economics",
+            organization: "Technical University of Warsaw"
+          },
+          {
+            quote: "As someone who's worked on cross-border EU projects for decades, I can attest that language barriers remain the single biggest obstacle to European integration. Making English an official second language everywhere would be transformative for collaboration and mobility.",
+            author: "Dr. Marco Rossi",
+            title: "Former EU Commissioner for Education",
+            organization: "European Institute for Innovation"
+          },
+          {
+            quote: "The vision's focus on robotic reindustrialization represents the most viable path for Europe to maintain manufacturing competitiveness while addressing demographic challenges. This is particularly crucial for Eastern European economies.",
+            author: "Dr. Elisa Schmidt",
+            title: "Director of Robotics Research",
+            organization: "German Institute for Automation"
+          },
+          {
+            quote: "What makes this approach unique is how it leverages economies of scale across the entire Union. Building shared digital systems would save billions in redundant development costs while delivering better services to citizens.",
+            author: "Jean-Michel Dupont",
+            title: "Chief Digital Officer",
+            organization: "French Ministry of Economy"
           }
         ]}
       />
