@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import EuLogo from '../assets/eu.png';
+import SearchBar from './SearchBar.astro';
 
 const links = [
   { href: '/', text: 'Home' },
@@ -18,6 +19,10 @@ const links = [
         <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
         <span class="text-2xl font-semibold text-white tracking-tight">EU Reform <span class="text-blue-400">Vision</span></span>
       </a>
+      
+      <div class="hidden lg:block w-full max-w-md mx-6">
+        <SearchBar placeholder="Search the vision..." />
+      </div>
       
       <nav class="hidden md:flex space-x-6 items-center">
         {links.map(link => (
@@ -41,6 +46,9 @@ const links = [
   <!-- Mobile menu, hidden by default -->
   <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-4">
     <div class="container mx-auto px-4">
+      <div class="py-4">
+        <SearchBar placeholder="Search the vision..." />
+      </div>
       <nav class="flex flex-col space-y-4">
         {links.map(link => (
           <a 

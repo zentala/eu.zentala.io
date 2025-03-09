@@ -8,6 +8,8 @@ import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro';
 import CardGrid from '../components/CardGrid.astro';
 import DisplayTitle from '../components/DisplayTitle.astro';
+import FAQ from '../components/FAQ.astro';
+import Author from '../components/Author.astro';
 
 // Import SVG icons
 import LanguageIcon from '../assets/icons/language.svg';
@@ -54,12 +56,39 @@ import BookIcon from '../assets/icons/book.svg';
   ]}
   image={{ file: UeLogo.src }}
   actions={[
-    { text: 'Explore Vision', link: '/docs', icon: 'right-arrow', variant: 'primary' },
-    { text: 'Benefits For Your Country', link: '/docs/for-you', variant: 'secondary' }
+
   ]}
 />
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-0 mb-16">
+<!-- <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-0 mb-16">
+  
+
+</div> -->
+<div class="mt-12 flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10 mb-20">
+  <a href="/docs/why" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+    <img src={QuestionIcon.src} alt="Question mark" class="w-6 h-6 mr-2 text-blue-400" />
+    Why EU Needs Reform?
+  </a>
+  
+  <a href="/docs/for-you" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+    <img src={GlobeIcon.src} alt="Globe" class="w-6 h-6 mr-2 text-blue-400" />
+    Benefits For Your Country
+  </a>
+  
+  <a href="/docs/all" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
+    <img src={BookIcon.src} alt="Book" class="w-6 h-6 mr-2 text-blue-400" />
+    Full Vision Book
+  </a>
+</div>
+
+
+</div>
+
+<div class="bg-gradient-to-r from-blue-900/20 to-indigo-900/20 backdrop-blur-sm py-10 border-y border-blue-900/30 mb-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <DisplayTitle level={1} class="text-center">Core Pillars of European Consolidation</DisplayTitle>
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
   <div class="p-6 bg-gradient-to-br from-indigo-900/30 to-indigo-800/10 rounded-xl border border-indigo-800/30 hover:border-indigo-700/50 transition-all hover:shadow-lg hover:-translate-y-1">
     <div class="bg-indigo-700/20 inline-flex p-3 mb-4 rounded-lg">
@@ -96,37 +125,20 @@ import BookIcon from '../assets/icons/book.svg';
       <img src={ArrowRightIcon.src} alt="Arrow right" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform" />
     </a>
   </div>
-</div>
-
 
   <!-- <div class="bg-gradient-to-r from-blue-900/10 to-indigo-900/10 rounded-xl p-6"> -->
-    <p class="text-xl text-gray-300 leading-relaxed mt-4 pt-10">
-      As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand.
-    </p>
-  <!-- </div> -->
-</div>
 
-<div class="bg-gradient-to-r from-blue-900/20 to-indigo-900/20 backdrop-blur-sm py-10 border-y border-blue-900/30 mb-16">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    
-    
-    <div class="mt-12 flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
-      <a href="/docs/why" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-        <img src={QuestionIcon.src} alt="Question mark" class="w-6 h-6 mr-2 text-blue-400" />
-        Why EU Needs Reform?
-      </a>
-      
-      <a href="/docs/for-you" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-        <img src={GlobeIcon.src} alt="Globe" class="w-6 h-6 mr-2 text-blue-400" />
-        Benefits For Your Country
-      </a>
-      
-      <a href="/docs/all" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-        <img src={BookIcon.src} alt="Book" class="w-6 h-6 mr-2 text-blue-400" />
-        Full Vision Book
-      </a>
-    </div>
+<!-- </div> -->
+<!-- 
+  { text: 'Explore Vision', link: '/docs', icon: 'right-arrow', variant: 'primary' },
+  { text: 'Benefits For Your Country', link: '/docs/for-you', variant: 'secondary' } -->
+
+  
   </div>
+
+  <p class="text-xl text-gray-300 leading-relaxed mt-4 pt-10 text-center max-w-5xl mx-auto">
+    As Europeans, we share a common goal: to build a dynamic, secure, and prosperous Union that preserves our values while elevating quality of life for all. By fostering smart collaboration and leveraging shared resources, we can create a Europe where abundance, progress, and the freedom to truly live go hand in hand.
+  </p>
 </div>
 
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -580,7 +592,7 @@ import BookIcon from '../assets/icons/book.svg';
   </div>
 </div>
 
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-24">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-12">
   <DisplayTitle level={1}>VI. Benefits</DisplayTitle>
   
   <div class="relative mb-16">
@@ -635,6 +647,85 @@ import BookIcon from '../assets/icons/book.svg';
           Positioning Europe as a leader in data-driven industries, harnessing the power of big data and AI for economic growth.
         </Card>
       </CardGrid>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>Common Questions</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900 to-indigo-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <FAQ 
+        color="indigo"
+        items={[
+          {
+            question: "Why do we need yet another European integration project?",
+            answer: "Unlike previous integration efforts, this vision focuses on practical, tangible benefits for all Europeans rather than abstract political concepts. By focusing on language, digital infrastructure, and robotic reindustrialization, we address the actual challenges facing Europe in an era of global competition and technological change."
+          },
+          {
+            question: "Isn't English as a second language unfair to non-English speaking countries?",
+            answer: "This proposal recognizes that English is already the de facto international language of business, science, and technology. Rather than starting from zero with a new language, we're acknowledging reality and formalizing it to reduce barriers. National languages remain primary, with English as a practical addition that enables greater European-wide communication and opportunity."
+          },
+          {
+            question: "How will these changes benefit ordinary citizens?",
+            answer: "Citizens will gain access to streamlined public services in multiple languages, enjoy faster cross-border shipping, benefit from enhanced AI-powered healthcare, access lifetime educational opportunities, and experience greater job mobility throughout Europe. The vision aims to create a Europe where everyday life becomes simpler, more efficient, and more prosperous for all."
+          },
+          {
+            question: "What if Germany or other powerful countries don't agree?",
+            answer: "If certain countries choose not to participate initially, this vision could begin as an Intermarium 2.0 project with countries like Poland, Ukraine, Romania, and Scandinavian nations. The benefits of integration would likely become apparent quickly, encouraging others to join. The proposal creates such clear mutual advantages that even skeptical countries would have strong incentives to participate."
+          },
+          {
+            question: "How would this be funded?",
+            answer: "This vision fundamentally changes how we think about funding. Rather than focusing on redistribution, it leverages economies of scale and efficiency gains. By building common digital systems once (instead of 27 times), sharing development costs, and optimizing processes, we create value that pays for itself through increased productivity, reduced waste, and economic growth."
+          },
+          {
+            question: "How long would implementation take?",
+            answer: "This is a long-term vision with a 15-20 year implementation timeline, with different components being rolled out in stages. Some elements, like digital payment systems or unified logistics standards, could be implemented relatively quickly (3-5 years), while others like full language integration would follow a longer timeline with gradual milestones."
+          }
+        ]}
+      />
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <DisplayTitle level={1}>About the Author</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-10 blur-xl"></div>
+    <div class="relative">
+      <Author color="purple" />
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 my-16 mb-24">
+  <DisplayTitle level={1}>Stay Updated</DisplayTitle>
+  
+  <div class="relative">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-10 blur-xl"></div>
+    <div class="relative bg-blue-900/30 border border-blue-700/50 rounded-xl p-8 shadow-lg">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">Subscribe to Our Newsletter</h2>
+        <p class="text-gray-300 mb-6">Join our community of forward-thinking Europeans. Get updates on the latest developments and be part of shaping Europe's digital future.</p>
+        
+        <form class="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+          <input 
+            type="email" 
+            placeholder="Your email address" 
+            class="px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full sm:w-auto sm:flex-1 max-w-md"
+          />
+          <button 
+            type="submit" 
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-gray-400 text-sm">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
     </div>
   </div>
 </div>
