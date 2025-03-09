@@ -24,4 +24,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           # Następna linia jest ważna dla custom domain
-          cname: eu.zentala.io
+          cname: zentala.eu
