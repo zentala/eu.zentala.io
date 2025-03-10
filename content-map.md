@@ -20,7 +20,7 @@
 - **/why** - Dlaczego potrzebujemy reform?
   - Zawiera: uzasadnienie potrzeby reform, problemy do rozwiązania
 
-- **/for-you** - Korzyści dla poszczególnych krajów
+- **/benefits** - Korzyści dla poszczególnych krajów
   - Zawiera: szczegółowe opisy korzyści dla każdego kraju członkowskiego
   
 - **/book** - Książka z wizją
@@ -32,7 +32,7 @@
   - **/docs/all** -> /vision
   - **/docs/why** -> /why
   - **/docs/book** -> /book
-  - **/docs/for-you** -> /for-you
+  - **/docs/for-you** -> /benefits
 
 - **/docs/ideas** - Szczegółowe pomysły (do zintegrowania z nową strukturą)
   - **/docs/ideas/governance** - Zarządzanie
@@ -47,7 +47,7 @@
 
 ## Przyszłe rozszerzenia struktury
 
-- **/benefits** - Szczegółowe korzyści z różnych perspektyw
+- **/perspectives** - Szczegółowe korzyści z różnych perspektyw
 - **/implementation** - Plany wdrażania reform
 - **/research** - Badania i analizy
 - **/feedback** - Mechanizm gromadzenia opinii
