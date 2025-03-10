@@ -25,6 +25,9 @@
   
 - **/book** - Książka z wizją
   - Zawiera: pełny zbiór rozdziałów opisujących szczegółowo całą wizję
+  
+- **/transcripts** - Transkrypty wideo z YouTube
+  - Zawiera: transkrypty i podsumowania ważnych filmów dotyczących reform UE
 
 ## Struktury poboczne
 

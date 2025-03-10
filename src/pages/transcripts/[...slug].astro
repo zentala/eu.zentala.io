@@ -1,0 +1,214 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import DisplayTitle from '../../components/DisplayTitle.astro';
+
+export async function getStaticPaths() {
+  const transcriptEntries = await getCollection('transcripts');
+  
+  return transcriptEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Format video publication date
+let formattedVideoDate = '';
+if (entry.data.videoDate) {
+  try {
+    const date = new Date(entry.data.videoDate);
+    formattedVideoDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch (e) {
+    formattedVideoDate = entry.data.videoDate;
+  }
+}
+
+// Format transcript publication date
+let formattedPublishDate = '';
+const dateToUse = entry.data.publishDate || entry.data.generationDate;
+if (dateToUse) {
+  try {
+    const date = new Date(dateToUse);
+    formattedPublishDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch (e) {
+    formattedPublishDate = dateToUse;
+  }
+}
+
+// Prepare key points if available
+const keyPoints = entry.data.keyPoints || [];
+
+// YouTube ID
+const youtubeId = entry.data.youtubeId;
+---
+
+<Layout title={entry.data.title}>
+  <main class="container mx-auto max-w-5xl px-4 py-8">
+    <!-- Back link -->
+    <a href="/transcripts" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Transcripts
+    </a>
+    
+    <!-- Main content area -->
+    <div class="mb-8">
+      <!-- Video type badge -->
+      <div class="mb-4">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-900/30 text-red-400 border border-red-700/30">
+          <span class="mr-1.5 flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </span>
+          YouTube Video
+        </span>
+        
+        {entry.data.language && 
+          <span class="ml-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800 text-gray-300 border border-gray-700">
+            {entry.data.language}
+          </span>
+        }
+        
+        {entry.data.duration && 
+          <span class="ml-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800 text-gray-300 border border-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {entry.data.duration}
+          </span>
+        }
+      </div>
+      
+      <DisplayTitle title={entry.data.title} />
+      <p class="text-xl text-gray-300 mb-6">{entry.data.description}</p>
+      
+      <div class="flex flex-wrap gap-y-2 text-sm mb-6">
+        {formattedVideoDate && 
+          <p class="text-gray-400 mr-6">
+            <span class="text-gray-500">Video published:</span> {formattedVideoDate}
+          </p>
+        }
+        
+        {formattedPublishDate && 
+          <p class="text-gray-400">
+            <span class="text-gray-500">Transcript created:</span> {formattedPublishDate}
+          </p>
+        }
+      </div>
+    </div>
+    
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="w-full lg:w-3/4 order-2 lg:order-1">
+        <!-- YouTube Embed -->
+        {youtubeId && 
+          <div class="mb-8 rounded-xl overflow-hidden bg-black aspect-video">
+            <iframe 
+              src={`https://www.youtube.com/embed/${youtubeId}`}
+              title={entry.data.title}
+              class="w-full h-full"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        }
+        
+        <!-- Main content -->
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent opacity-50 blur-xl"></div>
+          <article class="relative prose prose-lg max-w-none dark:prose-invert prose-headings:text-white prose-headings:font-bold prose-p:text-gray-300 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-code:text-blue-300 prose-pre:bg-gray-800 prose-pre:text-gray-300 prose-li:text-gray-300 prose-ul:pl-5 prose-ol:pl-5 prose-ul:list-disc prose-ol:list-decimal">
+            <Content />
+          </article>
+        </div>
+      </div>
+      
+      <div class="w-full lg:w-1/4 order-1 lg:order-2">
+        <div class="sticky top-24">
+          <!-- Video info card -->
+          <div class="bg-gray-800/50 rounded-xl border border-gray-700 p-6 mb-6">
+            <h3 class="text-lg font-bold text-white mb-4">Video Information</h3>
+            
+            {youtubeId &&
+              <div class="w-full aspect-video bg-gray-900 rounded-lg mb-4 overflow-hidden">
+                <img 
+                  src={`https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`} 
+                  alt={entry.data.title}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            }
+            
+            <div class="mb-4">
+              <h4 class="font-medium text-white mb-1">
+                {entry.data.title}
+              </h4>
+              {entry.data.channelName && 
+                <p class="text-gray-400 text-sm">
+                  By {
+                    <a href={entry.data.channelUrl} target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">
+                      {entry.data.channelName}
+                    </a>
+                  }
+                </p>
+              }
+            </div>
+            
+            <a 
+              href={`https://www.youtube.com/watch?v=${youtubeId}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium"
+            >
+              Watch on YouTube
+              <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Key points card (if available) -->
+          {keyPoints.length > 0 && 
+            <div class="bg-blue-900/20 rounded-xl border border-blue-800/30 p-6">
+              <h3 class="text-lg font-bold text-white mb-4">Key Points</h3>
+              <ul class="space-y-3">
+                {keyPoints.map(point => (
+                  <li class="flex items-start">
+                    <span class="text-blue-400 mr-3 text-xl">•</span>
+                    <span class="text-gray-300 flex-1">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    
+    <!-- AI generation disclaimer -->
+    <div class="mt-16 text-center">
+      <div class="inline-block bg-gray-800/50 rounded-xl border border-gray-700/50 px-8 py-4">
+        <p class="text-gray-400 text-sm">
+          {entry.data.fullTranscript 
+            ? 'This is a full AI-generated transcript of the video and may contain errors.'
+            : 'This is a partial transcript and summary generated by AI based on the video content.'
+          }
+          <br/>
+          For the complete video, please watch the original on YouTube.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>

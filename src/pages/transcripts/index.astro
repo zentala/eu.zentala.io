@@ -1,0 +1,189 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Get all transcripts
+const allTranscripts = await getCollection('transcripts');
+
+// Sort by video date (most recent first)
+const sortedTranscripts = [...allTranscripts].sort((a, b) => {
+  // Default dates if not available
+  const dateA = a.data.videoDate ? new Date(a.data.videoDate) : new Date(0);
+  const dateB = b.data.videoDate ? new Date(b.data.videoDate) : new Date(0);
+  return dateB.getTime() - dateA.getTime();
+});
+
+// Helper function to format date
+function formatDate(dateString: string | undefined): string {
+  if (!dateString) return '';
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  } catch (e) {
+    return dateString;
+  }
+}
+
+// Filter for featured videos (for now just selecting top 2)
+const featuredTranscripts = sortedTranscripts.slice(0, 2);
+---
+
+<Layout title="EU Reform Vision - Video Transcripts">
+  <main class="container mx-auto max-w-6xl px-4 py-8">
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Video Transcripts</h1>
+    
+    <div class="mb-12">
+      <p class="text-xl text-gray-300 max-w-3xl">
+        Transcripts and summaries of important videos related to European integration, reform proposals, and policy discussions.
+        These transcripts make key ideas more accessible and easier to reference.
+      </p>
+    </div>
+    
+    <!-- Top featured transcripts -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-2">Featured Videos</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {featuredTranscripts.map(transcript => (
+          <a href={`/transcripts/${transcript.slug}`} class="group">
+            <div class="bg-gray-800/30 border border-gray-700/50 hover:border-blue-600/50 rounded-xl overflow-hidden transition-all h-full flex flex-col">
+              {transcript.data.youtubeId ? (
+                <div class="w-full aspect-video bg-gray-900 overflow-hidden relative group-hover:opacity-90 transition-opacity">
+                  <img 
+                    src={`https://img.youtube.com/vi/${transcript.data.youtubeId}/maxresdefault.jpg`}
+                    alt={transcript.data.title}
+                    class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center shadow-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div class="w-full aspect-video bg-gradient-to-br from-blue-900/40 to-gray-900/40"></div>
+              )}
+              
+              <div class="p-6 flex-grow flex flex-col">
+                <div class="mb-3 flex items-center">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-900/20 text-red-400">
+                    YouTube
+                  </span>
+                  
+                  {transcript.data.duration && (
+                    <span class="ml-2 text-gray-500 text-xs flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {transcript.data.duration}
+                    </span>
+                  )}
+                  
+                  {transcript.data.videoDate && (
+                    <span class="text-gray-500 text-xs ml-auto">
+                      {formatDate(transcript.data.videoDate)}
+                    </span>
+                  )}
+                </div>
+                
+                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  {transcript.data.title}
+                </h3>
+                
+                <p class="text-gray-400 text-sm mb-3">
+                  {transcript.data.channelName}
+                </p>
+                
+                <p class="text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">
+                  {transcript.data.description}
+                </p>
+                
+                <div class="flex justify-between items-center pt-2 mt-auto">
+                  <span class="text-blue-400 text-sm">Read transcript</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    <!-- All transcripts -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-2 flex items-center">
+        <span class="mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
+        </span>
+        All Video Transcripts
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {sortedTranscripts.map(transcript => (
+          <a href={`/transcripts/${transcript.slug}`} class="group">
+            <div class="bg-gray-800/30 border border-gray-700/50 hover:border-blue-600/50 rounded-lg overflow-hidden transition-all h-full flex flex-col">
+              {transcript.data.youtubeId ? (
+                <div class="w-full aspect-video bg-gray-900 overflow-hidden relative">
+                  <img 
+                    src={`https://img.youtube.com/vi/${transcript.data.youtubeId}/maxresdefault.jpg`}
+                    alt={transcript.data.title}
+                    class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                  />
+                  <div class="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                    {transcript.data.duration}
+                  </div>
+                </div>
+              ) : (
+                <div class="w-full aspect-video bg-gradient-to-br from-blue-900/40 to-gray-900/40"></div>
+              )}
+              
+              <div class="p-5 flex-grow flex flex-col">
+                {transcript.data.videoDate && (
+                  <span class="text-gray-500 text-xs mb-2">
+                    {formatDate(transcript.data.videoDate)}
+                  </span>
+                )}
+                
+                <h3 class="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
+                  {transcript.data.title}
+                </h3>
+                
+                <p class="text-gray-400 text-sm mb-3">
+                  {transcript.data.channelName}
+                </p>
+                
+                <div class="flex justify-between items-center pt-2 mt-auto">
+                  <span class="text-blue-400 text-sm">Read transcript</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    <!-- AI generation disclaimer -->
+    <div class="mt-16 text-center">
+      <div class="inline-block bg-gray-800/50 rounded-xl border border-gray-700/50 px-8 py-4">
+        <p class="text-gray-400 text-sm">
+          These transcripts are generated by AI based on the video content and are provided for informational purposes.
+          <br/>
+          For the complete and authoritative content, please watch the original videos on YouTube.
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
