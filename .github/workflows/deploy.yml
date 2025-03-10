@@ -1,27 +1,42 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Uruchamia się przy każdym pushu do gałęzi main
   push:
-    branches: [ main ]
-  # Pozwala na ręczne uruchomienie z zakładki Actions
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_APPWRITE_PROJECT_ID: "eu"
+      PUBLIC_APPWRITE_NEWSLETTER_FUNCTION_ID: "67cdf356847084af9bad"
+      PUBLIC_APPWRITE_ENDPOINT: "https://cloud.appwrite.io/v1"
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-      # Krok deployowania używając GitHub Pages
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # Następna linia jest ważna dla custom domain
           cname: zentala.eu
