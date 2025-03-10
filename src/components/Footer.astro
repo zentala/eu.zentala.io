@@ -4,34 +4,39 @@ import EuLogo from '../assets/eu.png';
 
 const currentYear = new Date().getFullYear();
 
+// Check if we're in development environment (client-side check will be done later)
+const isDevelopment = import.meta.env.DEV;
+
 const footerLinks = [
   {
     title: "Vision",
     links: [
-      { text: "Overview", href: "/vision" },
-      { text: "Core Principles", href: "/docs/book/principles" },
-      { text: "Language Integration", href: "/vision/language-integration" },
-      { text: "Digital Integration", href: "/vision/digital-integration" },
-      { text: "Robotic Future", href: "/vision/robotic-reindustrialization" },
-    ]
-  },
-  {
-    title: "Topics",
-    links: [
-      { text: "Blockchain State", href: "/docs/ideas/governance/blockchain-state" },
-      { text: "Autonomous Logistics", href: "/docs/ideas/transportation/autonomous-transportation" },
-      { text: "European Healthcare", href: "/docs/book/predictive-healthcare-system" },
-      { text: "Financial Reforms", href: "/docs/ideas/finance/european-cryptocurrency" },
+      { text: "Overview", href: "/" },
+      { text: "Why Reforms?", href: "/why" },
+      { text: "Vision", href: "/vision" },
+      { text: "Benefits", href: "/benefits" },
+      { text: "Principles", href: "/docs/book/principles" },
     ]
   },
   {
     title: "Resources",
     links: [
-      { text: "Why Reform?", href: "/why" },
       { text: "Vision Book", href: "/book" },
-      { text: "Benefits", href: "/benefits" },
       { text: "Summaries", href: "/summaries" },
       { text: "Sitemap", href: "/sitemap.xml" },
+      // UI Components link will be added conditionally via client-side JS if in development
+    ]
+  },
+  {
+    title: "Topics",
+    links: [
+    { text: "Language Integration", href: "/vision/language-integration" },
+      { text: "Digital Integration", href: "/vision/digital-integration" },
+      { text: "Robotic Future", href: "/vision/robotic-reindustrialization" },
+      { text: "Blockchain State", href: "/docs/ideas/governance/blockchain-state" },
+      { text: "Autonomous Logistics", href: "/docs/ideas/transportation/autonomous-transportation" },
+      { text: "European Healthcare", href: "/docs/book/predictive-healthcare-system" },
+      { text: "Financial Reforms", href: "/docs/ideas/finance/european-cryptocurrency" },
     ]
   }
 ];
@@ -78,25 +83,36 @@ const footerLinks = [
         &copy; {currentYear} EU Reform Vision. All rights reserved.
       </p>
       <div class="mt-4 md:mt-0 flex items-center space-x-6">
-        <a href="/why" class="text-gray-400 hover:text-blue-400">Why Reform?</a>
+        <!-- <a href="/why" class="text-gray-400 hover:text-blue-400">Why Reform?</a> -->
         <a href="/tags" class="text-gray-400 hover:text-blue-400">Tags</a>
         <a href="/privacy" class="text-gray-400 hover:text-blue-400">Privacy</a>
         <a href="/terms" class="text-gray-400 hover:text-blue-400">Terms</a>
-        <a href="/ui" id="ui-link" class="hidden text-gray-500 hover:text-blue-400">UI Components</a>
       </div>
     </div>
     
     <script>
-      // Show UI link only in development mode
+      // Add UI Components link to Resources section if in development mode
       document.addEventListener('DOMContentLoaded', () => {
         const isDevelopment = 
           window.location.hostname === 'localhost' || 
           window.location.hostname.includes('127.0.0.1') ||
           window.location.hostname.includes('.local');
         
-        const uiLink = document.getElementById('ui-link');
-        if (uiLink && isDevelopment) {
-          uiLink.classList.remove('hidden');
+        if (isDevelopment) {
+          // Find the Resources section (second section in the footer)
+          const resourcesSection = document.querySelectorAll('footer .grid > div:nth-child(3) ul')[0];
+          
+          if (resourcesSection) {
+            // Create new list item with UI Components link
+            const uiLinkItem = document.createElement('li');
+            const uiLink = document.createElement('a');
+            uiLink.href = '/ui';
+            uiLink.className = 'text-gray-400 hover:text-blue-400 transition-colors';
+            uiLink.textContent = 'UI Demo';
+            
+            uiLinkItem.appendChild(uiLink);
+            resourcesSection.appendChild(uiLinkItem);
+          }
         }
       });
     </script>
