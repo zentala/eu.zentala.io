@@ -2,53 +2,52 @@
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/Card.astro';
 import CardGrid from '../../components/CardGrid.astro';
+import ContentBox from '../../components/ContentBox.astro';
 ---
 
 <Layout title="European Integration Vision">
-  <div class="bg-gray-900 text-white min-h-screen">
+  <div class="min-h-screen transition-colors duration-300" style="background-color: var(--color-bg-primary); color: var(--color-text-primary);">
     <main class="container mx-auto max-w-6xl px-4 py-8">
-      <h1 class="text-4xl font-bold mb-8 text-white">Core Pillars of European Integration</h1>
+      <h1 class="text-4xl font-bold mb-8" style="color: var(--color-text-primary);">Core Pillars of European Integration</h1>
       
-      <div class="text-2xl mb-10 mt-6 text-gray-200">
+      <div class="text-2xl mb-10 mt-6" style="color: var(--color-text-secondary);">
         A comprehensive framework for strengthening European unity through practical, mutually beneficial reforms focused on technology, language, and infrastructure.
       </div>
     
     
-    <h2 class="text-3xl font-bold mt-16 mb-8 text-white"></h2>
+    <h2 class="text-3xl font-bold mt-16 mb-8" style="color: var(--color-text-primary);"></h2>
     
     <div class="relative mb-12">
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 blur-xl"></div>
+      <div class="absolute inset-0 opacity-20 blur-xl transition-colors duration-300" style="background: linear-gradient(to right, var(--color-accent-primary), var(--color-accent-secondary));"></div>
       <div class="relative">
         <div class="space-y-8">
           <Card title="I. Language Integration" color="indigo" icon="🗣️">
             <p class="mb-4">Introducing English as a second official language across the EU. Every member state's public administration becomes bilingual, sharing English as a common tongue.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <div class="bg-indigo-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-indigo-200">Key Components</h4>
+              <ContentBox title="Key Components" color="indigo">
                 <ul class="space-y-2">
                   <li>• English as second official language in all EU countries</li>
                   <li>• European English Council for standardization</li>
                   <li>• Bilingual government services everywhere</li>
                   <li>• Enhanced cross-border communication</li>
                 </ul>
-              </div>
-              <div class="bg-indigo-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-indigo-200">Learn More</h4>
+              </ContentBox>
+              
+              <ContentBox title="Learn More" color="indigo">
                 <ul class="space-y-1">
-                  <li><a href="/vision/language-integration" class="text-blue-300 hover:text-blue-200">→ Language Integration Overview</a></li>
-                  <li><a href="/book/language-integration-administrative-implementation" class="text-blue-300 hover:text-blue-200">→ Administrative Implementation</a></li>
-                  <li><a href="/book/media-cultural-integration" class="text-blue-300 hover:text-blue-200">→ Media and Cultural Integration</a></li>
-                  <li><a href="/book/economic-growth-language-unity" class="text-blue-300 hover:text-blue-200">→ Economic Growth Through Language</a></li>
+                  <li><a href="/vision/language-integration">→ Language Integration Overview</a></li>
+                  <li><a href="/book/language-integration-administrative-implementation">→ Administrative Implementation</a></li>
+                  <li><a href="/book/media-cultural-integration">→ Media and Cultural Integration</a></li>
+                  <li><a href="/book/economic-growth-language-unity">→ Economic Growth Through Language</a></li>
                 </ul>
-              </div>
+              </ContentBox>
             </div>
           </Card>
 
           <Card title="II. Digital Integration" color="blue" icon="💻">
             <p class="mb-4">Building a unified European digital government infrastructure and common digital services to streamline administration, improve healthcare, education, and financial services across the EU.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <div class="bg-blue-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-blue-200">Key Components</h4>
+              <ContentBox title="Key Components" color="blue">
                 <ul class="space-y-1">
                   <li><strong>Digital Administration</strong>: Unified e-government systems</li>
                   <li><strong>Digital Healthcare</strong>: Predictive medicine, AI diagnostics</li>
@@ -56,25 +55,24 @@ import CardGrid from '../../components/CardGrid.astro';
                   <li><strong>Financial Reforms</strong>: Digital payments, near-zero fees</li>
                   <li><strong>Blockchain Archives</strong>: Immutable public records</li>
                 </ul>
-              </div>
-              <div class="bg-blue-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-blue-200">Learn More</h4>
+              </ContentBox>
+              
+              <ContentBox title="Learn More" color="blue">
                 <ul class="space-y-1">
-                  <li><a href="/vision/digital-integration" class="text-blue-300 hover:text-blue-200">→ Digital Integration Overview</a></li>
-                  <li><a href="/book/predictive-healthcare-system" class="text-blue-300 hover:text-blue-200">→ Predictive Healthcare System</a></li>
-                  <li><a href="/book/european-elearning-system" class="text-blue-300 hover:text-blue-200">→ European eLearning System</a></li>
-                  <li><a href="/book/unified-payment-zone" class="text-blue-300 hover:text-blue-200">→ Unified Payment Zone</a></li>
-                  <li><a href="/book/european-blockchain-archives" class="text-blue-300 hover:text-blue-200">→ European Blockchain Archives</a></li>
+                  <li><a href="/vision/digital-integration">→ Digital Integration Overview</a></li>
+                  <li><a href="/book/predictive-healthcare-system">→ Predictive Healthcare System</a></li>
+                  <li><a href="/book/european-elearning-system">→ European eLearning System</a></li>
+                  <li><a href="/book/unified-payment-zone">→ Unified Payment Zone</a></li>
+                  <li><a href="/book/european-blockchain-archives">→ European Blockchain Archives</a></li>
                 </ul>
-              </div>
+              </ContentBox>
             </div>
           </Card>
 
           <Card title="III. Robotic Reindustrialization" color="green" icon="🤖">
             <p class="mb-4">Leading the global robotics revolution to reindustrialize Europe, create autonomous logistics networks, and develop sustainable, localized manufacturing.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-              <div class="bg-green-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-green-200">Key Components</h4>
+              <ContentBox title="Key Components" color="green">
                 <ul class="space-y-1">
                   <li><strong>Logistics Integration</strong>: 48-hour delivery across the EU</li>
                   <li><strong>Robotic Manufacturing</strong>: Localized, sustainable production</li>
@@ -82,16 +80,15 @@ import CardGrid from '../../components/CardGrid.astro';
                   <li><strong>Robotic Agriculture</strong>: Sustainable, diverse farming</li>
                   <li><strong>Circular Economy</strong>: Enhanced recycling through automation</li>
                 </ul>
-              </div>
-              <div class="bg-green-900/30 p-4 rounded-lg">
-                <h4 class="font-bold mb-2 text-green-200">Learn More</h4>
+              </ContentBox>
+              <ContentBox title="Learn More" color="green">
                 <ul class="space-y-1">
-                  <li><a href="/vision/robotic-reindustrialization" class="text-blue-300 hover:text-blue-200">→ Robotic Reindustrialization Overview</a></li>
-                  <li><a href="/book/autonomous-transportation" class="text-blue-300 hover:text-blue-200">→ Autonomous Transportation</a></li>
-                  <li><a href="/book/european-logistics-market" class="text-blue-300 hover:text-blue-200">→ European Logistics Market</a></li>
-                  <li><a href="/book/robotic-agriculture" class="text-blue-300 hover:text-blue-200">→ Robotic Agriculture</a></li>
+                  <li><a href="/vision/robotic-reindustrialization">→ Robotic Reindustrialization Overview</a></li>
+                  <li><a href="/book/autonomous-transportation">→ Autonomous Transportation</a></li>
+                  <li><a href="/book/european-logistics-market">→ European Logistics Market</a></li>
+                  <li><a href="/book/robotic-agriculture">→ Robotic Agriculture</a></li>
                 </ul>
-              </div>
+              </ContentBox>
             </div>
           </Card>
         </div>

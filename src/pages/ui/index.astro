@@ -14,7 +14,8 @@ import EUStatisticsChart from '../../components/EUStatisticsChart.astro';
 import Timeline from '../../components/Timeline.astro';
 
 // Sample data for examples
-const cardColors = ["blue", "indigo", "green", "yellow", "red", "purple", "teal"];
+const cardColors = ["blue", "indigo", "green", "yellow", "red", "purple", "teal"] as const;
+type CardColor = typeof cardColors[number];
 
 const sampleChartData = [
   { label: 'Category A', value: 65, color: 'rgba(75, 192, 192, 0.8)' },

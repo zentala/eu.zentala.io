@@ -54,21 +54,21 @@ const sortedDocs = bookDocs.sort((a, b) => a.data.title.localeCompare(b.data.tit
           </svg>
           Back to Vision Overview
         </a>
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Vision Book</h1>
-        <p class="text-xl text-gray-300">Detailed chapters explaining the EU Reform Vision framework for integration.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6" style="color: var(--color-text-primary);">Vision Book</h1>
+        <p class="text-xl" style="color: var(--color-text-secondary);">Detailed chapters explaining the EU Reform Vision framework for integration.</p>
       </div>
       
       <div class="relative mb-12">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30 opacity-50 blur-xl"></div>
-        <div class="relative bg-gray-800 border border-gray-700 rounded-xl p-8 shadow-lg">
-          <h2 class="text-2xl font-bold text-white mb-4">About This Book</h2>
-          <p class="text-gray-300 mb-6">The EU Reform Vision Book provides a comprehensive framework for European integration through technological innovation, language unity, and administrative reform. Each chapter addresses specific aspects of this vision, providing detailed proposals and implementation strategies.</p>
+        <div class="absolute inset-0 opacity-50 blur-xl transition-colors duration-300" style="background: linear-gradient(to right, var(--color-accent-primary), var(--color-accent-secondary));"></div>
+        <div class="relative rounded-xl p-8 shadow-lg transition-colors duration-300" style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+          <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text-primary);">About This Book</h2>
+          <p class="mb-6" style="color: var(--color-text-secondary);">The EU Reform Vision Book provides a comprehensive framework for European integration through technological innovation, language unity, and administrative reform. Each chapter addresses specific aspects of this vision, providing detailed proposals and implementation strategies.</p>
           
           <div class="flex flex-wrap gap-3">
-            <a href="/docs/book/principles" class="bg-blue-800 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+            <a href="/docs/book/principles" class="px-4 py-2 rounded-lg text-sm transition-colors" style="background-color: var(--color-accent-primary); color: var(--color-bg-primary);">
               Start with Core Principles
             </a>
-            <a href="/book" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+            <a href="/book" class="px-4 py-2 rounded-lg text-sm transition-colors" style="background-color: var(--color-bg-secondary); color: var(--color-text-primary); border: 1px solid var(--color-border);">
               View All Chapters
             </a>
           </div>
