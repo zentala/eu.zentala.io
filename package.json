@@ -16,7 +16,9 @@
     "typecheck": "astro check --exclude 'dist/**/*'",
     "prepare": "husky",
     "lint-staged": "lint-staged",
-    "index-algolia": "node algolia-indexer.js"
+    "index-algolia": "node algolia-indexer.js",
+    "check-all": "astro check --exclude 'dist/**/*'",
+    "pre-commit-check": "astro check --exclude 'dist/**/*'"
   },
   "dependencies": {
     "@algolia/client-search": "^5.20.4",
@@ -48,7 +50,10 @@
   },
   "lint-staged": {
     "*.{ts,js,astro,tsx,jsx}": [
-      "astro check --exclude 'dist/**/*'"
+      "npm run pre-commit-check"
+    ],
+    "package.json": [
+      "npm run pre-commit-check"
     ]
   }
 }
