@@ -13,12 +13,14 @@ interface Image {
 
 interface Props {
   title: string;
-  description: string[];
+  description: string[] | string;
   image: Image;
   actions: Action[];
 }
 
-const { title, description, image, actions } = Astro.props;
+const { title, description: rawDescription, image, actions } = Astro.props;
+// Ensure description is always an array
+const description = Array.isArray(rawDescription) ? rawDescription : [rawDescription];
 ---
 
 <section class="py-16 md:py-24">

@@ -104,9 +104,6 @@ const defaultCountries: CountryData[] = [
     ]
   }
 ];
-
-// Merge provided countries with defaults (prioritizing provided data)
-const allCountries = countries.length > 0 ? countries : defaultCountries;
 ---
 
 <div class="europe-map-container">
@@ -151,7 +148,10 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
       });
     
     if (!europeGeoJSON) {
-      document.getElementById('europeMap').innerHTML = '<div class="p-4 text-center text-gray-300">Failed to load map data. Please try again later.</div>';
+      const mapElement = document.getElementById('europeMap');
+      if (mapElement) {
+        mapElement.innerHTML = '<div class="p-4 text-center text-gray-300">Failed to load map data. Please try again later.</div>';
+      }
       return;
     }
     
@@ -175,18 +175,47 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
     const highlightColor = "rgba(74, 222, 128, 0.8)";
     
     // Parse the countries data from the data attribute
-    const countriesData = JSON.parse(document.getElementById('europeMap').getAttribute('data-countries') || '[]');
+    const europeMapElement = document.getElementById('europeMap');
+    const countriesData = europeMapElement ? JSON.parse(europeMapElement.getAttribute('data-countries') || '[]') : [];
     
     // Create the info panel for country data
     const countryInfo = document.getElementById('countryInfo');
     const countryName = document.getElementById('countryName');
     const countryBenefits = document.getElementById('countryBenefits');
     
+    // Define proper types for GeoJSON features
+    interface GeoJSONFeature {
+      type: string;
+      properties: {
+        ISO2: string;
+        NAME: string;
+        [key: string]: any;
+      };
+      geometry: {
+        type: string;
+        coordinates: any[];
+      };
+    }
+
+    // Define type for country data
+    interface CountryData {
+      code: string;
+      name: string;
+      benefits: string[];
+      color?: string;
+    }
+
+    // Define Leaflet event types
+    interface LeafletMouseEvent {
+      target: any;
+      originalEvent: MouseEvent;
+    }
+
     // Add GeoJSON layer
     const geoJsonLayer = L.geoJSON(europeGeoJSON, {
-      style: (feature) => {
+      style: (feature: GeoJSONFeature) => {
         // Find if this country has specific data
-        const countryData = countriesData.find(c => 
+        const countryData = countriesData.find((c: CountryData) => 
           feature.properties.ISO2 === c.code || 
           feature.properties.NAME === c.name
         );
@@ -199,9 +228,9 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
           fillOpacity: countryData ? 0.8 : 0.4
         };
       },
-      onEachFeature: (feature, layer) => {
+      onEachFeature: (feature: GeoJSONFeature, layer: L.Layer) => {
         // Find if this country has specific data
-        const countryData = countriesData.find(c => 
+        const countryData = countriesData.find((c: CountryData) => 
           feature.properties.ISO2 === c.code || 
           feature.properties.NAME === c.name
         );
@@ -209,7 +238,7 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
         if (countryData) {
           // Add hover interactions
           layer.on({
-            mouseover: (e) => {
+            mouseover: (e: LeafletMouseEvent) => {
               const layer = e.target;
               layer.setStyle({
                 fillColor: highlightColor,
@@ -218,23 +247,25 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
               });
               
               // Show info panel with country data
-              countryName.textContent = countryData.name;
-              countryBenefits.innerHTML = '';
+              if (countryName) countryName.textContent = countryData.name;
+              if (countryBenefits) countryBenefits.innerHTML = '';
               
               // Add benefits as list items
-              countryData.benefits.forEach(benefit => {
-                const li = document.createElement('li');
-                li.textContent = benefit;
-                countryBenefits.appendChild(li);
-              });
+              if (countryBenefits) {
+                countryData.benefits.forEach((benefit: string) => {
+                  const li = document.createElement('li');
+                  li.textContent = benefit;
+                  countryBenefits.appendChild(li);
+                });
+              }
               
-              countryInfo.classList.remove('hidden');
+              if (countryInfo) countryInfo.classList.remove('hidden');
             },
-            mouseout: (e) => {
+            mouseout: (e: LeafletMouseEvent) => {
               geoJsonLayer.resetStyle(e.target);
-              countryInfo.classList.add('hidden');
+              if (countryInfo) countryInfo.classList.add('hidden');
             },
-            click: (e) => {
+            click: (e: LeafletMouseEvent) => {
               // Keep the info panel visible on click
               e.target.setStyle({
                 fillColor: highlightColor,
@@ -242,7 +273,7 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
                 weight: 2
               });
               
-              countryInfo.classList.remove('hidden');
+              if (countryInfo) countryInfo.classList.remove('hidden');
               
               // Prevent the mouseout event from hiding the panel
               e.originalEvent.stopPropagation();
@@ -254,13 +285,18 @@ const allCountries = countries.length > 0 ? countries : defaultCountries;
     
     // Add click handler on the map to hide info panel when clicking elsewhere
     map.on('click', () => {
-      countryInfo.classList.add('hidden');
-      geoJsonLayer.eachLayer(layer => {
+      const infoPanel = document.getElementById('countryInfo');
+      if (infoPanel) {
+        infoPanel.classList.add('hidden');
+      }
+      geoJsonLayer.eachLayer((layer: L.Layer) => {
         geoJsonLayer.resetStyle(layer);
       });
     });
     
     // Set countries data as a data attribute for the map element
-    document.getElementById('europeMap').setAttribute('data-countries', JSON.stringify(countriesData));
+    if (europeMapElement) {
+      europeMapElement.setAttribute('data-countries', JSON.stringify(countriesData));
+    }
   });
 </script>

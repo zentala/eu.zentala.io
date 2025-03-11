@@ -478,10 +478,10 @@ import DisplayTitle from '../components/DisplayTitle.astro';
       }
       
       // Update active tab
-      const tabs = document.querySelectorAll('#country-list li');
+      const tabs = document.querySelectorAll<HTMLElement>('#country-list li');
       tabs.forEach(tab => {
         tab.classList.remove('active');
-        if (tab.dataset.countryCode === countryCode) {
+        if (tab.getAttribute('data-country-code') === countryCode) {
           tab.classList.add('active');
           // Ensure the active tab is visible in the scrollable container
           tab.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -493,7 +493,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
     const createCountryTab = (country: Country, isSuggested = false): HTMLLIElement => {
       const li = document.createElement('li');
       
-      const classes = [];
+      const classes: string[] = [];
       
       // Add different classes based on country type
       if (isSuggested) {
@@ -505,11 +505,11 @@ import DisplayTitle from '../components/DisplayTitle.astro';
       }
       
       li.className = classes.join(' ');
-      li.dataset.countryCode = country.code;
-      li.dataset.countryName = country.name;
+      li.setAttribute('data-country-code', country.code);
+      li.setAttribute('data-country-name', country.name);
       
       // Use image flags from Flagcdn.com
-      const getFlagImage = (countryCode) => {
+      const getFlagImage = (countryCode: string) => {
         if (country.region) return 'EU';
         return countryCode.toUpperCase();
       };
@@ -569,7 +569,8 @@ import DisplayTitle from '../components/DisplayTitle.astro';
       
       // Add all countries to the list
       sortedCountries.forEach(country => {
-        const isSuggested = suggestedCountry && country.code === suggestedCountry.code;
+        // Check if this country is the suggested one
+        const isSuggested = suggestedCountry && country.code === suggestedCountry.code ? true : false;
         const tab = createCountryTab(country, isSuggested);
         
         // If this is the suggested country, mark it as active
@@ -589,7 +590,7 @@ import DisplayTitle from '../components/DisplayTitle.astro';
       if (!countryList) return;
       
       // Get all country tabs
-      const tabs = countryList.querySelectorAll('li');
+      const tabs = countryList.querySelectorAll<HTMLElement>('li');
       
       // Normalize search term
       const normalizedSearchTerm = searchTerm.trim().toLowerCase();
@@ -608,30 +609,36 @@ import DisplayTitle from '../components/DisplayTitle.astro';
       
       // Filter the existing tabs
       tabs.forEach(tab => {
-        const countryName = tab.dataset.countryName || '';
+        const countryName = tab.getAttribute('data-country-name') || '';
         const matches = countryName.toLowerCase().includes(normalizedSearchTerm);
         
         if (matches) {
           tab.classList.add('matches-filter');
           matchCount++;
-          lastMatchedTab = tab as HTMLElement;
+          lastMatchedTab = tab;
         } else {
           tab.classList.remove('matches-filter');
         }
       });
       
       // If only one item matches and it's not already active, select it automatically
-      if (matchCount === 1 && lastMatchedTab && !lastMatchedTab.classList.contains('active')) {
-        const countryCode = lastMatchedTab.dataset.countryCode || '';
-        const countryName = lastMatchedTab.dataset.countryName || '';
+      if (matchCount === 1 && lastMatchedTab) {
+        // TypeScript thinks lastMatchedTab could be null at this point, but we just checked above
+        // We need to tell TypeScript that lastMatchedTab is definitely an HTMLElement
+        const tab = lastMatchedTab as HTMLElement;
         
-        if (countryCode) {
-          // Wait a moment to show the highlighting before switching
-          setTimeout(() => {
-            if (countrySearch && countrySearch.value.trim().toLowerCase() === normalizedSearchTerm) {
-              showCountryBenefits(countryCode, countryName);
-            }
-          }, 300);
+        if (!tab.classList.contains('active')) {
+          const countryCode = tab.getAttribute('data-country-code') || '';
+          const countryName = tab.getAttribute('data-country-name') || '';
+          
+          if (countryCode) {
+            // Wait a moment to show the highlighting before switching
+            setTimeout(() => {
+              if (countrySearch && countrySearch.value.trim().toLowerCase() === normalizedSearchTerm) {
+                showCountryBenefits(countryCode, countryName);
+              }
+            }, 300);
+          }
         }
       }
     };
