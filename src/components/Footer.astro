@@ -42,21 +42,26 @@ const footerLinks = [
 ];
 ---
 
-<footer class="bg-gray-900 border-t border-gray-800 mt-16">
+<footer class="mt-16 border-t transition-colors duration-300" style={{ 
+  backgroundColor: "var(--color-bg-secondary)", 
+  borderColor: "var(--color-border)" 
+}}>
   <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
       <!-- Logo and description -->
       <div class="md:col-span-2">
         <div class="flex items-center space-x-3 mb-6">
           <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
-          <span class="text-xl font-semibold text-white tracking-tight">EU Reform <span class="text-blue-400">Vision</span></span>
+          <span class="text-xl font-semibold tracking-tight" style={{ color: "var(--color-text-primary)" }}>
+            EU Reform <span style={{ color: "var(--color-accent-primary)" }}>Vision</span>
+          </span>
         </div>
-        <p class="text-gray-300 text-lg pr-4">
+        <p class="text-lg pr-4" style={{ color: "var(--color-text-secondary)" }}>
           A comprehensive vision for European integration through technological innovation, language unity, and administrative reform.
         </p>
         <div class="mt-6">
-          <p class="text-gray-400">
-            This vision was created by <a href="https://zentala.io" class="text-blue-400 hover:underline">Paweł Żentała</a>, a Polish software engineer and European policy enthusiast.
+          <p style={{ color: "var(--color-text-secondary)" }}>
+            This vision was created by <a href="https://zentala.io" class="hover:underline" style={{ color: "var(--color-accent-primary)" }}>Paweł Żentała</a>, a Polish software engineer and European policy enthusiast.
           </p>
         </div>
       </div>
@@ -64,11 +69,11 @@ const footerLinks = [
       <!-- Footer links -->
       {footerLinks.map(section => (
         <div>
-          <h3 class="text-lg font-semibold text-white mb-4">{section.title}</h3>
+          <h3 class="text-lg font-semibold mb-4" style={{ color: "var(--color-text-primary)" }}>{section.title}</h3>
           <ul class="space-y-3">
             {section.links.map(link => (
               <li>
-                <a href={link.href} class="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href={link.href} class="transition-colors hover:underline" style={{ color: "var(--color-text-secondary)" }}>
                   {link.text}
                 </a>
               </li>
@@ -78,15 +83,16 @@ const footerLinks = [
       ))}
     </div>
     
-    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-400">
+    <div class="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" style={{ 
+      borderTop: "1px solid var(--color-border)" 
+    }}>
+      <p style={{ color: "var(--color-text-secondary)" }}>
         &copy; {currentYear} EU Reform Vision. All rights reserved.
       </p>
       <div class="mt-4 md:mt-0 flex items-center space-x-6">
-        <!-- <a href="/why" class="text-gray-400 hover:text-blue-400">Why Reform?</a> -->
-        <a href="/tags" class="text-gray-400 hover:text-blue-400">Tags</a>
-        <a href="/privacy" class="text-gray-400 hover:text-blue-400">Privacy</a>
-        <a href="/terms" class="text-gray-400 hover:text-blue-400">Terms</a>
+        <a href="/tags" class="hover:underline transition-colors" style={{ color: "var(--color-text-secondary)" }}>Tags</a>
+        <a href="/privacy" class="hover:underline transition-colors" style={{ color: "var(--color-text-secondary)" }}>Privacy</a>
+        <a href="/terms" class="hover:underline transition-colors" style={{ color: "var(--color-text-secondary)" }}>Terms</a>
       </div>
     </div>
     
@@ -107,7 +113,8 @@ const footerLinks = [
             const uiLinkItem = document.createElement('li');
             const uiLink = document.createElement('a');
             uiLink.href = '/ui';
-            uiLink.className = 'text-gray-400 hover:text-blue-400 transition-colors';
+            uiLink.className = 'hover:underline transition-colors';
+            uiLink.style.color = "var(--color-text-secondary)";
             uiLink.textContent = 'UI Demo';
             
             uiLinkItem.appendChild(uiLink);

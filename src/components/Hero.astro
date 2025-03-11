@@ -27,11 +27,11 @@ const description = Array.isArray(rawDescription) ? rawDescription : [rawDescrip
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row items-center gap-12">
       <div class="w-full md:w-3/5">
-        <h1 class="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">{title}</h1>
+        <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-tight" style={{ color: "var(--color-text-primary)" }}>{title}</h1>
         
         <div class="space-y-6">
           {description.map((paragraph: string) => (
-            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">{paragraph}</p>
+            <p class="text-xl md:text-2xl leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>{paragraph}</p>
           ))}
         </div>
         
@@ -39,13 +39,14 @@ const description = Array.isArray(rawDescription) ? rawDescription : [rawDescrip
           {actions.map((action: Action) => (
             <a 
               href={action.link} 
-              class={`
-                px-8 py-4 rounded-lg text-xl font-medium transition-all duration-300 transform hover:scale-105
-                ${action.variant === 'primary' 
-                  ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl' 
-                  : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'
-                }
-              `}
+              class="px-8 py-4 rounded-lg text-xl font-medium transition-all duration-300 transform hover:scale-105"
+              style={{
+                backgroundColor: action.variant === 'primary' ? "var(--color-accent-primary)" : "var(--color-bg-secondary)",
+                color: "var(--color-text-primary)",
+                borderColor: "var(--color-border)",
+                borderWidth: action.variant !== 'primary' ? "1px" : "0",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+              }}
             >
               {action.text}
               {action.icon === 'right-arrow' && 
@@ -61,11 +62,12 @@ const description = Array.isArray(rawDescription) ? rawDescription : [rawDescrip
       {image.file && (
         <div class="w-full md:w-2/5 mt-8 md:mt-0">
           <div class="relative">
-            <div class="absolute -inset-1 bg-blue-600 rounded-full opacity-30 blur-xl"></div>
+            <div class="absolute -inset-1 rounded-full opacity-30 blur-xl" style={{ backgroundColor: "var(--color-accent-primary)" }}></div>
             <img 
               src={image.file} 
               alt={title || 'EU Reform Vision'} 
-              class="relative rounded-full border-4 border-blue-900 shadow-2xl max-w-full h-auto object-cover transform hover:rotate-3 transition-transform duration-700"
+              class="relative rounded-full shadow-2xl max-w-full h-auto object-cover transform hover:rotate-3 transition-transform duration-700"
+              style={{ borderWidth: "4px", borderColor: "var(--color-accent-primary)", borderStyle: "solid" }}
             />
           </div>
         </div>
