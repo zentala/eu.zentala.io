@@ -56,7 +56,7 @@ const defaultColors = [
   </div>
 </div>
 
-<script is:inline define:vars={{ chartId, chartType, data, xAxisLabel, yAxisLabel, darkMode, defaultColors }}>
+<script is:inline define:vars={{ canvas_id: chartId, chartType, data, xAxisLabel, yAxisLabel, darkMode, defaultColors }}>
   document.addEventListener('DOMContentLoaded', async () => {
     // Dynamically import Chart.js
     const { Chart, registerables } = await import('chart.js');
@@ -88,16 +88,16 @@ const defaultColors = [
       }
     };
     
-    // Create the chart
-    const chartElement = document.getElementById(chartId);
+    // Use the ID passed through define:vars from the Astro component
+    const chartElement = document.getElementById(canvas_id);
     if (!chartElement) {
-      console.error(`Chart element with ID ${chartId} not found`);
+      console.error(`Chart element with ID ${canvas_id} not found`);
       return;
     }
     
     const ctx = chartElement.getContext('2d');
     if (!ctx) {
-      console.error(`Could not get 2d context for chart ${chartId}`);
+      console.error(`Could not get 2d context for chart ${canvas_id}`);
       return;
     }
     

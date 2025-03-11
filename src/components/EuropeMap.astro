@@ -15,11 +15,12 @@ interface Props {
 
 // Provide default values
 const { 
-  countries = [], 
-  defaultColor = "rgba(65, 90, 160, 0.7)", 
-  highlightColor = "rgba(74, 222, 128, 0.8)",
   title = "Benefits Across Europe"
 } = Astro.props;
+
+// These values are now used directly in the script where needed
+// rather than being unused Astro-side props
+// This improves TypeScript coverage
 
 // Add default data for EU countries if not provided
 const defaultCountries: CountryData[] = [
