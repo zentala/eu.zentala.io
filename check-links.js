@@ -11,8 +11,11 @@ const IGNORE_PATTERNS = [
   /^mailto:/,
   /^tel:/,
   /^#/,
-  // Uncomment below to ignore external links entirely
-  // /^https?:\/\/(?!localhost)/
+  // Specific external links to ignore
+  /^https:\/\/fonts\.googleapis\.com/,
+  /^https:\/\/fonts\.gstatic\.com/,
+  /^https:\/\/www\.linkedin\.com\/in\/zentala/,
+  /^https:\/\/www\.facebook\.com\/reel/
 ];
 const MAX_CONNECTIONS = 5; // Limit concurrent connections
 

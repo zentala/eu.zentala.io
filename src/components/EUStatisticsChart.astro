@@ -89,16 +89,15 @@ const defaultColors = [
     };
     
     // Create the chart
-    const elementId = chartId;
-    const chartElement = document.getElementById(elementId);
+    const chartElement = document.getElementById(chartId);
     if (!chartElement) {
-      console.error(`Chart element with ID ${elementId} not found`);
+      console.error(`Chart element with ID ${chartId} not found`);
       return;
     }
     
     const ctx = chartElement.getContext('2d');
     if (!ctx) {
-      console.error(`Could not get 2d context for chart ${elementId}`);
+      console.error(`Could not get 2d context for chart ${chartId}`);
       return;
     }
     

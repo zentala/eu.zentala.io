@@ -15,17 +15,25 @@
     "test:links": "node check-links.js",
     "typecheck": "astro check --exclude 'dist/**/*'",
     "prepare": "husky",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "index-algolia": "node algolia-indexer.js"
   },
   "dependencies": {
+    "@algolia/client-search": "^5.20.4",
     "@astrojs/check": "^0.7.0",
     "@astrojs/starlight": "^0.24.4",
     "@astrojs/tailwind": "^5.1.4",
+    "algoliasearch": "^5.20.4",
     "astro": "^4.11.0",
     "chart.js": "^4.4.8",
     "daisyui": "^4.12.23",
+    "dotenv": "^16.4.7",
+    "globby": "^14.1.0",
+    "gray-matter": "^4.0.3",
     "leaflet": "^1.9.4",
+    "remark": "^15.0.1",
     "sharp": "^0.32.6",
+    "strip-markdown": "^6.0.0",
     "typescript": "^5.5.2"
   },
   "devDependencies": {

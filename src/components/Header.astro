@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import EuLogo from '../assets/eu.png';
-import SearchBar from './SearchBar.astro';
+import AlgoliaSearch from './AlgoliaSearch.astro';
 
 const links = [
   { href: '/', text: 'Overview' },
@@ -21,7 +21,7 @@ const links = [
       </a>
       
       <div class="hidden lg:block w-full max-w-md mx-6">
-        <SearchBar placeholder="Search the vision..." />
+        <AlgoliaSearch placeholder="Search the vision..." />
       </div>
       
       <nav class="hidden md:flex space-x-6 items-center">
@@ -47,7 +47,7 @@ const links = [
   <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-4">
     <div class="container mx-auto px-4">
       <div class="py-4">
-        <SearchBar placeholder="Search the vision..." />
+        <AlgoliaSearch placeholder="Search the vision..." />
       </div>
       <nav class="flex flex-col space-y-4">
         {links.map(link => (
