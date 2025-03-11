@@ -11,17 +11,26 @@ const {
 ---
 
 <div class="algolia-search-wrapper relative">
-  <div class="search-container bg-gray-800/50 border border-gray-700 rounded-lg shadow-lg">
+  <div class="search-container border rounded-lg shadow-lg" style={{
+    backgroundColor: "var(--color-bg-secondary)",
+    borderColor: "var(--color-border)",
+  }}>
     <div class="relative w-full">
       <input 
         type="text" 
         id="algolia-search-input"
-        class="search-input w-full bg-gray-800 border-0 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="search-input w-full border-0 rounded-lg py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        style={{
+          backgroundColor: "var(--color-bg-secondary)",
+          color: "var(--color-text-primary)",
+        }}
         placeholder={placeholder}
         aria-label="Search"
       />
       <div class="absolute inset-y-0 left-0 flex items-center pl-3">
-        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{
+          color: "var(--color-text-secondary)"
+        }}>
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
       </div>
@@ -31,8 +40,8 @@ const {
     <div id="algolia-search-results" class="search-results hidden">
       <!-- Loading indicator -->
       <div id="search-loading" class="p-4 text-center hidden">
-        <div class="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-        <span class="ml-2 text-gray-300">Searching...</span>
+        <div class="inline-block animate-spin rounded-full h-4 w-4 border-b-2" style="border-color: var(--color-accent-primary);"></div>
+        <span class="ml-2" style="color: var(--color-text-secondary);">Searching...</span>
       </div>
       
       <!-- Results list -->
@@ -40,15 +49,15 @@ const {
       
       <!-- No results message -->
       <div id="search-no-results" class="p-4 text-center hidden">
-        <p class="text-gray-400">No results found</p>
+        <p style="color: var(--color-text-secondary);">No results found</p>
       </div>
       
       <!-- Footer with Algolia attribution -->
-      <div class="search-footer p-3 border-t border-gray-700 flex justify-between items-center">
-        <span class="text-xs text-gray-400">
-          Results by <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">Algolia</a>
+      <div class="search-footer p-3 flex justify-between items-center" style="border-top: 1px solid var(--color-border);">
+        <span class="text-xs" style="color: var(--color-text-secondary);">
+          Results by <a href="https://www.algolia.com/" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-primary);" class="hover:underline">Algolia</a>
         </span>
-        <button id="close-search-btn" class="text-xs text-gray-400 hover:text-white">
+        <button id="close-search-btn" class="text-xs hover:underline" style="color: var(--color-text-secondary);">
           Close
         </button>
       </div>
@@ -75,22 +84,27 @@ const {
     left: 0;
     right: 0;
     margin-top: 0.5rem;
-    background-color: rgba(31, 41, 55, 0.95);
+    background-color: var(--color-bg-secondary);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(75, 85, 99, 0.5);
+    border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
     z-index: 50;
+    transition: background-color 0.3s, border-color 0.3s;
   }
   
   .search-result-item {
     padding: 1rem;
-    border-bottom: 1px solid rgba(75, 85, 99, 0.2);
+    border-bottom: 1px solid var(--color-border);
     transition: background-color 0.15s ease;
   }
   
   .search-result-item:hover {
-    background-color: rgba(55, 65, 81, 0.7);
+    background-color: color-mix(in srgb, var(--color-bg-secondary) 90%, white 10%);
+  }
+  
+  .dark .search-result-item:hover {
+    background-color: color-mix(in srgb, var(--color-bg-secondary) 80%, black 20%);
   }
   
   .search-result-item:last-child {
@@ -98,13 +112,13 @@ const {
   }
   
   .search-result-title {
-    color: white;
+    color: var(--color-text-primary);
     font-weight: 600;
     margin-bottom: 0.25rem;
   }
   
   .search-result-description {
-    color: rgba(209, 213, 219, 0.8);
+    color: var(--color-text-secondary);
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
     display: -webkit-box;
@@ -114,16 +128,21 @@ const {
   }
   
   .search-result-path {
-    color: rgba(147, 197, 253, 0.8);
+    color: var(--color-accent-primary);
     font-size: 0.75rem;
   }
   
   .search-highlight {
     background-color: rgba(59, 130, 246, 0.2);
-    color: rgba(191, 219, 254, 1);
+    color: var(--color-accent-primary);
     padding: 0 0.2rem;
     border-radius: 0.2rem;
     font-weight: 500;
+  }
+  
+  .dark .search-highlight {
+    background-color: rgba(59, 130, 246, 0.3);
+    color: rgba(191, 219, 254, 1);
   }
 </style>
 

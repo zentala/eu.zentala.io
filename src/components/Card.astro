@@ -7,48 +7,110 @@ interface Props {
 
 const { icon, title, color } = Astro.props;
 
-// Dynamically determine background color
-let bgColorClass = "bg-gray-800";
-let hoverColorClass = "hover:bg-gray-700";
-let borderColorClass = "border-gray-700";
+// Set up color mapping for different states using CSS variables
+let colorStyles = {
+  bg: 'rgba(31, 41, 55, 0.8)',        // Default dark gray
+  hover: 'rgba(55, 65, 81, 0.9)',     // Lighter gray for hover
+  border: 'rgba(75, 85, 99, 0.5)'     // Border color
+};
 
+// Customize colors based on the prop
 if (color === "blue") {
-  bgColorClass = "bg-blue-900";
-  hoverColorClass = "hover:bg-blue-800";
-  borderColorClass = "border-blue-700";
+  colorStyles = {
+    bg: 'rgba(30, 58, 138, 0.8)',     // blue-900
+    hover: 'rgba(30, 64, 175, 0.9)',  // blue-800
+    border: 'rgba(29, 78, 216, 0.5)'  // blue-700
+  };
 } else if (color === "green") {
-  bgColorClass = "bg-green-900";
-  hoverColorClass = "hover:bg-green-800";
-  borderColorClass = "border-green-700";
+  colorStyles = {
+    bg: 'rgba(6, 78, 59, 0.8)',       // green-900
+    hover: 'rgba(6, 95, 70, 0.9)',    // green-800
+    border: 'rgba(4, 120, 87, 0.5)'   // green-700
+  };
 } else if (color === "red") {
-  bgColorClass = "bg-red-900";
-  hoverColorClass = "hover:bg-red-800";
-  borderColorClass = "border-red-700";
+  colorStyles = {
+    bg: 'rgba(127, 29, 29, 0.8)',     // red-900
+    hover: 'rgba(153, 27, 27, 0.9)',  // red-800
+    border: 'rgba(185, 28, 28, 0.5)'  // red-700
+  };
 } else if (color === "yellow") {
-  bgColorClass = "bg-yellow-900";
-  hoverColorClass = "hover:bg-yellow-800";
-  borderColorClass = "border-yellow-700";
+  colorStyles = {
+    bg: 'rgba(120, 53, 15, 0.8)',     // yellow-900
+    hover: 'rgba(146, 64, 14, 0.9)',  // yellow-800
+    border: 'rgba(180, 83, 9, 0.5)'   // yellow-700
+  };
 } else if (color === "indigo") {
-  bgColorClass = "bg-indigo-900";
-  hoverColorClass = "hover:bg-indigo-800";
-  borderColorClass = "border-indigo-700";
+  colorStyles = {
+    bg: 'rgba(49, 46, 129, 0.8)',     // indigo-900
+    hover: 'rgba(55, 48, 163, 0.9)',  // indigo-800
+    border: 'rgba(67, 56, 202, 0.5)'  // indigo-700
+  };
 } else if (color === "purple") {
-  bgColorClass = "bg-purple-900";
-  hoverColorClass = "hover:bg-purple-800";
-  borderColorClass = "border-purple-700";
+  colorStyles = {
+    bg: 'rgba(76, 29, 149, 0.8)',     // purple-900
+    hover: 'rgba(91, 33, 182, 0.9)',  // purple-800
+    border: 'rgba(109, 40, 217, 0.5)' // purple-700
+  };
 } else if (color === "teal") {
-  bgColorClass = "bg-teal-900";
-  hoverColorClass = "hover:bg-teal-800";
-  borderColorClass = "border-teal-700";
+  colorStyles = {
+    bg: 'rgba(19, 78, 74, 0.8)',      // teal-900
+    hover: 'rgba(17, 94, 89, 0.9)',   // teal-800
+    border: 'rgba(15, 118, 110, 0.5)' // teal-700
+  };
 }
+
+// Adjust colors for light mode in dark class using CSS variables
+const darkModeModifier = `
+  .dark & {
+    background-color: ${colorStyles.bg};
+    &:hover {
+      background-color: ${colorStyles.hover};
+    }
+    border-color: ${colorStyles.border};
+  }
+`;
+
+// For light mode, lighten the colors (add this to your CSS style block)
+const lightModeColor = color || 'gray';
 ---
 
-<article class={`card flex flex-col gap-4 m-4 p-8 border ${borderColorClass} ${bgColorClass} ${hoverColorClass} rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] text-white h-full`}>
+<article 
+  class="card flex flex-col gap-4 m-4 p-8 border rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] h-full"
+  style={{
+    backgroundColor: `var(--color-bg-secondary)`,
+    borderColor: `var(--color-border)`,
+    color: `var(--color-text-primary)`,
+  }}
+>
 	<h3 class="title flex font-bold text-2xl leading-snug gap-4 items-center mb-4">
 		{icon && <span class="text-3xl">{icon}</span>}
 		<span set:html={title} />
 	</h3>
-	<div class="body text-gray-300 text-lg">
+	<div class="body text-lg" style={{ color: `var(--color-text-secondary)` }}>
 		<slot />
 	</div>
 </article>
+
+<style define:vars={{ 
+  cardBg: colorStyles.bg,
+  cardHover: colorStyles.hover,
+  cardBorder: colorStyles.border
+}}>
+  .card {
+    background-color: var(--color-bg-secondary);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  
+  .card:hover {
+    background-color: color-mix(in srgb, var(--color-bg-secondary) 90%, white 10%);
+  }
+  
+  .dark .card {
+    background-color: var(--cardBg);
+    border-color: var(--cardBorder);
+  }
+  
+  .dark .card:hover {
+    background-color: var(--cardHover);
+  }
+</style>

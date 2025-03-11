@@ -1,0 +1,72 @@
+---
+// GradientSection.astro - A reusable component for creating gradient background sections
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'accent';
+  opacity?: number;
+  rounded?: boolean;
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+  id?: string;
+}
+
+const {
+  variant = 'primary',
+  opacity = 0.5,
+  rounded = false,
+  padding = 'lg',
+  class: className = '',
+  id,
+} = Astro.props;
+
+// Base classes
+let classes = "relative overflow-hidden";
+
+// Padding variations
+const paddingClasses = {
+  none: "",
+  sm: "py-4 px-4 sm:px-6",
+  md: "py-8 px-4 sm:px-6 lg:px-8",
+  lg: "py-12 px-4 sm:px-6 lg:px-8",
+  xl: "py-16 px-4 sm:px-6 lg:px-8",
+};
+
+// Rounded class
+const roundedClass = rounded ? "rounded-lg" : "";
+
+// Gradient variations (using CSS variables for theme support)
+const gradientStyles = {
+  primary: {
+    from: 'var(--color-bg-gradient-from)',
+    to: 'var(--color-bg-gradient-to)',
+  },
+  secondary: {
+    from: 'var(--color-accent-primary)',
+    to: 'var(--color-accent-secondary)',
+  },
+  accent: {
+    from: '#3b82f6',
+    to: '#8b5cf6',
+  },
+};
+
+// Get the gradient colors
+const { from, to } = gradientStyles[variant];
+
+// Combine the classes
+classes = `${classes} ${paddingClasses[padding]} ${roundedClass} ${className}`;
+---
+
+<section class={classes} id={id}>
+  <div 
+    class="absolute inset-0 z-0 bg-gradient-to-br" 
+    style={{
+      backgroundImage: `linear-gradient(to bottom right, ${from}, ${to})`,
+      opacity: opacity.toString()
+    }}
+  ></div>
+  
+  <div class="relative z-10">
+    <slot />
+  </div>
+</section>

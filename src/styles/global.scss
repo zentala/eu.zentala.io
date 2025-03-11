@@ -2,10 +2,45 @@
 @use 'tailwindcss/components';
 @use 'tailwindcss/utilities';
 
+// CSS Variables for theming
+:root {
+  /* Light theme (default) */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-bg-gradient-from: #e0e7ff;
+  --color-bg-gradient-to: #f3f4f6;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-accent-primary: #3b82f6;
+  --color-accent-secondary: #60a5fa;
+  --color-border: #e5e7eb;
+  --color-scrollbar-track: #f1f5f9;
+  --color-scrollbar-thumb: #cbd5e1;
+  --color-scrollbar-thumb-hover: #94a3b8;
+}
+
+.dark {
+  /* Dark theme */
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #1f2937;
+  --color-bg-gradient-from: #172554; /* blue-950 */
+  --color-bg-gradient-to: #111827; /* gray-900 */
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #d1d5db;
+  --color-accent-primary: #3b82f6;
+  --color-accent-secondary: #60a5fa;
+  --color-border: #374151;
+  --color-scrollbar-track: #1a202c;
+  --color-scrollbar-thumb: #2d3748;
+  --color-scrollbar-thumb-hover: #4a5568;
+}
+
 // Global theme styles
 body {
-  @apply bg-gray-900 text-gray-100;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 // Custom container sizing
@@ -34,50 +69,52 @@ body {
   font-size: 2.75rem;
 }
 
-// Theme colors
+// Theme colors - new approach with CSS variables
 .theme-bg-primary {
-  @apply bg-blue-900;
+  background-color: var(--color-bg-primary);
 }
 
 .theme-bg-secondary {
-  @apply bg-gray-800;
+  background-color: var(--color-bg-secondary);
 }
 
 .theme-text-primary {
-  @apply text-white;
+  color: var(--color-text-primary);
 }
 
 .theme-text-accent {
-  @apply text-blue-400;
+  color: var(--color-accent-primary);
 }
 
 @layer base {
+  /* Light mode prose styles */
   .prose {
-    --tw-prose-body: theme('colors.gray.200');
-    --tw-prose-headings: theme('colors.white');
-    --tw-prose-lead: theme('colors.gray.300');
-    --tw-prose-links: theme('colors.blue.400');
-    --tw-prose-bold: theme('colors.white');
-    --tw-prose-counters: theme('colors.gray.400');
-    --tw-prose-bullets: theme('colors.gray.200');
-    --tw-prose-hr: theme('colors.gray.700');
-    --tw-prose-quotes: theme('colors.gray.300');
-    --tw-prose-quote-borders: theme('colors.gray.700');
-    --tw-prose-captions: theme('colors.gray.400');
-    --tw-prose-code: theme('colors.gray.200');
-    --tw-prose-pre-code: theme('colors.gray.200');
-    --tw-prose-pre-bg: theme('colors.gray.800');
-    --tw-prose-th-borders: theme('colors.gray.700');
-    --tw-prose-td-borders: theme('colors.gray.700');
+    --tw-prose-body: var(--color-text-primary);
+    --tw-prose-headings: var(--color-text-primary);
+    --tw-prose-lead: var(--color-text-secondary);
+    --tw-prose-links: var(--color-accent-primary);
+    --tw-prose-bold: var(--color-text-primary);
+    --tw-prose-counters: var(--color-text-secondary);
+    --tw-prose-bullets: var(--color-text-primary);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-text-secondary);
+    --tw-prose-quote-borders: var(--color-border);
+    --tw-prose-captions: var(--color-text-secondary);
+    --tw-prose-code: var(--color-text-primary);
+    --tw-prose-pre-code: var(--color-text-primary);
+    --tw-prose-pre-bg: var(--color-bg-secondary);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
 
-    // Dodatkowe style dla elementów markdown
+    // Style for markdown elements
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      @apply font-serif font-light mt-10 mb-6 text-white;
+      @apply font-serif font-light mt-10 mb-6;
+      color: var(--color-text-primary);
     }
 
     h1 {
@@ -94,10 +131,16 @@ body {
 
     p {
       @apply mb-6 text-xl leading-relaxed;
+      color: var(--color-text-primary);
     }
 
     a {
-      @apply text-blue-400 hover:text-blue-300 underline;
+      color: var(--color-accent-primary);
+      @apply hover:underline;
+      
+      &:hover {
+        color: var(--color-accent-secondary);
+      }
     }
 
     ul,
@@ -115,27 +158,34 @@ body {
 
     li {
       @apply mb-3 text-xl;
+      color: var(--color-text-primary);
       
       &::marker {
-        color: theme('colors.white');
+        color: var(--color-accent-primary);
         opacity: 1;
       }
     }
 
     blockquote {
-      @apply pl-6 border-l-4 border-blue-600 italic my-6 text-xl;
+      @apply pl-6 italic my-6 text-xl;
+      border-left: 4px solid var(--color-accent-primary);
+      color: var(--color-text-secondary);
     }
 
     hr {
-      @apply my-10 border-gray-700;
+      @apply my-10;
+      border-color: var(--color-border);
     }
 
     pre {
-      @apply p-6 rounded-lg my-6 bg-gray-800;
+      @apply p-6 rounded-lg my-6;
+      background-color: var(--color-bg-secondary);
     }
 
     code {
-      @apply px-2 py-1 rounded bg-gray-800 text-base text-blue-300;
+      @apply px-2 py-1 rounded text-base;
+      background-color: var(--color-bg-secondary);
+      color: var(--color-accent-primary);
     }
 
     img {
@@ -146,11 +196,13 @@ body {
       @apply w-full my-6;
 
       th {
-        @apply bg-gray-800 p-3 text-left;
+        background-color: var(--color-bg-secondary);
+        @apply p-3 text-left;
       }
 
       td {
-        @apply p-3 border-t border-gray-700;
+        @apply p-3;
+        border-top: 1px solid var(--color-border);
       }
     }
   }

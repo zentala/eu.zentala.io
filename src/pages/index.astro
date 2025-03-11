@@ -14,6 +14,9 @@ import WhyDigitalReform from '../components/WhyDigitalReform.astro';
 import Testimonials from '../components/Testimonials.astro';
 import InteractiveSection from '../components/InteractiveSection.astro';
 import Newsletter from '../components/Newsletter.astro';
+import GradientSection from '../components/GradientSection.astro';
+import Button from '../components/Button.astro';
+import IconLink from '../components/IconLink.astro';
 
 // Import SVG icons
 import LanguageIcon from '../assets/icons/language.svg';
@@ -68,25 +71,36 @@ import BookIcon from '../assets/icons/book.svg';
   
 
 </div> -->
-<div class="mt-12 flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10 mb-20">
-  <a href="/why" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-    <img src={QuestionIcon.src} alt="Question mark" class="w-6 h-6 mr-2 text-blue-400" />
-    Why EU Needs Reform?
-  </a>
-  
-  <a href="/benefits" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-    <img src={GlobeIcon.src} alt="Globe" class="w-6 h-6 mr-2 text-blue-400" />
-    Benefits For Your Country
-  </a>
-  
-  <a href="/vision" class="flex items-center text-xl text-white hover:text-blue-300 group transition-colors">
-    <img src={BookIcon.src} alt="Book" class="w-6 h-6 mr-2 text-blue-400" />
-    Full Vision Overview
-  </a>
-</div>
-
-
-</div>
+<GradientSection variant="primary" padding="md" rounded={true} class="my-12">
+  <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
+    <IconLink 
+      href="/why" 
+      icon="fa-solid fa-question-circle" 
+      class="text-xl hover:text-blue-300 transition-colors"
+      ariaLabel="Learn why EU needs reform"
+    >
+      Why EU Needs Reform?
+    </IconLink>
+    
+    <IconLink 
+      href="/benefits" 
+      icon="fa-solid fa-globe" 
+      class="text-xl hover:text-blue-300 transition-colors"
+      ariaLabel="See benefits for your country"
+    >
+      Benefits For Your Country
+    </IconLink>
+    
+    <IconLink 
+      href="/vision" 
+      icon="fa-solid fa-book" 
+      class="text-xl hover:text-blue-300 transition-colors"
+      ariaLabel="See the full vision overview"
+    >
+      Full Vision Overview
+    </IconLink>
+  </div>
+</GradientSection>
 
 <!-- <div class="bg-gradient-to-r from-blue-900/10 to-indigo-900/10 rounded-xl p-6"> -->
 
@@ -162,12 +176,15 @@ import BookIcon from '../assets/icons/book.svg';
   
   <!-- Call to action button -->
   <div class="mt-8 text-center">
-    <a href="/why" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-all hover:from-teal-500 hover:to-blue-500 hover:shadow-lg">
+    <Button 
+      href="/why" 
+      variant="primary" 
+      size="lg" 
+      class="bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 shadow-md hover:shadow-lg"
+    >
       Learn more about why reform is needed
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
-    </a>
+      <i class="fa-solid fa-arrow-right ml-2"></i>
+    </Button>
   </div>
 </div>
 

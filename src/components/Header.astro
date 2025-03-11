@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import EuLogo from '../assets/eu.png';
 import AlgoliaSearch from './AlgoliaSearch.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 const links = [
   { href: '/', text: 'Overview' },
@@ -12,12 +13,12 @@ const links = [
 ]
 ---
 
-<header id="header" class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur shadow-md">
+<header id="header" class="sticky top-0 z-50 backdrop-blur shadow-md transition-colors duration-300" style="background-color: var(--color-bg-primary); background-opacity: 0.95;">
   <div class="container mx-auto transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
         <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
-        <span class="text-2xl font-semibold text-white tracking-tight">EU Reform <span class="text-blue-400">Vision</span></span>
+        <span class="text-2xl font-semibold tracking-tight theme-text-primary">EU Reform <span style="color: var(--color-accent-primary);">Vision</span></span>
       </a>
       
       <div class="hidden lg:block w-full max-w-md mx-6">
@@ -28,23 +29,28 @@ const links = [
         {links.map(link => (
           <a 
             href={link.href} 
-            class="text-lg font-medium text-gray-200 hover:text-blue-400 transition-colors"
+            class="text-lg font-medium transition-colors hover:text-blue-400"
+            style="color: var(--color-text-secondary);"
           >
             {link.text}
           </a>
         ))}
+        <ThemeToggle />
       </nav>
       
-      <button id="mobile-menu-button" class="md:hidden text-white p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
+      <div class="md:hidden flex items-center space-x-2">
+        <ThemeToggle />
+        <button id="mobile-menu-button" class="p-2" style="color: var(--color-text-primary);">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
   
   <!-- Mobile menu, hidden by default -->
-  <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-4">
+  <div id="mobile-menu" class="md:hidden hidden pb-4" style="background-color: var(--color-bg-primary);">
     <div class="container mx-auto px-4">
       <div class="py-4">
         <AlgoliaSearch placeholder="Search the vision..." />
@@ -53,7 +59,11 @@ const links = [
         {links.map(link => (
           <a 
             href={link.href} 
-            class="text-xl font-medium text-gray-200 hover:text-blue-400 transition-colors py-2 border-b border-gray-800"
+            class="text-xl font-medium transition-colors hover:text-blue-400 py-2"
+            style={{
+              color: "var(--color-text-secondary)",
+              borderBottom: "1px solid var(--color-border)"
+            }}
           >
             {link.text}
           </a>
