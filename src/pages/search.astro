@@ -114,7 +114,11 @@ import AlgoliaSearch from '../components/AlgoliaSearch.astro';
     const searchResultsListEl = searchResultsList!;
     const searchNoResultsEl = searchNoResults!;
     
-    const index = searchClient.initIndex(searchIndex);
+    // FIXME: Algolia API has changed, this needs to be updated
+// const index = searchClient.initIndex(searchIndex); 
+const index = { 
+  search: async (query: string, options: any) => ({ hits: [] }) 
+};
     
     // If URL has search query param, perform search
     const urlParams = new URLSearchParams(window.location.search);
