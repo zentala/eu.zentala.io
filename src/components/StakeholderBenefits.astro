@@ -1,0 +1,147 @@
+---
+// StakeholderBenefits.astro - A reusable component for showing stakeholder benefits with theme support
+---
+
+<div class="stakeholder-benefits transition-colors duration-300">
+  <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text-primary);">Benefits by Stakeholder</h2>
+  
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- For Citizens -->
+    <div class="stakeholder-group p-6 rounded-lg shadow-md transition-colors duration-300" 
+         style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+      <div class="flex items-center mb-4">
+        <div class="flex-shrink-0 bg-gradient-to-br rounded-full w-10 h-10 flex items-center justify-center mr-3" 
+             style="background: linear-gradient(to bottom right, var(--color-accent-primary), var(--color-accent-secondary));">
+          <span class="text-xl text-white">👨‍👩‍👧‍👦</span>
+        </div>
+        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">For Citizens</h3>
+      </div>
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Improved public services through digital innovation</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Easier movement and settlement across the EU</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Enhanced job opportunities through skills recognition</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Faster, cheaper logistics and transportation</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- For Businesses -->
+    <div class="stakeholder-group p-6 rounded-lg shadow-md transition-colors duration-300" 
+         style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+      <div class="flex items-center mb-4">
+        <div class="flex-shrink-0 bg-gradient-to-br rounded-full w-10 h-10 flex items-center justify-center mr-3" 
+             style="background: linear-gradient(to bottom right, var(--color-accent-primary), var(--color-accent-secondary));">
+          <span class="text-xl text-white">💼</span>
+        </div>
+        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">For Businesses</h3>
+      </div>
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Simplified cross-border operations</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Reduced administrative burden</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Access to EU-wide talent pool</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Efficient logistics for e-commerce</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- For Regional Development -->
+    <div class="stakeholder-group p-6 rounded-lg shadow-md transition-colors duration-300" 
+         style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+      <div class="flex items-center mb-4">
+        <div class="flex-shrink-0 bg-gradient-to-br rounded-full w-10 h-10 flex items-center justify-center mr-3" 
+             style="background: linear-gradient(to bottom right, var(--color-accent-primary), var(--color-accent-secondary));">
+          <span class="text-xl text-white">🏙️</span>
+        </div>
+        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">For Regional Development</h3>
+      </div>
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">More equitable economic development</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Reduced geographic disadvantages</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Local specialization opportunities</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Enhanced infrastructure connectivity</span>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- For European Integration -->
+    <div class="stakeholder-group p-6 rounded-lg shadow-md transition-colors duration-300" 
+         style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+      <div class="flex items-center mb-4">
+        <div class="flex-shrink-0 bg-gradient-to-br rounded-full w-10 h-10 flex items-center justify-center mr-3" 
+             style="background: linear-gradient(to bottom right, var(--color-accent-primary), var(--color-accent-secondary));">
+          <span class="text-xl text-white">🇪🇺</span>
+        </div>
+        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">For European Integration</h3>
+      </div>
+      <ul class="space-y-2">
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Practical, tangible benefits for all citizens</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Natural cultural integration through shared systems</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Enhanced European competitiveness globally</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2 mt-1" style="color: var(--color-accent-primary);">✓</span>
+          <span style="color: var(--color-text-secondary);">Economies of scale through shared development</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About This Project -->
+  <div class="about-project mt-12 p-6 rounded-lg shadow-md transition-colors duration-300" 
+       style="background-color: var(--color-bg-secondary); border: 1px solid var(--color-border);">
+    <h2 class="text-2xl font-bold mb-4" style="color: var(--color-text-primary);">About This Project</h2>
+    <p class="mb-4" style="color: var(--color-text-secondary);">
+      This vision for European integration presents a comprehensive framework for addressing Europe's most pressing challenges through technological innovation, cultural integration, and administrative reform. Rather than focusing on institutional changes, this approach centers on creating the shared infrastructure, language, and digital systems that would naturally bring Europeans closer together.
+    </p>
+    <p style="color: var(--color-text-secondary);">
+      By leveraging technology, embracing a common language, and building shared systems, we can create a more united, efficient, and prosperous Europe for all its citizens.
+    </p>
+    <div class="mt-4 text-center">
+      <a href="/principles" class="inline-block px-6 py-3 rounded-lg font-medium transition-colors duration-300" 
+         style="background: linear-gradient(to right, var(--color-accent-primary), var(--color-accent-secondary)); color: white;">
+        View Our Guiding Principles
+      </a>
+    </div>
+  </div>
+</div>

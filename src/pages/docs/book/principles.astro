@@ -1,84 +1,15 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
+export const prerender = false;
+
+const destination = '/principles';
 ---
 
-<Layout title="Vision for European Cooperation and Integration">
-  <div class="bg-gray-900 min-h-screen">
-    <main class="container mx-auto max-w-6xl px-4 py-8">
-      <div class="mb-8">
-        <a href="/docs/book" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Book
-        </a>
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Vision for European Cooperation and Integration</h1>
-        <p class="text-xl text-gray-300 mb-8">Principles for designing a unified future for the European Union addressing demographic, economic, and security challenges.</p>
-      </div>
-      
-      <div class="relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent opacity-50 blur-xl"></div>
-        <article class="relative prose prose-lg max-w-none dark:prose-invert prose-headings:text-white prose-headings:font-bold prose-p:text-gray-300 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-code:text-blue-300 prose-pre:bg-gray-800 prose-pre:text-gray-300 prose-li:text-gray-300">
-          
-          <h2>Principles of Mutual Benefit</h2>
-          <p>The proposed reforms are designed with a fundamental principle: creating value for all member states through strategic cooperation. This vision isn't about compromise - it's about identifying and developing areas where cooperation naturally generates greater value than individual action.</p>
-          
-          <h2>Nothing unites people more than common business.</h2>
-          <p>The proposed reforms aren't just about integration - they're about reaching for extraordinary opportunities that emerge when we work together. This vision is futuristic and pragmatic at the same time: it identifies futuristic areas where cooperation can generate significant economic growth and quality of life improvements for all Europeans. By working together, we can achieve things that would be impossible to reach separately. This proposal outlines specific areas of cooperation and ways to organize them to maximize our collective potential.</p>
-          
-          <h2>Shared Aspirations for a Secure Future</h2>
-          <p>As Europeans, we share a common goal: to create a dynamic, secure, and sustainable Union that meets the challenges of tomorrow while preserving the values of today.</p>
-          <p>A shared realistic vision of prosperity and security may unite Europeans. At the heart of this vision is a simple yet powerful idea: Europeans want to design a secure, dignified future for themselves, especially as they age.</p>
-          <p>Today's 30-somethings represent the last demographic surplus generation. They have the unique responsibility and opportunity to design systems that will ensure a peaceful and comfortable retirement for themselves without overburdening future generations or relying excessively on migration. Digitalization provides opportunities through advanced automation, robotics, and smart systems that can create sustainable solutions for aging populations without disadvantaging the younger workforce.</p>
-          <p>Moreover, achieving this vision requires ensuring the European Union's security across all dimensions – economic, industrial, technological, military, and political. A secure and resilient EU is essential to achieving a sustainable and enjoyable future for all citizens. This vision is not just a policy objective but a core principle guiding the proposed reforms.</p>
-          
-          <h2>Beyond National Limitations</h2>
-          <p>Today's challenges demand solutions at a European scale. These include:</p>
-          <ul>
-            <li><strong>Aging populations require a new retirement model:</strong> One that is independent of intergenerational reliance and instead built on self-sustaining systems supported by automation and digital advancements.</li>
-            <li><strong>Healthcare systems under strain:</strong> Existing systems must adapt to serve the growing needs of an aging population while maintaining high standards of care.</li>
-            <li><strong>Industrial autonomy in a competitive global market:</strong> Europe must strive for technological and industrial self-reliance to compete effectively on the global stage.</li>
-            <li><strong>Public administration inefficiencies:</strong> Streamlining and digitalizing government functions can lead to greater efficiency and citizen satisfaction. The complexity of modern European social states, offering numerous public services and administrative solutions, can be transformed into a strength through comprehensive digital innovation. By deeply digitalizing administrative systems, the EU can preserve its intricate processes while accelerating, simplifying, and automating operations. Sharing the costs and benefits of building this public digital infrastructure can enhance collaboration and lead to better outcomes for all member states.</li>
-            <li><strong>Comprehensive security:</strong> Ensuring the safety and resilience of the EU across all dimensions to guarantee a peaceful environment for future generations.</li>
-          </ul>
-          
-          <h2>Designing a Sustainable Future</h2>
-          <p>This vision recognizes that many contemporary challenges require solutions at a European scale. Instead of limiting expectations, it proposes radical reforms that transfer competencies to the EU level specifically in areas where collective action proves more effective than national efforts.</p>
-          <p>Key objectives include:</p>
-          <ul>
-            <li>Establishing a retirement system supported by automation and innovation, enabling aging populations to enjoy their later years without placing undue pressure on younger generations.</li>
-            <li>Leveraging robotics, AI, and advanced digital technologies to sustain high-quality public services.</li>
-            <li>Creating a cohesive framework for industrial and economic resilience to maintain Europe's competitiveness.</li>
-          </ul>
-          
-          <h2>A Win-Win Cooperation Model</h2>
-          <p>The success of this vision depends on member states' willingness to embrace empathetic cooperation over egocentric competition. While concerns and fears are natural, the proposed framework deliberately focuses on areas where integration benefits all participants. The goal is to create a cooperation model where:</p>
-          <ul>
-            <li>Every member state gains more than they invest.</li>
-            <li>Collective efficiency increases through integration.</li>
-            <li>Shared solutions address common challenges.</li>
-            <li>Innovation and progress benefit all participants.</li>
-          </ul>
-          <p>By looking 20 years into the future, we imagine a European Union that has adapted to a world where four retirees rely on one working individual – not as a burden, but as a testament to the power of innovation and cooperation. The ultimate goal is to design systems that allow Europeans to live dignified, enjoyable lives, supported by the fruits of their collective work and technological advancements.</p>
-        </article>
-      </div>
-      
-      <div class="mt-16 pt-8 border-t border-gray-800">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-          <p class="text-gray-400 text-sm">
-            Tags: EU, Reform, Integration, Demographics, Security, Cooperation
-          </p>
-          
-          <div class="flex items-center gap-4">
-            <a href="/docs/book" class="text-blue-400 hover:text-blue-300 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-              Back to Book
-            </a>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-</Layout>
+<meta http-equiv="refresh" content={`0;url=${destination}`}>
+
+<script define:vars={{ destination }}>
+  window.location.href = destination;
+</script>
+
+<body>
+  <p>Redirecting to <a href={destination}>Principles Page</a>...</p>
+</body>
