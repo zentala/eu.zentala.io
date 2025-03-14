@@ -4,7 +4,7 @@ This repository contains the source code for the EU Reform Vision website built 
 
 ## Project Structure
 
-```
+```tree
 /
 ├── public/            # Static assets
 ├── src/
@@ -49,6 +49,7 @@ npm run test:urls
 ```
 
 This tool:
+
 - Starts a development server
 - Tests a predefined list of important URLs for 200 status codes
 - Provides a summary of successful and failed URLs
@@ -63,6 +64,7 @@ npm run test:crawl
 ```
 
 This tool:
+
 - Starts a development server
 - Crawls every link it finds recursively
 - Reports all broken internal links
@@ -82,6 +84,7 @@ npm test
 ```
 
 This tool:
+
 - Requires a running server on port 4333
 - Crawls all internal links and reports their status
 - Can check external links too (configurable)
@@ -91,8 +94,17 @@ This tool:
 ## Content Guidelines
 
 All documentation is stored in MDX format with the following frontmatter requirements:
+
 - title: Page title
 - description: Brief page description
 - tags: Comma-separated list of topics (optional)
 - author: Content author (optional)
 - customSlug: Custom URL path (optional)
+
+## External Dependecies
+
+For all I login with GitHub account `zentala@gmail.com`:
+
+- [GitHub Pages](https://github.com/zentala/zentala.eu/settings/pages) for static hosting
+- [Appwrite](https://cloud.appwrite.io/console/project-eu/overview/platforms) for newsletter
+- [Angolia](https://dashboard.algolia.com/apps/N0RZJY4T6S/dashboard) for search
