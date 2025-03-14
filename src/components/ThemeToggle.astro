@@ -50,8 +50,35 @@
         // Toggle the dark class on the document element
         const isDark = document.documentElement.classList.toggle('dark');
         
-        // Save the theme preference to localStorage
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        // Save the theme preference using the global themeUtils or fallback methods
+        try {
+          // Use type assertion to access themeUtils on window
+          const windowWithThemeUtils = window as any;
+          if (typeof windowWithThemeUtils.themeUtils?.setTheme === 'function') {
+            windowWithThemeUtils.themeUtils.setTheme(isDark ? 'dark' : 'light');
+          } else {
+            // Try cookies as fallback
+            try {
+              // Set cookie with 30-day expiration
+              const expirationDate = new Date();
+              expirationDate.setDate(expirationDate.getDate() + 30);
+              document.cookie = `theme=${isDark ? 'dark' : 'light'};expires=${expirationDate.toUTCString()};path=/;SameSite=Lax`;
+            } catch (cookieError) {
+              console.warn('Error setting theme cookie:', cookieError);
+              
+              // Try localStorage as last resort
+              try {
+                if (typeof localStorage !== 'undefined') {
+                  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                }
+              } catch (e) {
+                console.warn('Error saving theme preference to localStorage:', e);
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Error saving theme preference:', e);
+        }
       });
     }
   });

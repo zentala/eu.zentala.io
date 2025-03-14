@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AlgoliaSearch from '../components/AlgoliaSearch.astro';
+import { searchClient, searchIndex } from '../lib/algoliaClient.ts';
 ---
 
 <Layout title="Search - EU Reform Vision">
@@ -94,7 +95,7 @@ import AlgoliaSearch from '../components/AlgoliaSearch.astro';
 </style>
 
 <script>
-  import { searchClient, searchIndex } from '../lib/algoliaClient.js';
+  import { searchClient, searchIndex } from '../lib/algoliaClient.ts';
   
   document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('algolia-search-input') as HTMLInputElement;

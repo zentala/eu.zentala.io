@@ -1,55 +1,37 @@
-# Algolia Search Integration - TODO List
+# Algolia Indexing TODO List
 
-## Configuration Steps
+Last updated: 3/14/2025, 8:50:20 PM
 
-1. Sign up for an Algolia account at https://www.algolia.com/
-2. Create a new application in the Algolia dashboard 
-3. Create a new index called "eu_zentala_io" (or choose a different name and update it in the .env file)
-4. Get your API keys from the Algolia dashboard:
-   - Application ID
-   - Admin API Key (for indexing)
-   - Search-only API Key (for client-side search)
+## Files exceeding Algolia size limit (10000 bytes)
 
-5. Update your `.env` file with the following values:
-   ```
-   # Algolia Search Credentials
-   ALGOLIA_APP_ID=your_algolia_app_id
-   ALGOLIA_API_KEY=your_algolia_admin_api_key
-   ALGOLIA_INDEX_NAME=eu_zentala_io
-   ALGOLIA_SEARCH_ONLY_API_KEY=your_algolia_search_only_api_key
+### 1. src/content/transcripts/europe-make-or-break.mdx
 
-   # Public Algolia Variables (client-side)
-   PUBLIC_ALGOLIA_APP_ID=your_algolia_app_id
-   PUBLIC_ALGOLIA_INDEX_NAME=eu_zentala_io
-   PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY=your_algolia_search_only_api_key
-   ```
+- **Slug:** /transcripts/europe-make-or-break
+- **Total size:** 18138 bytes
+- **Content:** 17462 bytes (17254 characters)
+- **Title:** 32 bytes (30 characters)
+- **Description:** 145 bytes (143 characters)
 
-6. Run the indexing script to index all content:
-   ```
-   npm run index-algolia
-   ```
+### 2. src/content/transcripts/it-is-time-for-Intermarium-2.0-against-russia.mdx
 
-7. Verify the search is working by testing the search bar in the header
+- **Slug:** /transcripts/it-is-time-for-Intermarium-2.0-against-russia
+- **Total size:** 23354 bytes
+- **Content:** 22610 bytes (22381 characters)
+- **Title:** 47 bytes (45 characters)
+- **Description:** 150 bytes (148 characters)
 
-## Additional Customization (Optional)
+### 3. src/content/transcripts/the-eu-could-die.mdx
 
-- Customize the search results appearance in `src/components/AlgoliaSearch.astro`
-- Adjust the search algorithm by modifying `algolia-indexer.js`
-- Add more search filters in the search page
-- Implement faceted search using Algolia's facets feature
-- Add search analytics using Algolia Insights
+- **Slug:** /transcripts/the-eu-could-die
+- **Total size:** 20236 bytes
+- **Content:** 19568 bytes (19332 characters)
+- **Title:** 42 bytes (40 characters)
+- **Description:** 137 bytes (135 characters)
 
-## Maintenance
+## How to fix the issue
 
-- Re-run the indexing script whenever content is updated:
-  ```
-  npm run index-algolia
-  ```
-- Monitor search analytics in the Algolia dashboard
-- Optimize search relevance based on user behavior
+1. Open the file mentioned above
+2. Shorten the content of the field that is too long (usually the "content" field)
+3. Run the indexing process again: `npm run index-algolia`
 
-## Integration Testing
-
-- Test the search functionality with different types of queries
-- Verify search results are accurate
-- Test the search on different devices and screen sizes
+Algolia has a 10KB limit per record. Most often, the problem is with the "content" field being too long.
