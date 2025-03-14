@@ -1,13 +1,26 @@
 ---
 type CardColor = 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'indigo' | 'purple' | 'teal';
+type CardAlignment = 'center' | 'left';
 
 interface Props {
 	icon?: string;
 	title: string;
 	color?: CardColor;
+	href?: string;
+	linkText?: string;
+	variant?: 'default' | 'gradient' | 'bordered';
+	align?: CardAlignment;
 }
 
-const { icon, title, color } = Astro.props;
+const { 
+	icon, 
+	title, 
+	color = 'gray',
+	href,
+	linkText = 'Learn more',
+	variant = 'default',
+	align = 'left'
+} = Astro.props;
 
 // Color definitions for dark mode (original colors)
 const darkModeColors: Record<CardColor, { bg: string, hover: string, border: string }> = {
@@ -110,17 +123,65 @@ const selectedColor = color || "gray";
 // No need for fallbacks since we have defined the type
 const darkColors = darkModeColors[selectedColor];
 const lightColors = lightModeColors[selectedColor];
+
+// Add gradient variants
+const gradientColors: Record<CardColor, string> = {
+	gray: 'from-gray-600/70 to-gray-800/50',
+	blue: 'from-blue-600/70 to-blue-800/50',
+	green: 'from-green-600/70 to-green-800/50',
+	red: 'from-red-600/70 to-red-800/50',
+	yellow: 'from-yellow-600/70 to-yellow-800/50',
+	indigo: 'from-indigo-600/70 to-indigo-800/50',
+	purple: 'from-purple-600/70 to-purple-800/50',
+	teal: 'from-teal-600/70 to-teal-800/50'
+};
+
+// Get variant classes
+const variantClasses = {
+	default: darkColors.bg,
+	gradient: `bg-gradient-to-br ${gradientColors[color]}`,
+	bordered: `border-2 ${darkColors.border}`
+};
+
+// Dodajemy klasy wyrównania
+const alignmentClasses = {
+	center: 'text-center',
+	left: 'text-left'
+};
+
+const cardClass = `
+	card flex flex-col gap-4 p-8 rounded-xl shadow-lg 
+	transition-all duration-300 hover:shadow-xl 
+	transform hover:scale-[1.02] h-full
+	${variantClasses[variant]} ${alignmentClasses[align]}
+`;
+
+// Klasy dla nagłówka - zmieniamy sposób wyświetlania ikony w zależności od wyrównania
+const titleClass = `title font-bold text-2xl leading-snug gap-2 mb-4 ${align === 'center' ? 'flex-col' : ''} flex ${align === 'center' ? 'justify-center' : 'justify-start'} items-center`;
+
+// Klasy dla ikony
+const iconClass = `text-3xl ${align === 'center' ? 'mb-2' : ''}`;
+
+// Klasy dla linku
+const linkClass = `text-current hover:opacity-80 font-medium flex items-center group mt-4 ${align === 'center' ? 'justify-center' : 'justify-start'}`;
 ---
 
-<article class="card flex flex-col gap-4 m-4 p-8 border rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.02] h-full"
-  data-color={selectedColor}>
-	<h3 class="title flex font-bold text-2xl leading-snug gap-4 items-center mb-4">
-		{icon && <span class="text-3xl">{icon}</span>}
+<article class={cardClass} data-color={color} data-align={align}>
+	<h3 class={titleClass}>
+		{icon && <span class={iconClass}>{icon}</span>}
 		<span set:html={title} />
 	</h3>
-	<div class="body text-lg">
+	
+	<div class="body text-lg flex-grow">
 		<slot />
 	</div>
+
+	{href && (
+		<a href={href} class={linkClass}>
+			{linkText}
+			<span class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform inline-flex items-center">→</span>
+		</a>
+	)}
 </article>
 
 <style define:vars={{
@@ -191,5 +252,28 @@ const lightColors = lightModeColors[selectedColor];
   /* Text color in light mode */
   :root:not(.dark) .card .body {
     @apply text-gray-700;
+  }
+
+  /* Add gradient and border styles for light/dark modes */
+  .card[data-variant="gradient"] {
+    @apply bg-gradient-to-br;
+  }
+
+  .card[data-variant="bordered"] {
+    @apply border-2;
+  }
+
+  /* Link styles */
+  .card a {
+    @apply mt-auto; /* Push link to bottom */
+  }
+
+  /* Dodajemy style dla różnych wyrównań */
+  .card[data-align="center"] .title {
+    @apply flex-col text-center;
+  }
+  
+  .card[data-align="left"] .title {
+    @apply flex-row text-left;
   }
 </style>

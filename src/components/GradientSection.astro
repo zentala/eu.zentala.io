@@ -54,7 +54,7 @@ const gradientStyles = {
 const { from, to } = gradientStyles[variant];
 
 // Combine the classes
-classes = `${classes} ${paddingClasses[padding]} ${roundedClass} ${className}`;
+classes = `${classes} ${paddingClasses[padding]} ${className}`; //  ${roundedClass}
 ---
 
 <section class={classes} id={id}>
@@ -62,7 +62,11 @@ classes = `${classes} ${paddingClasses[padding]} ${roundedClass} ${className}`;
     class="absolute inset-0 z-0 bg-gradient-to-br" 
     style={{
       backgroundImage: `linear-gradient(to bottom right, ${from}, ${to})`,
-      opacity: opacity.toString()
+      opacity: opacity.toString(),
+      borderType: `solid`,
+      borderWidth: `1px`,
+      borderSize: `1 0 1 0`,
+      borderColor: `rgba(255,255,255,0.1)`
     }}
   ></div>
   
