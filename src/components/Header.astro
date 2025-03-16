@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import EuLogo from '../assets/eu.png';
+import EuFlagLogo from '../assets/eu-flag.svg';
 import AlgoliaSearch from './AlgoliaSearch.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
@@ -9,7 +10,7 @@ const links = [
   { href: '/why', text: 'Why' },
   { href: '/vision', text: 'Vision' },
   { href: '/benefits', text: 'Benefits' },
-  { href: '/book', text: 'Book' }
+  { href: '/support', text: 'Support' }
 ]
 ---
 
@@ -17,11 +18,11 @@ const links = [
   <div class="container mx-auto transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center">
       <a href="/" class="flex items-center space-x-3">
-        <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
+        <Image src={EuFlagLogo} alt="European Union Reform Vision" height={40}  />
         <span class="text-2xl font-semibold tracking-tight theme-text-primary">EU Reform <span style="color: var(--color-accent-primary);">Vision</span></span>
       </a>
       
-      <div class="hidden lg:block w-full max-w-md mx-6">
+      <div class="hidden lg:block w-full max-w-sm mx-6">
         <AlgoliaSearch placeholder="Search the vision..." />
       </div>
       

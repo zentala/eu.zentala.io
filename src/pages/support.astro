@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import DisplayTitle from '../components/DisplayTitle.astro';
+import Card from '../components/Card.astro';
+import TimeIsRunningOut from '../content/docs/support/time-is-running-out.mdx';
 ---
 
 <Layout title="Support the EU Vision">
@@ -297,6 +299,29 @@ import DisplayTitle from '../components/DisplayTitle.astro';
         </p>
       </div>
     </div>
+
+    
+    <DisplayTitle level={2}>Time Is Running Out</DisplayTitle>
+
+    <Card 
+      title="Act Now for Europe's Future" 
+      color="red" 
+      icon="⚠️"
+      variant="gradient"
+    >
+      <TimeIsRunningOut />
+      
+      <div class="flex justify-center my-6">
+        <a href="/support" style="background-color: white; color: #dc2626; display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #fecaca; transition: all 0.3s; max-width: 100%; text-decoration: none !important;" onmouseover="this.style.color='#991b1b'; this.querySelector('svg').style.color='#991b1b';" onmouseout="this.style.color='#dc2626'; this.querySelector('svg').style.color='#dc2626';">
+          <span>Support the European Digital Reform Initiative</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #dc2626; flex-shrink: 0;">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </Card>
+
   </main>
 </Layout>
 

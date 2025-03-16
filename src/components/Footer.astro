@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import EuLogo from '../assets/eu.png';
+import EuFlagLogo from '../assets/eu-flag.svg';
 
 const currentYear = new Date().getFullYear();
 
@@ -52,7 +52,7 @@ const footerLinks = [
       <!-- Logo and description -->
       <div class="md:col-span-2">
         <div class="flex items-center space-x-3 mb-6">
-          <Image src={EuLogo} alt="EU Reform Vision" width={40} height={40} class="rounded-full" />
+          <Image src={EuFlagLogo} alt="EU Reform Vision" height={40} />
           <span class="text-xl font-semibold tracking-tight" style={{ color: "var(--color-text-primary)" }}>
             EU Reform <span style={{ color: "var(--color-accent-primary)" }}>Vision</span>
           </span>
@@ -62,7 +62,7 @@ const footerLinks = [
         </p>
         <div class="mt-6">
           <p style={{ color: "var(--color-text-secondary)" }}>
-            This vision was created by <a href="https://zentala.io" class="hover:underline" style={{ color: "var(--color-accent-primary)" }}>Paweł Żentała</a>, a Polish software engineer and European policy enthusiast.
+            It was created by <a href="http://linkedin.com/in/zentala" target="_blank" class="hover:underline" style={{ color: "var(--color-accent-primary)" }}>Paweł Żentała</a>, a Polish Software Engineer and Innovation Activist.
           </p>
         </div>
       </div>
@@ -88,7 +88,7 @@ const footerLinks = [
       borderTop: "1px solid var(--color-border)" 
     }}>
       <p style={{ color: "var(--color-text-secondary)" }}>
-        &copy; {currentYear} EU Reform Vision. All rights reserved.
+        &copy; {currentYear} <a href="/" style={{ color: "var(--color-text-secondary)" }} class="hover:underline">European Union Reform Vision</a>. All rights reserved.
       </p>
       <div class="mt-4 md:mt-0 flex items-center space-x-6">
         <a href="/tags" class="hover:underline transition-colors" style={{ color: "var(--color-text-secondary)" }}>Tags</a>
