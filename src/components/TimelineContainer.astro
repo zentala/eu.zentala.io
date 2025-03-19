@@ -1,0 +1,17 @@
+---
+interface Props {
+  children: any;
+}
+
+const { children } = Astro.props;
+---
+
+<div class="timeline-container bg-gray-50 dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+  <!-- Interactive timeline/steps layout -->
+  <div class="relative">
+    <!-- Vertical connection line for desktop - centered in number column -->
+    <div class="hidden md:block absolute left-[1.45rem] top-12 bottom-16 w-0.5 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+    
+    <slot />
+  </div>
+</div> 

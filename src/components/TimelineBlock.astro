@@ -1,0 +1,69 @@
+---
+interface Props {
+  number: number;
+  icon: string;
+  title: string;
+  paragraphs: string[];
+  highlight?: string;
+  accentColor?: string;
+}
+
+const { number, icon, title, paragraphs, highlight, accentColor = "blue" } = Astro.props;
+
+// Base colors that don't change
+const baseColors = {
+  bg: "bg-white dark:bg-gray-800/50",
+  border: "border-gray-100 dark:border-gray-700",
+  hover: "hover:border-gray-200 dark:hover:border-gray-600",
+  text: "text-gray-600 dark:text-gray-300",
+  title: "text-gray-900 dark:text-white"
+};
+
+// Accent colors based on theme
+const accentColors = {
+  blue: {
+    highlight: "text-blue-600 dark:text-blue-400",
+    highlightBg: "bg-blue-50 dark:bg-blue-900/30",
+    highlightBorder: "border-blue-200 dark:border-blue-500",
+    number: "from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-800"
+  },
+  indigo: {
+    highlight: "text-indigo-600 dark:text-indigo-400",
+    highlightBg: "bg-indigo-50 dark:bg-indigo-900/30",
+    highlightBorder: "border-indigo-200 dark:border-indigo-500",
+    number: "from-indigo-500 to-indigo-600 dark:from-indigo-600 dark:to-indigo-800"
+  },
+  teal: {
+    highlight: "text-teal-600 dark:text-teal-400",
+    highlightBg: "bg-teal-50 dark:bg-teal-900/30",
+    highlightBorder: "border-teal-200 dark:border-teal-500",
+    number: "from-teal-500 to-teal-600 dark:from-teal-600 dark:to-teal-800"
+  }
+};
+
+const colors = accentColors[accentColor as keyof typeof accentColors];
+---
+
+<div class="mb-12 md:mb-16 flex flex-col md:flex-row gap-4 md:gap-8 relative">
+  <div class="flex-shrink-0 flex items-start">
+    <div class={`w-12 h-12 rounded-full bg-gradient-to-br ${colors.number} flex items-center justify-center text-2xl font-bold text-white shadow-lg z-10`}>{number}</div>
+  </div>
+  <div class={`flex-grow ${baseColors.bg} backdrop-blur-sm rounded-xl p-6 border ${baseColors.border} ${baseColors.hover} transition-all shadow-md`}>
+    <h3 class={`text-2xl font-bold ${baseColors.title} mb-4 flex items-center`}>
+      <span class="mr-3 text-2xl">{icon}</span>
+      {title}
+    </h3>
+    {paragraphs.map((paragraph) => (
+      <p class={`${baseColors.text} mb-4 leading-relaxed`}>
+        {paragraph}
+      </p>
+    ))}
+    {highlight && (
+      <div class={`${colors.highlightBg} p-4 rounded-lg border-l-4 ${colors.highlightBorder}`}>
+        <p class={`${baseColors.text} leading-relaxed`}>
+          <span class={`${colors.highlight} font-semibold`}>{highlight}</span>
+        </p>
+      </div>
+    )}
+  </div>
+</div> 
